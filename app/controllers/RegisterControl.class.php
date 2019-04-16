@@ -20,7 +20,6 @@ class RegisterControl
         $this->form->password = ParamUtils::getFromRequest("password");
         $this->form->security_question = ParamUtils::getFromRequest("security_question");
         $this->form->security_answer = ParamUtils::getFromRequest("security_answer");
-
     }
 
     public function validateForm(){
@@ -28,7 +27,7 @@ class RegisterControl
     }
 
     public function insertToDb(){
-        
+
     }
 
     public function generateView(){
