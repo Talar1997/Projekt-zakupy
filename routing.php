@@ -8,5 +8,8 @@ App::getRouter()->setDefaultRoute('showMainPage'); #default action
 
 App::getRouter()->setLoginRoute('login'); #default action
 
-Utils::addRoute('showMainPage', 'MainControl');
+Utils::addRoute('home', 'MainControl');
+Utils::addRoute('login', 'LoginControl');
+Utils::addRoute('register', 'RegisterControl');
+Utils::addRoute('logout', 'LoginControl');
 //Utils::addRoute('action_name', 'controller_class_name');

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-04-16 19:47:03
+/* Smarty version 3.1.33, created on 2019-04-16 23:10:37
   from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\templates\main.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cb615178c1199_53959296',
+  'unifunc' => 'content_5cb644cd807587_81345762',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '67284f3ee218adb18edbf88c79c48dd4cfe4061a' => 
     array (
       0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\templates\\main.tpl',
-      1 => 1555436822,
+      1 => 1555449014,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5cb615178c1199_53959296 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cb644cd807587_81345762 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -72,23 +72,10 @@ main">Zakupy w niedziele</a>
 					<ul class="nav navbar-nav pull-right">
 						<li class="active"><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 main">Strona główna</a></li>
-						<?php if (1 == 1) {?>
-							<li><a class="btn" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-generateId">Zaloguj</a></li>
-						<?php }?>
-						<?php if (1 == 1) {?>
-							<li class="dropdown">
-								<a class="dropdown-toggle btn" data-toggle="dropdown">Narzędzia <b class="caret"></b></a>
-								<ul class="dropdown-menu">
-									<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-generateId">Generator ID</a></li>
-									<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-showList">Lista ID</a></li>
-									<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-logout">Wyloguj</a></li>
-								</ul>
-							</li>
-						<?php }?>
+						<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+login">Zaloguj</a></li>
+						<li><a class="btn" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+register">Rejestracja</a></li>
 
 					</ul>
 				</div><!--/.nav-collapse -->
@@ -99,24 +86,24 @@ logout">Wyloguj</a></li>
 
 	<!-- Head -->
 	<?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_7076608415cb615178b0216_85243517', 'head');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_18666832185cb644cd7f8444_64514755', 'head');
 ?>
 
 
 	<!-- Intro -->
 	<?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_5220526765cb615178b0f32_49954174', 'intro');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_11614383755cb644cd7f90d8_42623247', 'intro');
 ?>
 
 
 	<!-- Jumbotron -->
 	<?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_8882130595cb615178b16e7_72101085', 'jumbotron');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_12101482705cb644cd7f9879_36101647', 'jumbotron');
 ?>
 
 
 	<?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_9917705495cb615178b1e28_90012584', 'generated');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10299104345cb644cd7f9f94_09595929', 'generated');
 ?>
 
 
@@ -158,11 +145,11 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_9917705495cb615178
 								<a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 main">Strona Główna</a> |
 								<a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-generateId">Generator</a>
-								<?php if (1 == 1) {?>
-								  | <b><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-logout">Wyloguj się</a></b>
-								<?php }?>
+login">Zaloguj</a> |
+								<a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+register">Zarejestruj</a> |
+								<a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+logout">Wyloguj</a>
 							</p>
 						</div>
 					</div>
@@ -182,7 +169,7 @@ logout">Wyloguj się</a></b>
 	</footer>
 
 	<?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_5365027265cb615178b4111_78887570', 'alerts');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1169661805cb644cd7fc0b8_11272132', 'alerts');
 ?>
 
 
@@ -208,12 +195,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_5365027265cb615178
 </html>
 <?php }
 /* {block 'head'} */
-class Block_7076608415cb615178b0216_85243517 extends Smarty_Internal_Block
+class Block_18666832185cb644cd7f8444_64514755 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'head' => 
   array (
-    0 => 'Block_7076608415cb615178b0216_85243517',
+    0 => 'Block_18666832185cb644cd7f8444_64514755',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -221,12 +208,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'head'} */
 /* {block 'intro'} */
-class Block_5220526765cb615178b0f32_49954174 extends Smarty_Internal_Block
+class Block_11614383755cb644cd7f90d8_42623247 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'intro' => 
   array (
-    0 => 'Block_5220526765cb615178b0f32_49954174',
+    0 => 'Block_11614383755cb644cd7f90d8_42623247',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -234,12 +221,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'intro'} */
 /* {block 'jumbotron'} */
-class Block_8882130595cb615178b16e7_72101085 extends Smarty_Internal_Block
+class Block_12101482705cb644cd7f9879_36101647 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'jumbotron' => 
   array (
-    0 => 'Block_8882130595cb615178b16e7_72101085',
+    0 => 'Block_12101482705cb644cd7f9879_36101647',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -247,12 +234,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'jumbotron'} */
 /* {block 'generated'} */
-class Block_9917705495cb615178b1e28_90012584 extends Smarty_Internal_Block
+class Block_10299104345cb644cd7f9f94_09595929 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'generated' => 
   array (
-    0 => 'Block_9917705495cb615178b1e28_90012584',
+    0 => 'Block_10299104345cb644cd7f9f94_09595929',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -260,12 +247,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'generated'} */
 /* {block 'alerts'} */
-class Block_5365027265cb615178b4111_78887570 extends Smarty_Internal_Block
+class Block_1169661805cb644cd7fc0b8_11272132 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'alerts' => 
   array (
-    0 => 'Block_5365027265cb615178b4111_78887570',
+    0 => 'Block_1169661805cb644cd7fc0b8_11272132',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -275,29 +262,11 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 				<?php echo '<script'; ?>
  type="text/javascript">
 				<?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['msgs']->value->getErrors(), 'msg');
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['msgs']->value->getMessages(), 'msg');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['msg']->value) {
 ?>
-					alertify.error("<?php echo $_smarty_tpl->tpl_vars['msg']->value;?>
-");
-				<?php
-}
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-				<?php echo '</script'; ?>
->
-			<?php }?>
-
-			<?php if ($_smarty_tpl->tpl_vars['msgs']->value->isNotice()) {?>
-				<?php echo '<script'; ?>
- type="text/javascript">
-				<?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['msgs']->value->getNotices(), 'msg');
-if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['msg']->value) {
-?>
-					alertify.success("<?php echo $_smarty_tpl->tpl_vars['msg']->value;?>
+					alertify.error("<?php echo $_smarty_tpl->tpl_vars['msg']->value->text;?>
 ");
 				<?php
 }

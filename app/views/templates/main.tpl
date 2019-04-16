@@ -33,19 +33,8 @@
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav pull-right">
 						<li class="active"><a href="{$conf->action_root}main">Strona główna</a></li>
-						{if 1==1}
-							<li><a class="btn" href="{$conf->action_root}generateId">Zaloguj</a></li>
-						{/if}
-						{if 1==1}
-							<li class="dropdown">
-								<a class="dropdown-toggle btn" data-toggle="dropdown">Narzędzia <b class="caret"></b></a>
-								<ul class="dropdown-menu">
-									<li><a href="{$conf->action_root}generateId">Generator ID</a></li>
-									<li><a href="{$conf->action_root}showList">Lista ID</a></li>
-									<li><a href="{$conf->action_root}logout">Wyloguj</a></li>
-								</ul>
-							</li>
-						{/if}
+						<li><a href="{$conf->action_root}login">Zaloguj</a></li>
+						<li><a class="btn" href="{$conf->action_root}register">Rejestracja</a></li>
 
 					</ul>
 				</div><!--/.nav-collapse -->
@@ -101,10 +90,9 @@
 						<div class="widget-body">
 							<p class="simplenav">
 								<a href="{$conf->action_root}main">Strona Główna</a> |
-								<a href="{$conf->action_root}generateId">Generator</a>
-								{if 1==1}
-								  | <b><a href="{$conf->action_root}logout">Wyloguj się</a></b>
-								{/if}
+								<a href="{$conf->action_root}login">Zaloguj</a> |
+								<a href="{$conf->action_root}register">Zarejestruj</a> |
+								<a href="{$conf->action_root}logout">Wyloguj</a>
 							</p>
 						</div>
 					</div>
@@ -126,16 +114,8 @@
 	{block name=alerts}
 			{if $msgs->isError()}
 				<script type="text/javascript">
-				{foreach $msgs->getErrors() as $msg}
-					alertify.error("{$msg}");
-				{/foreach}
-				</script>
-			{/if}
-
-			{if $msgs->isNotice()}
-				<script type="text/javascript">
-				{foreach $msgs->getNotices() as $msg}
-					alertify.success("{$msg}");
+				{foreach $msgs->getMessages() as $msg}
+					alertify.error("{$msg->text}");
 				{/foreach}
 				</script>
 			{/if}
