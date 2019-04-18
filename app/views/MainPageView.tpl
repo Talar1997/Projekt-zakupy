@@ -5,7 +5,7 @@
             <div class="row">
                 <h1 class="lead">Zakupy w niedziele</h1>
                 <p class="tagline">Sprawdź otwarte sklepy w twojej okolicy. Dodawaj nowe obiekty, bądź częścią ogromnej społeczności!</p>
-                <p><a class="btn btn-default btn-lg" role="button" href="{$conf->action_root}panel">WYSZUKAJ SKLEP W OKOLICY</a></p>
+                <p><a class="btn btn-default btn-lg" role="button" href="{$conf->action_root}panel">SZUKAJ SKLEPU</a></p>
             </div>
         </div>
     </header>
@@ -26,7 +26,7 @@
     <div class="jumbotron top-space">
         <div class="container">
 
-            <h3 class="text-center thin">Dlaczego akurat my?</h3>
+            <h2 class="text-center thin">Dlaczego akurat my?</h2>
 
             <div class="row">
                 <div class="col-md-3 col-sm-6 highlight">

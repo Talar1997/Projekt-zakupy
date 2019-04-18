@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-04-18 14:11:52
+/* Smarty version 3.1.33, created on 2019-04-18 22:24:33
   from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\templates\main.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cb86988598459_05023596',
+  'unifunc' => 'content_5cb8dd01096887_23595074',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '67284f3ee218adb18edbf88c79c48dd4cfe4061a' => 
     array (
       0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\templates\\main.tpl',
-      1 => 1555589494,
+      1 => 1555619070,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5cb86988598459_05023596 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cb8dd01096887_23595074 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -72,11 +72,43 @@ main">Zakupy w niedziele</a>
 					<ul class="nav navbar-nav pull-right">
 						<li class="active"><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 main">Strona główna</a></li>
-						<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+						<?php if (!core\RoleUtils::inRole("logged")) {?>
+							<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 login">Zaloguj</a></li>
-						<li><a class="btn" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+							<li><a class="btn" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 register">Rejestracja</a></li>
-
+						<?php }?>
+						<?php if (core\RoleUtils::inRole("logged")) {?>
+							<li class="dropdown">
+								<a class="dropdown-toggle btn" data-toggle="dropdown">Narzędzia <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+xxx">Panel główny</a></li>
+									<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+xxx">Szukaj sklepu</a></li>
+									<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+xxx">Dodaj sklep</a></li>
+									<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+xxx">Ranking użytkowników</a></li>
+									<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+xxx">Mój profil</a></li>
+									<?php if (core\RoleUtils::inRole("admin")) {?>
+										<li class="divider"></li>
+										<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+yyy">Moderuj sklepy</a></li>
+										<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+yyy">Moderuj użytkowników</a></li>
+										<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+yyy">Zgłoszenia</a></li>
+										<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+test">Debuger</a></li>
+										<li class="divider"></li>
+									<?php }?>
+									<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+logout">Wyloguj</a></li>
+								</ul>
+							</li>
+						<?php }?>
 					</ul>
 				</div><!--/.nav-collapse -->
 			</div>
@@ -86,24 +118,24 @@ register">Rejestracja</a></li>
 
 	<!-- Head -->
 	<?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_16899340025cb8698850c0d7_15328378', 'head');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2926764375cb8dd0107d3b9_26545410', 'head');
 ?>
 
 
 	<!-- Intro -->
 	<?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17424173635cb8698850da19_28822166', 'intro');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_18293026275cb8dd0107e2d9_84023287', 'intro');
 ?>
 
 
 	<!-- Jumbotron -->
 	<?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_7724631435cb8698850e2b4_21602174', 'jumbotron');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_4571626675cb8dd0107ea91_25239838', 'jumbotron');
 ?>
 
 
 	<?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1692268375cb8698850e997_31191325', 'generated');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20786297465cb8dd0107f1d8_85071932', 'generated');
 ?>
 
 
@@ -115,7 +147,10 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1692268375cb869885
 					<div class="col-md-3 widget">
 						<h3 class="widget-title">Kontakt</h3>
 						<div class="widget-body">
-							<a href="mailto:#">Adam.Talarczyk@hotmail.com</a><br>
+							<a href="mailto:#">Adam.Talarczyk@hotmail.com</a><br><br/>
+
+							<a href="https://github.com/Talar1997">https://github.com/Talar1997</a> <br/> <br/>
+
 							<p>Programowanie Aplikacji Webowych, grupa 3</p>
 						</div>
 					</div>
@@ -127,7 +162,7 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1692268375cb869885
 					<div class="col-md-6 widget">
 						<h3 class="widget-title">O projekcie</h3>
 						<div class="widget-body">
-							<p>Projekt  stworzony na potrzeby zajęć Języki programowania dynamicznych stron internetowych oraz Projektowanie Bazodanowych Apliakcji Webowych</p>
+							<p>Projekt stworzony na potrzeby zajęć Języki programowania dynamicznych stron internetowych oraz Projektowanie bazodanowych aplikacji webowych. Wykorzystane zasoby: Framework PHP Amelia - http://amelia-framework.kudlacik.eu/, Smarty - https://www.smarty.net/, Medoo - https://medoo.in/, Alertify.js - https://alertifyjs.com/, Szablon HTML - https://www.gettemplate.com/</p>
 						</div>
 					</div>
 
@@ -144,12 +179,16 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1692268375cb869885
 							<p class="simplenav">
 								<a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 main">Strona Główna</a> |
-								<a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+								<?php if (!core\RoleUtils::inRole("logged")) {?>
+									<a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 login">Zaloguj</a> |
-								<a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-register">Zarejestruj</a> |
-								<a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+									<a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+register">Zarejestruj</a>
+								<?php }?>
+								<?php if (core\RoleUtils::inRole("logged")) {?>
+									<a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 logout">Wyloguj</a>
+								<?php }?>
 							</p>
 						</div>
 					</div>
@@ -169,7 +208,7 @@ logout">Wyloguj</a>
 	</footer>
 
 	<?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_16004738305cb86988510922_07735526', 'alerts');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10979454255cb8dd01083f74_24698752', 'alerts');
 ?>
 
 
@@ -195,12 +234,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_16004738305cb86988
 </html>
 <?php }
 /* {block 'head'} */
-class Block_16899340025cb8698850c0d7_15328378 extends Smarty_Internal_Block
+class Block_2926764375cb8dd0107d3b9_26545410 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'head' => 
   array (
-    0 => 'Block_16899340025cb8698850c0d7_15328378',
+    0 => 'Block_2926764375cb8dd0107d3b9_26545410',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -208,12 +247,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'head'} */
 /* {block 'intro'} */
-class Block_17424173635cb8698850da19_28822166 extends Smarty_Internal_Block
+class Block_18293026275cb8dd0107e2d9_84023287 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'intro' => 
   array (
-    0 => 'Block_17424173635cb8698850da19_28822166',
+    0 => 'Block_18293026275cb8dd0107e2d9_84023287',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -221,12 +260,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'intro'} */
 /* {block 'jumbotron'} */
-class Block_7724631435cb8698850e2b4_21602174 extends Smarty_Internal_Block
+class Block_4571626675cb8dd0107ea91_25239838 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'jumbotron' => 
   array (
-    0 => 'Block_7724631435cb8698850e2b4_21602174',
+    0 => 'Block_4571626675cb8dd0107ea91_25239838',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -234,12 +273,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'jumbotron'} */
 /* {block 'generated'} */
-class Block_1692268375cb8698850e997_31191325 extends Smarty_Internal_Block
+class Block_20786297465cb8dd0107f1d8_85071932 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'generated' => 
   array (
-    0 => 'Block_1692268375cb8698850e997_31191325',
+    0 => 'Block_20786297465cb8dd0107f1d8_85071932',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -247,12 +286,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'generated'} */
 /* {block 'alerts'} */
-class Block_16004738305cb86988510922_07735526 extends Smarty_Internal_Block
+class Block_10979454255cb8dd01083f74_24698752 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'alerts' => 
   array (
-    0 => 'Block_16004738305cb86988510922_07735526',
+    0 => 'Block_10979454255cb8dd01083f74_24698752',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

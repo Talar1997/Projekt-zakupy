@@ -33,9 +33,31 @@
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav pull-right">
 						<li class="active"><a href="{$conf->action_root}main">Strona główna</a></li>
-						<li><a href="{$conf->action_root}login">Zaloguj</a></li>
-						<li><a class="btn" href="{$conf->action_root}register">Rejestracja</a></li>
-
+						{if !core\RoleUtils::inRole("logged")}
+							<li><a href="{$conf->action_root}login">Zaloguj</a></li>
+							<li><a class="btn" href="{$conf->action_root}register">Rejestracja</a></li>
+						{/if}
+						{if core\RoleUtils::inRole("logged")}
+							<li class="dropdown">
+								<a class="dropdown-toggle btn" data-toggle="dropdown">Narzędzia <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="{$conf->action_root}xxx">Panel główny</a></li>
+									<li><a href="{$conf->action_root}xxx">Szukaj sklepu</a></li>
+									<li><a href="{$conf->action_root}xxx">Dodaj sklep</a></li>
+									<li><a href="{$conf->action_root}xxx">Ranking użytkowników</a></li>
+									<li><a href="{$conf->action_root}xxx">Mój profil</a></li>
+									{if core\RoleUtils::inRole("admin")}
+										<li class="divider"></li>
+										<li><a href="{$conf->action_root}yyy">Moderuj sklepy</a></li>
+										<li><a href="{$conf->action_root}yyy">Moderuj użytkowników</a></li>
+										<li><a href="{$conf->action_root}yyy">Zgłoszenia</a></li>
+										<li><a href="{$conf->action_root}test">Debuger</a></li>
+										<li class="divider"></li>
+									{/if}
+									<li><a href="{$conf->action_root}logout">Wyloguj</a></li>
+								</ul>
+							</li>
+						{/if}
 					</ul>
 				</div><!--/.nav-collapse -->
 			</div>
@@ -62,7 +84,10 @@
 					<div class="col-md-3 widget">
 						<h3 class="widget-title">Kontakt</h3>
 						<div class="widget-body">
-							<a href="mailto:#">Adam.Talarczyk@hotmail.com</a><br>
+							<a href="mailto:#">Adam.Talarczyk@hotmail.com</a><br><br/>
+
+							<a href="https://github.com/Talar1997">https://github.com/Talar1997</a> <br/> <br/>
+
 							<p>Programowanie Aplikacji Webowych, grupa 3</p>
 						</div>
 					</div>
@@ -74,7 +99,7 @@
 					<div class="col-md-6 widget">
 						<h3 class="widget-title">O projekcie</h3>
 						<div class="widget-body">
-							<p>Projekt  stworzony na potrzeby zajęć Języki programowania dynamicznych stron internetowych oraz Projektowanie Bazodanowych Apliakcji Webowych</p>
+							<p>Projekt stworzony na potrzeby zajęć Języki programowania dynamicznych stron internetowych oraz Projektowanie bazodanowych aplikacji webowych. Wykorzystane zasoby: Framework PHP Amelia - http://amelia-framework.kudlacik.eu/, Smarty - https://www.smarty.net/, Medoo - https://medoo.in/, Alertify.js - https://alertifyjs.com/, Szablon HTML - https://www.gettemplate.com/</p>
 						</div>
 					</div>
 
@@ -90,9 +115,13 @@
 						<div class="widget-body">
 							<p class="simplenav">
 								<a href="{$conf->action_root}main">Strona Główna</a> |
-								<a href="{$conf->action_root}login">Zaloguj</a> |
-								<a href="{$conf->action_root}register">Zarejestruj</a> |
-								<a href="{$conf->action_root}logout">Wyloguj</a>
+								{if !core\RoleUtils::inRole("logged")}
+									<a href="{$conf->action_root}login">Zaloguj</a> |
+									<a href="{$conf->action_root}register">Zarejestruj</a>
+								{/if}
+								{if core\RoleUtils::inRole("logged")}
+									<a href="{$conf->action_root}logout">Wyloguj</a>
+								{/if}
 							</p>
 						</div>
 					</div>

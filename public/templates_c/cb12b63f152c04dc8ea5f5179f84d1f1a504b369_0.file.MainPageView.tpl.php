@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-04-18 00:48:39
+/* Smarty version 3.1.33, created on 2019-04-18 22:05:35
   from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\MainPageView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cb7ad470817d0_29982821',
+  'unifunc' => 'content_5cb8d88fb4eb55_52591546',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'cb12b63f152c04dc8ea5f5179f84d1f1a504b369' => 
     array (
       0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\MainPageView.tpl',
-      1 => 1555541184,
+      1 => 1555617934,
       2 => 'file',
     ),
   ),
@@ -20,34 +20,34 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5cb7ad470817d0_29982821 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cb8d88fb4eb55_52591546 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_13481758935cb7ad4707c6d2_50343375', 'head');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_3556357165cb8d88fb49651_64923754', 'head');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_7910446015cb7ad47080666_19360834', 'intro');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_14729660305cb8d88fb4d8c4_41529408', 'intro');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_19377307285cb7ad47080e78_41224744', 'jumbotron');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_6817253175cb8d88fb4e374_56919311', 'jumbotron');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'head'} */
-class Block_13481758935cb7ad4707c6d2_50343375 extends Smarty_Internal_Block
+class Block_3556357165cb8d88fb49651_64923754 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'head' => 
   array (
-    0 => 'Block_13481758935cb7ad4707c6d2_50343375',
+    0 => 'Block_3556357165cb8d88fb49651_64923754',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -59,7 +59,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
                 <h1 class="lead">Zakupy w niedziele</h1>
                 <p class="tagline">Sprawdź otwarte sklepy w twojej okolicy. Dodawaj nowe obiekty, bądź częścią ogromnej społeczności!</p>
                 <p><a class="btn btn-default btn-lg" role="button" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-panel">WYSZUKAJ SKLEP W OKOLICY</a></p>
+panel">SZUKAJ SKLEPU</a></p>
             </div>
         </div>
     </header>
@@ -68,12 +68,12 @@ panel">WYSZUKAJ SKLEP W OKOLICY</a></p>
 }
 /* {/block 'head'} */
 /* {block 'intro'} */
-class Block_7910446015cb7ad47080666_19360834 extends Smarty_Internal_Block
+class Block_14729660305cb8d88fb4d8c4_41529408 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'intro' => 
   array (
-    0 => 'Block_7910446015cb7ad47080666_19360834',
+    0 => 'Block_14729660305cb8d88fb4d8c4_41529408',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -92,12 +92,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'intro'} */
 /* {block 'jumbotron'} */
-class Block_19377307285cb7ad47080e78_41224744 extends Smarty_Internal_Block
+class Block_6817253175cb8d88fb4e374_56919311 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'jumbotron' => 
   array (
-    0 => 'Block_19377307285cb7ad47080e78_41224744',
+    0 => 'Block_6817253175cb8d88fb4e374_56919311',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -106,7 +106,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
     <div class="jumbotron top-space">
         <div class="container">
 
-            <h3 class="text-center thin">Dlaczego akurat my?</h3>
+            <h2 class="text-center thin">Dlaczego akurat my?</h2>
 
             <div class="row">
                 <div class="col-md-3 col-sm-6 highlight">

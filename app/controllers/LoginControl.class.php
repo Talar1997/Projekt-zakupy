@@ -22,6 +22,11 @@ class LoginControl
     public $form;
 
     /**
+     * @var
+     */
+    public $accountData;
+
+    /**
      * LoginControl constructor.
      */
     public function __construct(){
@@ -72,12 +77,7 @@ class LoginControl
             ]);
 
             if(!empty($accountData[0]["password"]) && md5($this->form->password) == $accountData[0]["password"]){
-                SessionUtils::storeData("id", $accountData[0]["id"]);
-                SessionUtils::storeData("login", $this->form->login);
-                RoleUtils::addRole($accountData[0]["role"]);
-                RoleUtils::addRole("logged");
-                Utils::addInfoMessage("Logowanie udane!");
-                return true;
+                $this->accountData = $accountData[0];
             }
             else{
                 Utils::addErrorMessage("Nieprawidłowy login lub hasło");
@@ -95,6 +95,13 @@ class LoginControl
      */
     public function generateView(){
         if($this->validateLogin()){
+            SessionUtils::storeData("id", $this->accountData["id"]);
+            SessionUtils::storeData("login", $this->accountData["login"]);
+            SessionUtils::storeData("role", $this->accountData["role"]);
+
+            RoleUtils::addRole($this->accountData["role"]);
+            RoleUtils::addRole("logged");
+            Utils::addInfoMessage("Logowanie udane!");
             header("Location: ".App::getConf()->app_url."/panel");
         }
         else{
@@ -116,8 +123,11 @@ class LoginControl
      *
      */
     public function action_logout(){
+        RoleUtils::removeRole("logged");
+        RoleUtils::removeRole(SessionUtils::loadData("role"));
         SessionUtils::remove("id");
         SessionUtils::remove("login");
+        SessionUtils::remove("role");
         header("Location: ".App::getConf()->app_url);
     }
 }
