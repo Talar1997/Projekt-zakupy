@@ -1,5 +1,5 @@
 # Projekt
-Projekt stworzony na potrzeby zajęć Języki programowania dynamicznych stron internetowych oraz Projektowanie bazodanowych apliakcji webowych.
+Projekt stworzony na potrzeby zajęć Języki programowania dynamicznych stron internetowych oraz Projektowanie bazodanowych aplikacji webowych.
 
 ## Wykorzystane zasoby:
 * Framework PHP Amelia - http://amelia-framework.kudlacik.eu/
@@ -11,7 +11,7 @@ Projekt stworzony na potrzeby zajęć Języki programowania dynamicznych stron i
 ## Funkcjonalności
 
 ### Rejestracja
-Pozwala użytkownikowi utworzyć nowe konto w serwisie. Strona wymaga podania takich informacji jak
+Pozwala użytkownikowi utworzyć nowe konto w serwisie. Strona wymaga podania takich informacji jak:
 - Adres email
 - Login
 - Hasło (Conajmniej 5 znaków, jedna litera, jedna cyfra)
