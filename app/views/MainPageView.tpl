@@ -5,7 +5,7 @@
             <div class="row">
                 <h1 class="lead">Zakupy w niedziele</h1>
                 <p class="tagline">Sprawdź otwarte sklepy w twojej okolicy. Dodawaj nowe obiekty, bądź częścią ogromnej społeczności!</p>
-                <p><a class="btn btn-default btn-lg" role="button" href="{$conf->action_root}generateId">WYSZUKAJ SKLEP W OKOLICY</a></p>
+                <p><a class="btn btn-default btn-lg" role="button" href="{$conf->action_root}panel">WYSZUKAJ SKLEP W OKOLICY</a></p>
             </div>
         </div>
     </header>

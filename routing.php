@@ -12,4 +12,6 @@ Utils::addRoute('showMainPage', 'MainControl');
 Utils::addRoute('login', 'LoginControl');
 Utils::addRoute('register', 'RegisterControl');
 Utils::addRoute('logout', 'LoginControl');
+Utils::addRoute('restore', 'RestorePasswordControl');
+Utils::addRoute('checkAnswer', 'SecurityAnswerControl');
 //Utils::addRoute('action_name', 'controller_class_name');

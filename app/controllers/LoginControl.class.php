@@ -3,34 +3,61 @@
 namespace app\controllers;
 
 use app\forms\LoginForm;
-use core\Message;
 use core\ParamUtils;
 use core\App;
 use core\SessionUtils;
 use core\RoleUtils;
+use core\Utils;
+use core\Validator;
 
+/**
+ * Class LoginControl
+ * @package app\controllers
+ */
 class LoginControl
 {
+    /**
+     * @var LoginForm
+     */
     public $form;
 
+    /**
+     * LoginControl constructor.
+     */
     public function __construct(){
         $this->form = new LoginForm();
     }
 
+    /**
+     *
+     */
     public function getLoginParams(){
         $this->form->login = ParamUtils::getFromRequest("login");
         $this->form->password = ParamUtils::getFromRequest("password");
     }
 
+    /**
+     * @return bool
+     */
     public function validateLogin(){
-        if(!is_null(SessionUtils::loadData("id"))) return true;
+        if(!empty(SessionUtils::loadData("id", true))) return true;
 
-        if( !(isset($this->form->login) && isset($this->form->password)) ){
-            return false;
-        }
+        if( !(isset($this->form->login) && isset($this->form->password)) ) return false;
 
-        if( $this->form->login == "" ) App::getMessages()->addMessage(new Message("Nie wprowadzono loginu!", Message::ERROR));
-        if( $this->form->password == "" ) App::getMessages()->addMessage(new Message("Nie wprowadzono hasła!", Message::ERROR));
+        $v = new Validator();
+        $v->validate($this->form->login,[
+            'trim' => true,
+            'required' => true,
+            'required_message' => 'Login jest wymagany',
+            'min_length' => 3,
+            'max_length' => 32,
+            'validator_message' => 'Login powinien zawierać od 3 do 32 znaków'
+        ]);
+
+        $v->validate($this->form->password,[
+            'required' => true,
+            'required_message' => 'Hasło jest wymagane',
+        ]);
 
         if(App::getMessages()->isError()) return false;
 
@@ -48,22 +75,27 @@ class LoginControl
                 SessionUtils::storeData("id", $accountData[0]["id"]);
                 SessionUtils::storeData("login", $this->form->login);
                 RoleUtils::addRole($accountData[0]["role"]);
+                RoleUtils::addRole("logged");
+                Utils::addInfoMessage("Logowanie udane!");
                 return true;
             }
             else{
-                App::getMessages()->addMessage(new Message("Nieprawidłowy login lub hasło", Message::ERROR));
-                return false;
+                Utils::addErrorMessage("Nieprawidłowy login lub hasło");
             }
         }catch(\PDOException $e){
-            App::getMessages()->addMessage(new Message("Błąd połączenia z bazą danych", Message::ERROR));
-            return false;
+            Utils::addErrorMessage("Błąd połączenia z bazą danych");
         }
+
+        if(!App::getMessages()->isError()) return true;
+        else return false;
     }
 
+    /**
+     * @throws \SmartyException
+     */
     public function generateView(){
         if($this->validateLogin()){
-            App::getMessages()->addMessage(new Message("Logowanie udane!", Message::INFO));
-            header("Location: ".App::getConf()->app_url);
+            header("Location: ".App::getConf()->app_url."/panel");
         }
         else{
             App::getSmarty()->assign('page_title','Zaloguj się');
@@ -72,11 +104,17 @@ class LoginControl
         }
     }
 
+    /**
+     * @throws \SmartyException
+     */
     public function action_login(){
         $this->getLoginParams();
         $this->generateView();
     }
 
+    /**
+     *
+     */
     public function action_logout(){
         SessionUtils::remove("id");
         SessionUtils::remove("login");

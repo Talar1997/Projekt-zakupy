@@ -119,6 +119,14 @@
 				{/foreach}
 				</script>
 			{/if}
+
+			{if $msgs->isInfo()}
+				<script type="text/javascript">
+					{foreach $msgs->getMessages() as $msg}
+					alertify.success("{$msg->text}");
+					{/foreach}
+				</script>
+			{/if}
 	{/block}
 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

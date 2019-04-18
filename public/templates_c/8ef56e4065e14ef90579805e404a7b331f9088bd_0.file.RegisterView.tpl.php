@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-04-18 16:10:06
-  from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\SignInView.tpl' */
+/* Smarty version 3.1.33, created on 2019-04-18 16:57:19
+  from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\RegisterView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cb8853eb25f11_23876824',
+  'unifunc' => 'content_5cb8904f89ff95_13616482',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '8801f1fe5a4b8d982d64a735d8083b6c3da338d0' => 
+    '8ef56e4065e14ef90579805e404a7b331f9088bd' => 
     array (
-      0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\SignInView.tpl',
-      1 => 1555596448,
+      0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\RegisterView.tpl',
+      1 => 1555599436,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5cb8853eb25f11_23876824 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cb8904f89ff95_13616482 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_9869441485cb8853eb1dec7_79164580', 'intro');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17674196015cb8904f89aca8_89295735', 'intro');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'intro'} */
-class Block_9869441485cb8853eb1dec7_79164580 extends Smarty_Internal_Block
+class Block_17674196015cb8904f89aca8_89295735 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'intro' => 
   array (
-    0 => 'Block_9869441485cb8853eb1dec7_79164580',
+    0 => 'Block_17674196015cb8904f89aca8_89295735',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -48,7 +48,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
         <ol class="breadcrumb">
             <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 main">Strona główna</a></li>
-            <li class="active">Logowanie</li>
+            <li class="active">Rejestracja</li>
         </ol>
 
         <div class="row">
@@ -56,18 +56,22 @@ main">Strona główna</a></li>
             <!-- Article main content -->
             <article class="col-xs-12 maincontent">
                 <header class="page-header">
-                    <h1 class="page-title">Zaloguj się</h1>
+                    <h1 class="page-title">Utwórz nowe konto</h1>
                 </header>
 
                 <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <h3 class="thin text-center">Zaloguj się do swojego konta</h3>
-                            <p class="text-center text-muted">Aby móc korzystać z usług i funkcji serwisu, musisz zalogować się do swojego konta. Jeżeli nie posiadasz jeszcze konta, skontaktuj się z administratorem.</p>
+                            <h3 class="thin text-center">Utwórz nowe konto</h3>
+                            <p class="text-center text-muted">Wypełnij wszystkie pola i zatwierdź, by utworzyć nowe konto.</p>
                             <hr>
 
                             <form action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-login" method="post">
+register" method="post">
+                                <div class="top-margin">
+                                    <label>Adres email <span class="text-danger">*</span></label>
+                                    <input type="email" class="form-control" name="email">
+                                </div>
                                 <div class="top-margin">
                                     <label>Login <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="login">
@@ -76,20 +80,30 @@ login" method="post">
                                     <label>Hasło <span class="text-danger">*</span></label>
                                     <input type="password" class="form-control" name="password">
                                 </div>
+                                <div class="top-margin">
+                                    <label>Powtórz hasło <span class="text-danger">*</span></label>
+                                    <input type="password" class="form-control" name="password_repeat">
+                                </div>
+
+                                <div class="top-margin">
+                                    <label>Pytanie pomocnicze (do odzyskiwania hasła)<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="security_question">
+                                </div>
+
+                                <div class="top-margin">
+                                    <label>Odpowiedź na pytanie<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="security_answer">
+                                </div>
 
                                 <hr>
 
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <b><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-register">Utwórz konto</a></b>
+login">Masz konto? Zaloguj się.</a></b>
                                     </div>
-                                    <div class="col-lg-4">
-                                        <b><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-restore">Odzyskiwanie hasła</a></b>
-                                    </div>
-                                    <div class="col-lg-4 text-right">
-                                        <button class="btn btn-action" type="submit">Zaloguj</button>
+                                    <div class="col-lg-8 text-right">
+                                        <button class="btn btn-action" type="submit">Utwórz konto</button>
                                     </div>
                                 </div>
                             </form>
