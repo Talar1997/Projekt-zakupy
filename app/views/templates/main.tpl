@@ -28,7 +28,10 @@
 				<div class="navbar-header">
 					<!-- Button for smallest screens -->
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-					<a class="navbar-brand" href="{$conf->action_root}main">Zakupy w niedziele</a>
+					<a class="navbar-brand" href="{$conf->action_root}main">
+						<img src="{$conf->images}/gt_favicon.png">
+						Zakupy w niedziele
+					</a>
 				</div>
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav pull-right">
@@ -41,17 +44,18 @@
 							<li class="dropdown">
 								<a class="dropdown-toggle btn" data-toggle="dropdown">Narzędzia <b class="caret"></b></a>
 								<ul class="dropdown-menu">
-									<li><a href="{$conf->action_root}xxx">Panel główny</a></li>
-									<li><a href="{$conf->action_root}xxx">Szukaj sklepu</a></li>
-									<li><a href="{$conf->action_root}xxx">Dodaj sklep</a></li>
-									<li><a href="{$conf->action_root}xxx">Ranking użytkowników</a></li>
-									<li><a href="{$conf->action_root}xxx">Mój profil</a></li>
+									<li><a href="{$conf->action_root}xxx">xPanel główny</a></li>
+									<li><a href="{$conf->action_root}xxx">xSzukaj sklepu</a></li>
+									<li><a href="{$conf->action_root}xxx">xDodaj sklep</a></li>
+									<li><a href="{$conf->action_root}xxx">xRanking użytkowników</a></li>
+									<li><a href="{$conf->action_root}xxx">xMój profil</a></li>
 									{if core\RoleUtils::inRole("admin")}
 										<li class="divider"></li>
-										<li><a href="{$conf->action_root}yyy">Moderuj sklepy</a></li>
-										<li><a href="{$conf->action_root}yyy">Moderuj użytkowników</a></li>
-										<li><a href="{$conf->action_root}yyy">Zgłoszenia</a></li>
+										<li><a href="{$conf->action_root}yyy">xModeruj sklepy</a></li>
+										<li><a href="{$conf->action_root}yyy">xModeruj użytkowników</a></li>
+										<li><a href="{$conf->action_root}yyy">xZgłoszenia</a></li>
 										<li><a href="{$conf->action_root}test">Debuger</a></li>
+										<li><a href="{$conf->action_root}generateXML">XML</a></li>
 										<li class="divider"></li>
 									{/if}
 									<li><a href="{$conf->action_root}logout">Wyloguj</a></li>

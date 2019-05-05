@@ -1,20 +1,26 @@
 <?php
 namespace app\controllers;
 
-
+use core\App;
 use core\RoleUtils;
 use core\SessionUtils;
 
 class TestControl
 {
     public function action_test(){
-        echo "Role logged: ".RoleUtils::inRole("logged")."<br/>";
-        echo "Role user: ".RoleUtils::inRole("user")."<br/>";
-        echo "Role admin: ".RoleUtils::inRole("admin")."<br/>";
+        $data["RoleisLogged"] = RoleUtils::inRole("logged");
+        $data["RoleisUser"] = RoleUtils::inRole("user");
+        $data["RoleisAdmin"] = RoleUtils::inRole("admin");
+        $data["SessionId"] = SessionUtils::loadData("id",true);
+        $data["SessionLogin"] = SessionUtils::loadData("login",true);
+        $data["SessionRole"] = SessionUtils::loadData("role",true);
+        $data["lat"] = 50.288740;
+        $data["lng"] = 19.129940;
 
-        echo "SessionUtills:: id: ".SessionUtils::loadData("id",true)."<br/>";
-        echo "SessionUtills:: login: ".SessionUtils::loadData("login",true).'<br/>';
-        echo "SessionUtills:: role: ".SessionUtils::loadData("role",true).'<br/>';
+        App::getSmarty()->assign('data', $data);
+        App::getSmarty()->assign('page_title','Debugger');
+        App::getSmarty()->assign('page_description','Debugger');
+        App::getSmarty()->display('TestView.tpl');
     }
 
 }

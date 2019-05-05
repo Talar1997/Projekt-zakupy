@@ -19,7 +19,7 @@ $conf->db_port = '3306';
 #$conf->db_prefix = '';
 $conf->db_option = [ PDO::ATTR_CASE => PDO::CASE_NATURAL, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION ];
 
-# ----
+# ---- Assets
 $conf->styles = $conf->app_root.'/assets/css';
 $conf->scripts = $conf->app_root.'/assets/js';
 $conf->images = $conf->app_root.'/assets/images';

@@ -16,4 +16,5 @@
     Utils::addRoute('checkAnswer', 'SecurityAnswerControl');
 
     Utils::addRoute('test', 'TestControl');
+    Utils::addRoute('generateXML', 'GenerateXMLControl');
     //Utils::addRoute('action_name', 'controller_class_name');
