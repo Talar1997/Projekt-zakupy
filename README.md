@@ -7,6 +7,7 @@ Projekt stworzony na potrzeby zajęć Języki programowania dynamicznych stron i
 * Medoo - https://medoo.in/
 * Alertify.js - https://alertifyjs.com/
 * Szablon HTML - https://www.gettemplate.com/
+* Google Maps API - https://developers.google.com/maps/documentation/
 
 ## Funkcjonalności
 
