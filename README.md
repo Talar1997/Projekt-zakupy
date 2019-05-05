@@ -8,6 +8,7 @@ Projekt stworzony na potrzeby zajęć Języki programowania dynamicznych stron i
 * Alertify.js - https://alertifyjs.com/
 * Szablon HTML - https://www.gettemplate.com/
 * Google Maps API - https://developers.google.com/maps/documentation/
+* Favicon Generator - https://favicon.io/favicon-generator/
 
 ## Funkcjonalności
 
