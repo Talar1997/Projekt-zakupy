@@ -36,3 +36,9 @@ Resetowanie hasła składa się z dwóch kroków:
 Ktok 1 prowadzi do zweryfikowania, czy podany adres istnieje w bazie danych. Na jego podstawie kolejny kontroler będzie mógł pobrać pytanie bezpieczeństwa. Dane trafiają do punktu 2 poprzez parametr w URL. Drugi kontroler na samym początku weryfikuje, czy parametr w ogóle występuje oraz czy podany w parametrze mail figuruje w bazie danych. Jeśli nie, to cofa użytkownika do kroku pierwszego. Ma to na celu zabezpieczenie przed celową modyfikacją adresu. Jeśli jednak rekord istnieje w bazie, to pobrana zostaje reszta niezbędnych danych. Ustawianie nowego hasła działa tak samo jak w przypadku rejestracji.
 
 Jeżeli wszystkie pola zostaną poprawnie zwalidowane, następuje update w bazie.
+
+### Logi administracyjne
+[do uzupełnienia]
+
+### Dodawanie nowych miejsc
+[do uzupełnienia]
