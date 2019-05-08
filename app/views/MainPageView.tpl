@@ -91,7 +91,7 @@
             } else {
                 handleLocationError(false, infoWindow, map.getCenter());
             }
-            
+
             downloadUrl('{$conf->action_root}generateXML', function(data) {
                 var xml = data.responseXML;
                 var markers = xml.documentElement.getElementsByTagName('marker');

@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\forms\SecurityAnswerForm;
+use core\Logs;
 use core\ParamUtils;
 use core\Utils;
 use core\App;
@@ -103,7 +104,10 @@ class SecurityAnswerControl
         }
 
         if(!App::getMessages()->isError()) return true;
-        else return false;
+        else{
+            Logs::addLog("Nieudana próba zmiany hasła: " . $this->form->email);
+            return false;
+        }
     }
 
     /**
@@ -116,6 +120,8 @@ class SecurityAnswerControl
             ],[
                 'email' => $this->form->email
             ]);
+
+            Logs::addLog("Udana zmiana hasła: " . $this->form->email);
         }catch(\PDOException $e){
             Utils::addErrorMessage("Błąd połączenia z bazą danych");
         }

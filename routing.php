@@ -14,6 +14,7 @@
     Utils::addRoute('logout', 'LoginControl');
     Utils::addRoute('restore', 'RestorePasswordControl');
     Utils::addRoute('checkAnswer', 'SecurityAnswerControl');
+    Utils::addRoute('addPlace', 'AddPlaceControl', ['admin', 'user']);
 
     Utils::addRoute('test', 'TestControl');
     Utils::addRoute('generateXML', 'GenerateXMLControl');

@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\forms\RegisterForm;
+use core\Logs;
 use core\SessionUtils;
 use core\ParamUtils;
 use core\App;
@@ -145,6 +146,7 @@ class RegisterControl
                 'security_answer' => md5($this->form->security_answer)
             ]);
             Utils::addInfoMessage("Konto zostało utworzone");
+            Logs::addLog("Utworzenie nowego konta: ".$this->form->login);
         }catch(\PDOException $e){
             Utils::addErrorMessage("Błąd połączenia z bazą danych");
         }

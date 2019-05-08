@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\forms\LoginForm;
+use core\Logs;
 use core\ParamUtils;
 use core\App;
 use core\SessionUtils;
@@ -103,6 +104,8 @@ class LoginControl
             RoleUtils::addRole($this->accountData["role"]);
             RoleUtils::addRole("logged");
             Utils::addInfoMessage("Logowanie udane!");
+
+            Logs::addLog("Logowanie na konto: " . $this->accountData["login"]);
             header("Location: ".App::getConf()->app_url."/panel");
         }
         else{

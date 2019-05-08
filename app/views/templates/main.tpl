@@ -46,7 +46,7 @@
 								<ul class="dropdown-menu">
 									<li><a href="{$conf->action_root}xxx">xPanel główny</a></li>
 									<li><a href="{$conf->action_root}xxx">xSzukaj sklepu</a></li>
-									<li><a href="{$conf->action_root}xxx">xDodaj sklep</a></li>
+									<li><a href="{$conf->action_root}addPlace">Dodaj sklep</a></li>
 									<li><a href="{$conf->action_root}xxx">xRanking użytkowników</a></li>
 									<li><a href="{$conf->action_root}xxx">xMój profil</a></li>
 									{if core\RoleUtils::inRole("admin")}

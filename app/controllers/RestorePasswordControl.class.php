@@ -54,7 +54,6 @@ class RestorePasswordControl
 
     public function generateView(){
         if($this->validateData()){
-            //$header_param = serialize($this->form->email);
             header("Location: ".App::getConf()->app_url."/checkAnswer/".$this->form->email);
         }
         else{

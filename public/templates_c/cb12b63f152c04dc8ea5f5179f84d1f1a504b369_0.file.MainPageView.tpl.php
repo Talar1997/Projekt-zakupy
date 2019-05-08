@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-05-05 22:25:52
+/* Smarty version 3.1.33, created on 2019-05-08 18:07:01
   from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\MainPageView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5ccf46d02d71a4_86608831',
+  'unifunc' => 'content_5cd2fea5716fb4_69691736',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'cb12b63f152c04dc8ea5f5179f84d1f1a504b369' => 
     array (
       0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\MainPageView.tpl',
-      1 => 1557087951,
+      1 => 1557331616,
       2 => 'file',
     ),
   ),
@@ -20,34 +20,34 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ccf46d02d71a4_86608831 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cd2fea5716fb4_69691736 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_13191781395ccf46d02d0d84_95135490', 'head');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_13183855455cd2fea570d690_84996536', 'head');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_11743699355ccf46d02d4c45_11097315', 'intro');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_4876183695cd2fea5712ea7_43539710', 'intro');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_3244430975ccf46d02d5462_88605160', 'jumbotron');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_18019940175cd2fea5713ad2_25081832', 'jumbotron');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'head'} */
-class Block_13191781395ccf46d02d0d84_95135490 extends Smarty_Internal_Block
+class Block_13183855455cd2fea570d690_84996536 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'head' => 
   array (
-    0 => 'Block_13191781395ccf46d02d0d84_95135490',
+    0 => 'Block_13183855455cd2fea570d690_84996536',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -68,12 +68,12 @@ panel">SZUKAJ SKLEPU</a></p>
 }
 /* {/block 'head'} */
 /* {block 'intro'} */
-class Block_11743699355ccf46d02d4c45_11097315 extends Smarty_Internal_Block
+class Block_4876183695cd2fea5712ea7_43539710 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'intro' => 
   array (
-    0 => 'Block_11743699355ccf46d02d4c45_11097315',
+    0 => 'Block_4876183695cd2fea5712ea7_43539710',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -92,12 +92,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'intro'} */
 /* {block 'jumbotron'} */
-class Block_3244430975ccf46d02d5462_88605160 extends Smarty_Internal_Block
+class Block_18019940175cd2fea5713ad2_25081832 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'jumbotron' => 
   array (
-    0 => 'Block_3244430975ccf46d02d5462_88605160',
+    0 => 'Block_18019940175cd2fea5713ad2_25081832',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -150,6 +150,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
             }
         };
 
+        var map, infoWindow;
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: new google.maps.LatLng(52.217715, 21.013055),
@@ -157,7 +158,21 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
             });
             var infoWindow = new google.maps.InfoWindow;
 
-            // Change this depending on the name of your PHP or XML file
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+
+                    map.setCenter(pos);
+                }, function() {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                });
+            } else {
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
+
             downloadUrl('<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 generateXML', function(data) {
                 var xml = data.responseXML;
@@ -213,6 +228,15 @@ generateXML', function(data) {
         }
 
         function doNothing() {}
+
+
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
+                'Error: The Geolocation service failed.' :
+                'Error: Your browser doesn\'t support geolocation.');
+            infoWindow.open(map);
+        }
     <?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
