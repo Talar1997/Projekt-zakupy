@@ -77,7 +77,6 @@
             });
             var infoWindow = new google.maps.InfoWindow;
 
-            // Try HTML5 geolocation.
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function(position) {
                     var pos = {
@@ -90,11 +89,9 @@
                     handleLocationError(true, infoWindow, map.getCenter());
                 });
             } else {
-                // Browser doesn't support Geolocation
                 handleLocationError(false, infoWindow, map.getCenter());
             }
-
-            // Change this depending on the name of your PHP or XML file
+            
             downloadUrl('{$conf->action_root}generateXML', function(data) {
                 var xml = data.responseXML;
                 var markers = xml.documentElement.getElementsByTagName('marker');
