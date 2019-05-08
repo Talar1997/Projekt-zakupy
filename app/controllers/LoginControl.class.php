@@ -73,10 +73,11 @@ class LoginControl
                 'password',
                 'role'
             ],[
-                'login' => $this->form->login
+                'login' => $this->form->login,
+                'password' => md5($this->form->password)
             ]);
 
-            if(!empty($accountData[0]["password"]) && md5($this->form->password) == $accountData[0]["password"]){
+            if(!empty($accountData[0]["password"])){
                 $this->accountData = $accountData[0];
             }
             else{

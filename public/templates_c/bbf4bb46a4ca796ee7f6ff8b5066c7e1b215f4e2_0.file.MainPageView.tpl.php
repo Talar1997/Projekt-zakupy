@@ -1,17 +1,84 @@
-{extends file="main.tpl"}
-{block name=head}
+<?php
+/* Smarty version 3.1.33, created on 2019-05-08 11:55:54
+  from '/Applications/XAMPP/xamppfiles/htdocs/Projekt/app/views/MainPageView.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.33',
+  'unifunc' => 'content_5cd2a7aa923377_95651585',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'bbf4bb46a4ca796ee7f6ff8b5066c7e1b215f4e2' => 
+    array (
+      0 => '/Applications/XAMPP/xamppfiles/htdocs/Projekt/app/views/MainPageView.tpl',
+      1 => 1557309142,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5cd2a7aa923377_95651585 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_loadInheritance();
+$_smarty_tpl->inheritance->init($_smarty_tpl, true);
+?>
+
+<?php 
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_8483449405cd2a7aa91cf62_00109748', 'head');
+?>
+
+
+<?php 
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10455158775cd2a7aa920125_29599036', 'intro');
+?>
+
+
+<?php 
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_6786967175cd2a7aa9208e1_78419407', 'jumbotron');
+?>
+
+<?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
+}
+/* {block 'head'} */
+class Block_8483449405cd2a7aa91cf62_00109748 extends Smarty_Internal_Block
+{
+public $subBlocks = array (
+  'head' => 
+  array (
+    0 => 'Block_8483449405cd2a7aa91cf62_00109748',
+  ),
+);
+public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
+?>
+
     <header id="head">
         <div class="container">
             <div class="row">
                 <h1 class="lead">Zakupy w niedziele</h1>
                 <p class="tagline">Sprawdź otwarte sklepy w twojej okolicy. Dodawaj nowe obiekty, bądź częścią ogromnej społeczności!</p>
-                <p><a class="btn btn-default btn-lg" role="button" href="{$conf->action_root}panel">SZUKAJ SKLEPU</a></p>
+                <p><a class="btn btn-default btn-lg" role="button" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+panel">SZUKAJ SKLEPU</a></p>
             </div>
         </div>
     </header>
-{/block}
+<?php
+}
+}
+/* {/block 'head'} */
+/* {block 'intro'} */
+class Block_10455158775cd2a7aa920125_29599036 extends Smarty_Internal_Block
+{
+public $subBlocks = array (
+  'intro' => 
+  array (
+    0 => 'Block_10455158775cd2a7aa920125_29599036',
+  ),
+);
+public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
+?>
 
-{block name=intro}
     <div class="container text-center">
         <br> <br>
         <h2 class="thin">Z nami życie staje się prostsze</h2>
@@ -20,9 +87,22 @@
             Wystarczy się zarejestrować i znaleźć to, czego potrzebujesz!
         </p>
     </div>
-{/block}
+<?php
+}
+}
+/* {/block 'intro'} */
+/* {block 'jumbotron'} */
+class Block_6786967175cd2a7aa9208e1_78419407 extends Smarty_Internal_Block
+{
+public $subBlocks = array (
+  'jumbotron' => 
+  array (
+    0 => 'Block_6786967175cd2a7aa9208e1_78419407',
+  ),
+);
+public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
+?>
 
-{block name=jumbotron}
     <div class="jumbotron top-space">
         <div class="container">
 
@@ -59,7 +139,8 @@
     </div>
 
     <div id="map"></div>
-    <script>
+    <?php echo '<script'; ?>
+>
         var customLabel = {
             restaurant: {
                 label: 'R'
@@ -95,7 +176,8 @@
             }
 
             // Change this depending on the name of your PHP or XML file
-            downloadUrl('{$conf->action_root}generateXML', function(data) {
+            downloadUrl('<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+generateXML', function(data) {
                 var xml = data.responseXML;
                 var markers = xml.documentElement.getElementsByTagName('marker');
                 Array.prototype.forEach.call(markers, function(markerElem) {
@@ -158,9 +240,16 @@
                 'Error: Your browser doesn\'t support geolocation.');
             infoWindow.open(map);
         }
-    </script>
-    <script async defer
+    <?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKDC4RkalzqSIb9AgI_nP7Qny28Dkhw_Y&callback=initMap">
-    </script>
+    <?php echo '</script'; ?>
+>
 
-{/block}
+<?php
+}
+}
+/* {/block 'jumbotron'} */
+}
