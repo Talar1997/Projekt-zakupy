@@ -38,10 +38,15 @@ Ktok 1 prowadzi do zweryfikowania, czy podany adres istnieje w bazie danych. Na 
 Jeżeli wszystkie pola zostaną poprawnie zwalidowane, następuje update w bazie.
 
 ### Logi administracyjne
-[do uzupełnienia]
+Podstrona dla zalogowanych administratorów umożliwiająca przejrzenie logów administracyjnych. Logi przechowywane są w bazie danych w osobnej tabeli, poza treścią znajduje się tam czas, w którym został dodany oraz adres IP wykonawcy danej czynności. W logach zapisują się rejestracje, nieudane oraz udane próby odzyskania hasła, usunięcie/modyfikacja użytkownika przez administratora i inne logi, które pojawią się wraz z implementacją nowych funkcji. Logów nie da się usuwać, można je tylko przeglądać.
+
+### Zarządzanie użytkownikami
+Zarządzanie użytkownikami sterowane jest osobnym kontrolerem, domyślnie wyświetlana jest lista wszystkich użytkowników wraz z wyszukiwarką obsługiwaną js-owym skryptem z bootstrapa. Na każdym użytkowniku możemy wykonać trzy akcje:
+- Zobaczyć szczegóły użytkownika - a konkretniej wyświetlić więcej informacji o nim (domyślnie jest id i login), przy podglądzie widzimy wszystkie wartości przechowywane w bazie danych o danym userze
+- Usunąć użytkownika - wiąże się to z usunięciem konkretnego rekordu z bazy i dodaniem wpisu w logach, że taka akcja została wykonana przez danego admdinistratora
+- [Do dokończenia] Edytować użytkownika - skrypt umożliwia zmiane wszystkich wartości poza id. Formularz wysyła do kontrolera wszystkie pola, jednak jeśli dane pole nie różni się od tego w bazie (np. hash hasła) to nie wykona się żadna akcja. Pole hasła jest walidowane tak jak przy rejestracji. Login i email również jest walidowany, sprawdzane jest czy dane wartości nie istnieją już w bazie danych.
+
 
 ### Dodawanie nowych miejsc
 [do uzupełnienia]
 
-### Zarządzanie użytkownikami
-[do uzupełnienia]
