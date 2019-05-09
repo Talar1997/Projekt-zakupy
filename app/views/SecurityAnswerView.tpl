@@ -6,7 +6,7 @@
 
         <ol class="breadcrumb">
             <li><a href="{$conf->action_root}main">Strona główna</a></li>
-            <li class="active">Resetowanie hasła 2/2</li>
+            <li class="active">{$page_title}</li>
         </ol>
 
         <div class="row">
@@ -14,7 +14,7 @@
             <!-- Article main content -->
             <article class="col-xs-12 maincontent">
                 <header class="page-header">
-                    <h1 class="page-title">Resetowanie hasła</h1>
+                    <h1 class="page-title">{$page_title}</h1>
                 </header>
 
                 <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">

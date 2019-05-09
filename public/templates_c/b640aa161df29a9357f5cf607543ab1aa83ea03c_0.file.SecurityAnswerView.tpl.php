@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-04-18 18:16:54
+/* Smarty version 3.1.33, created on 2019-05-09 20:28:09
   from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\SecurityAnswerView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cb8a2f674fe46_89028074',
+  'unifunc' => 'content_5cd4713924fab3_31470600',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b640aa161df29a9357f5cf607543ab1aa83ea03c' => 
     array (
       0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\SecurityAnswerView.tpl',
-      1 => 1555604202,
+      1 => 1557426486,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5cb8a2f674fe46_89028074 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cd4713924fab3_31470600 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_8320325705cb8a2f674aba7_66202513', 'intro');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17123664445cd47139249f39_84473673', 'intro');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'intro'} */
-class Block_8320325705cb8a2f674aba7_66202513 extends Smarty_Internal_Block
+class Block_17123664445cd47139249f39_84473673 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'intro' => 
   array (
-    0 => 'Block_8320325705cb8a2f674aba7_66202513',
+    0 => 'Block_17123664445cd47139249f39_84473673',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -48,7 +48,8 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
         <ol class="breadcrumb">
             <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 main">Strona główna</a></li>
-            <li class="active">Resetowanie hasła 2/2</li>
+            <li class="active"><?php echo $_smarty_tpl->tpl_vars['page_title']->value;?>
+</li>
         </ol>
 
         <div class="row">
@@ -56,7 +57,8 @@ main">Strona główna</a></li>
             <!-- Article main content -->
             <article class="col-xs-12 maincontent">
                 <header class="page-header">
-                    <h1 class="page-title">Resetowanie hasła</h1>
+                    <h1 class="page-title"><?php echo $_smarty_tpl->tpl_vars['page_title']->value;?>
+</h1>
                 </header>
 
                 <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">

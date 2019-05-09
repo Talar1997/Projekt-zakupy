@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-04-18 16:57:19
+/* Smarty version 3.1.33, created on 2019-05-09 20:27:16
   from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\RegisterView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cb8904f89ff95_13616482',
+  'unifunc' => 'content_5cd47104acfb96_71291774',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8ef56e4065e14ef90579805e404a7b331f9088bd' => 
     array (
       0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\RegisterView.tpl',
-      1 => 1555599436,
+      1 => 1557426400,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5cb8904f89ff95_13616482 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cd47104acfb96_71291774 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17674196015cb8904f89aca8_89295735', 'intro');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_19975620195cd47104aca349_29375598', 'intro');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'intro'} */
-class Block_17674196015cb8904f89aca8_89295735 extends Smarty_Internal_Block
+class Block_19975620195cd47104aca349_29375598 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'intro' => 
   array (
-    0 => 'Block_17674196015cb8904f89aca8_89295735',
+    0 => 'Block_19975620195cd47104aca349_29375598',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -48,7 +48,8 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
         <ol class="breadcrumb">
             <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 main">Strona główna</a></li>
-            <li class="active">Rejestracja</li>
+            <li class="active"><?php echo $_smarty_tpl->tpl_vars['page_title']->value;?>
+</li>
         </ol>
 
         <div class="row">

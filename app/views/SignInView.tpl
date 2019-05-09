@@ -6,7 +6,7 @@
 
         <ol class="breadcrumb">
             <li><a href="{$conf->action_root}main">Strona główna</a></li>
-            <li class="active">Logowanie</li>
+            <li class="active">{$page_title}</li>
         </ol>
 
         <div class="row">

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-04-18 16:57:26
+/* Smarty version 3.1.33, created on 2019-05-09 20:27:51
   from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\RestorePasswordView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cb890560991b8_03217895',
+  'unifunc' => 'content_5cd471275034c1_80401075',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd367124513625c19a79598b3490c127536c4e9a1' => 
     array (
       0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\RestorePasswordView.tpl',
-      1 => 1555599328,
+      1 => 1557426427,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5cb890560991b8_03217895 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cd471275034c1_80401075 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1829925895cb89056094df5_89573590', 'intro');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_7823841415cd471274ff0a7_08112392', 'intro');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'intro'} */
-class Block_1829925895cb89056094df5_89573590 extends Smarty_Internal_Block
+class Block_7823841415cd471274ff0a7_08112392 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'intro' => 
   array (
-    0 => 'Block_1829925895cb89056094df5_89573590',
+    0 => 'Block_7823841415cd471274ff0a7_08112392',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -48,7 +48,8 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
         <ol class="breadcrumb">
             <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 main">Strona główna</a></li>
-            <li class="active">Resetowanie hasła 1/2</li>
+            <li class="active"><?php echo $_smarty_tpl->tpl_vars['page_title']->value;?>
+</li>
         </ol>
 
         <div class="row">

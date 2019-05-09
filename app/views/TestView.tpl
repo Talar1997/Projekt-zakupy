@@ -2,8 +2,12 @@
 {block name=intro}
     <div class="jumbotron top-space">
         <div class="container">
+            <ol class="breadcrumb">
+                <li><a href="{$conf->action_root}main">Strona główna</a></li>
+                <li class="active">{$page_title}</li>
+            </ol>
             <h2 class="text-center thin">Values</h2>
-            <table class="table table-hover">
+            <table id="debugValues" class="table table-hover">
                 <thead>
                 <tr>
                     <th scope="col">Key</th>

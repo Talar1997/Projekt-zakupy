@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE HTML>
 <html lang="pl">
 <head>
 	<title>{$page_title}</title>
@@ -17,8 +17,12 @@
 	<link rel="stylesheet" href="{$conf->styles}/font-awesome.min.css">
 	<link rel="stylesheet" href="{$conf->styles}/bootstrap-theme.css" media="screen" >
 	<link rel="stylesheet" href="{$conf->styles}/main.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css"></style>
 
 	<script type="text/javascript" src="{$conf->scripts}/alertify.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
 </head>
 <body>
 	<div class="home">
@@ -51,9 +55,9 @@
 									<li><a href="{$conf->action_root}xxx">xMój profil</a></li>
 									{if core\RoleUtils::inRole("admin")}
 										<li class="divider"></li>
+										<li><a href="{$conf->action_root}manageUsers">Moderuj użytkowników</a></li>
+										<li><a href="{$conf->action_root}adminLogs">Logi administracyjne</a></li>
 										<li><a href="{$conf->action_root}yyy">xModeruj sklepy</a></li>
-										<li><a href="{$conf->action_root}yyy">xModeruj użytkowników</a></li>
-										<li><a href="{$conf->action_root}yyy">xZgłoszenia</a></li>
 										<li><a href="{$conf->action_root}test">Debuger</a></li>
 										<li><a href="{$conf->action_root}generateXML">XML</a></li>
 										<li class="divider"></li>
@@ -162,8 +166,6 @@
 			{/if}
 	{/block}
 
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 	<script src="{$conf->scripts}/headroom.min.js"></script>
 	<script src="{$conf->scripts}/jQuery.headroom.min.js"></script>
 	<script src="{$conf->scripts}/template.js"></script>
