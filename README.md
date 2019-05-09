@@ -42,3 +42,6 @@ Jeżeli wszystkie pola zostaną poprawnie zwalidowane, następuje update w bazie
 
 ### Dodawanie nowych miejsc
 [do uzupełnienia]
+
+### Zarządzanie użytkownikami
+[do uzupełnienia]
