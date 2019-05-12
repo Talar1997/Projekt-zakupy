@@ -59,6 +59,9 @@
                     {foreach $users as $user}
                         {if $user['id'] == $id }
                             {foreach $user as $key => $val}
+                                {if $key == 'id'}
+                                    <input type="hidden" class="form-control" id="{$key}" value="{$val}">
+                                {/if}
                                 {if $key != 'id'}
                                     <div class="form-group">
                                         <label for="{$key}">{$key}</label>

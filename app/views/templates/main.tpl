@@ -9,20 +9,19 @@
 
 	<link rel="stylesheet" type="text/css" href="{$conf->styles}/alertify.css">
 	<link rel="stylesheet" type="text/css" href="{$conf->styles}/idcard.css" >
-
-	<!--Style z gotowca-->
 	<link rel="shortcut icon" href="{$conf->images}/gt_favicon.png">
 	<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
 	<link rel="stylesheet" href="{$conf->styles}/bootstrap.min.css">
 	<link rel="stylesheet" href="{$conf->styles}/font-awesome.min.css">
 	<link rel="stylesheet" href="{$conf->styles}/bootstrap-theme.css" media="screen" >
 	<link rel="stylesheet" href="{$conf->styles}/main.css">
-	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css"></style>
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
 
 	<script type="text/javascript" src="{$conf->scripts}/alertify.js"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 </head>
 <body>
 	<div class="home">
@@ -169,5 +168,6 @@
 	<script src="{$conf->scripts}/headroom.min.js"></script>
 	<script src="{$conf->scripts}/jQuery.headroom.min.js"></script>
 	<script src="{$conf->scripts}/template.js"></script>
+
 </body>
 </html>

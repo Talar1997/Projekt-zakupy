@@ -75,9 +75,6 @@ class UserManagerControl
                 App::getSmarty()->assign("id", $user_id);
                 //Do zrobienia
                 break;
-            default:
-                $this->generateView();
-                break;
         }
 
         $this->generateView();

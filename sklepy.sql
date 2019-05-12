@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 05 Maj 2019, 22:41
+-- Czas generowania: 12 Maj 2019, 21:46
 -- Wersja serwera: 10.1.26-MariaDB
 -- Wersja PHP: 7.1.8
 
@@ -21,6 +21,43 @@ SET time_zone = "+00:00";
 --
 -- Baza danych: `sklepy`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `action_log`
+--
+
+CREATE TABLE `action_log` (
+  `id` int(11) NOT NULL,
+  `datetime` datetime NOT NULL,
+  `ip` varchar(20) COLLATE utf8_polish_ci NOT NULL,
+  `log` varchar(512) COLLATE utf8_polish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+--
+-- Zrzut danych tabeli `action_log`
+--
+
+INSERT INTO `action_log` (`id`, `datetime`, `ip`, `log`) VALUES
+(1, '2019-05-08 18:43:54', '::1', 'Logowanie na konto: admin'),
+(2, '2019-05-08 19:17:26', '::1', 'Logowanie na konto: admin'),
+(3, '2019-05-09 20:28:17', '::1', 'Logowanie na konto: admin'),
+(4, '2019-05-09 21:48:00', '::1', 'Użytkownik (9) został usunięty przez admin'),
+(5, '2019-05-09 21:48:15', '::1', 'Użytkownik (5) został usunięty przez admin'),
+(6, '2019-05-09 21:48:16', '::1', 'Użytkownik (5) został usunięty przez admin'),
+(7, '2019-05-09 21:50:18', '::1', 'Utworzenie nowego konta: user2'),
+(8, '2019-05-09 21:50:34', '::1', 'Utworzenie nowego konta: user3'),
+(9, '2019-05-09 21:50:37', '::1', 'Logowanie na konto: admin'),
+(10, '2019-05-09 21:50:43', '::1', 'Użytkownik (12) został usunięty przez admin'),
+(11, '2019-05-09 22:35:43', '::1', 'Utworzenie nowego konta: Chrupek2137'),
+(12, '2019-05-09 22:36:02', '::1', 'Utworzenie nowego konta: AdminissstratorPrawie'),
+(13, '2019-05-09 22:36:03', '::1', 'Logowanie na konto: admin'),
+(14, '2019-05-09 22:50:26', '::1', 'Logowanie na konto: user'),
+(15, '2019-05-09 22:50:27', '::1', 'Logowanie na konto: '),
+(16, '2019-05-09 22:50:35', '::1', 'Logowanie na konto: admin'),
+(17, '2019-05-09 22:51:17', '::1', 'Logowanie na konto: admin'),
+(18, '2019-05-12 21:32:21', '::1', 'Logowanie na konto: admin');
 
 -- --------------------------------------------------------
 
@@ -71,12 +108,19 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `login`, `password`, `role`, `security_question`, `security_answer`, `email`) VALUES
 (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', '2+2', 'a87ff679a2f3e71d9181a67b7542122c', 'admin@admin.pl'),
 (4, 'user', 'ee11cbb19052e40b07aac0ca060c23ee', 'user', '2x10', '98f13708210194c475687be6106a3b84', 'user@user.pl'),
-(5, 'Consuch', 'a1e03cf022862126dabb2b06e3223521', 'user', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'Consuch@interia.pl'),
-(9, 'Talar', 'a1e03cf022862126dabb2b06e3223521', 'user', 'Nazwa serwera na MTA', 'bd0f1baa6a3a2db9e53973e9650197d6', 'Adam.Talarczyk@hotmail.com');
+(11, 'user2', 'a1e03cf022862126dabb2b06e3223521', 'user', 'dupa', '9743a66f914cc249efca164485a19c5c', 'user2@user.pl'),
+(13, 'Chrupek2137', 'a1e03cf022862126dabb2b06e3223521', 'user', 'Dżejson', '8c01efe025e2933e1684867c9f0249a0', 'gunwo@gunwo.pll'),
+(14, 'AdminissstratorPrawie', 'a1e03cf022862126dabb2b06e3223521', 'user', 'asdasdasd', '31d2101c79a61ce5ccac29834141d3a2', 'admin2@2222.pl');
 
 --
 -- Indeksy dla zrzutów tabel
 --
+
+--
+-- Indexes for table `action_log`
+--
+ALTER TABLE `action_log`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `markers`
@@ -95,6 +139,11 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT dla tabeli `action_log`
+--
+ALTER TABLE `action_log`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+--
 -- AUTO_INCREMENT dla tabeli `markers`
 --
 ALTER TABLE `markers`
@@ -103,7 +152,7 @@ ALTER TABLE `markers`
 -- AUTO_INCREMENT dla tabeli `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;COMMIT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
