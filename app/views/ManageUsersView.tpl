@@ -93,7 +93,6 @@
 
     <script>
         function deleteUser(id) {
-            var txt;
             if (confirm("Na pewno chcesz usunąć użytkownika? Nie można będzie cofnąć tej operacji")) {
                 window.location.href = '{$conf->action_root}manageUsers/delete/'+id;
             }

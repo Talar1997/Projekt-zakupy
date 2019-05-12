@@ -89,7 +89,7 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/public/assets/css/additional.css">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="357">
@@ -106,6 +106,15 @@
                   <folding>
                     <element signature="e#5671#5677#0#HTML" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/views/ManageUsersView.tpl">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="609">
+                  <caret line="94" column="33" selection-start-line="94" selection-start-column="33" selection-end-line="94" selection-end-column="33" />
                 </state>
               </provider>
             </entry>
@@ -184,12 +193,12 @@
         <option value="$PROJECT_DIR$/app/views/TestView.tpl" />
         <option value="$PROJECT_DIR$/routing.php" />
         <option value="$PROJECT_DIR$/app/controllers/LogsControl.class.php" />
-        <option value="$PROJECT_DIR$/app/views/ManageUsersView.tpl" />
         <option value="$PROJECT_DIR$/app/views/LogsView.tpl" />
         <option value="$PROJECT_DIR$/app/controllers/UserManagerControl.class.php" />
         <option value="$PROJECT_DIR$/app/views/templates/main.tpl" />
         <option value="$PROJECT_DIR$/app/views/MainPageView.tpl" />
         <option value="$PROJECT_DIR$/public/assets/css/additional.css" />
+        <option value="$PROJECT_DIR$/app/views/ManageUsersView.tpl" />
       </list>
     </option>
   </component>
@@ -312,12 +321,12 @@
       <workItem from="1557306877978" duration="8221000" />
       <workItem from="1557331145434" duration="5691000" />
       <workItem from="1557423753802" duration="9037000" />
-      <workItem from="1557689508554" duration="3452000" />
+      <workItem from="1557689508554" duration="3538000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83755000" />
+    <option name="totallyTimeSpent" value="83841000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -649,13 +658,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/ManageUsersView.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1001">
-          <caret line="89" column="42" lean-forward="true" selection-start-line="89" selection-start-column="30" selection-end-line="89" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/idcard.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-952" />
@@ -694,6 +696,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/ManageUsersView.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="94" column="33" selection-start-line="94" selection-start-column="33" selection-end-line="94" selection-end-column="33" />
         </state>
       </provider>
     </entry>
