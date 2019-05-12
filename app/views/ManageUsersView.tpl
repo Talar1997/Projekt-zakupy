@@ -25,7 +25,7 @@
                         <td>
                             <a type="button" class="btn btn-light btn-sm" href="{$conf->action_root}manageUsers/details/{$user['id']}">Szczegóły</a>
                             <a type="button" class="btn btn-light btn-sm" href="{$conf->action_root}manageUsers/edit/{$user['id']}">Edytuj</a>
-                            <a type="button" class="btn btn-danger btn-sm" href="{$conf->action_root}manageUsers/delete/{$user['id']}">Usuń</a>
+                            <a type="button" class="btn btn-danger btn-sm" onclick="deleteUser('{$user['id']}')">Usuń</a>
                         </td>
                     </tr>
                 {/foreach}
@@ -55,24 +55,33 @@
             {/if}
 
             {if isset($edit)}
-                <form>
-                    {foreach $users as $user}
-                        {if $user['id'] == $id }
-                            {foreach $user as $key => $val}
-                                {if $key == 'id'}
-                                    <input type="hidden" class="form-control" id="{$key}" value="{$val}">
-                                {/if}
-                                {if $key != 'id'}
-                                    <div class="form-group">
-                                        <label for="{$key}">{$key}</label>
-                                        <input class="form-control" id="{$key}" value="{$val}">
-                                    </div>
+            <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h3 class="thin text-center">Edycja użytkownika</h3>
+                        <p class="text-center text-muted">Jeżeli nie chcesz edytować niektórych pól, pozostaw je bez zmian.</p>
+                        <hr>
+                        <form>
+                            {foreach $users as $user}
+                                {if $user['id'] == $id }
+                                    {foreach $user as $key => $val}
+                                        {if $key == 'id'}
+                                            <input type="hidden" class="form-control" id="{$key}" value="{$val}">
+                                        {/if}
+                                        {if $key != 'id'}
+                                            <div class="form-group">
+                                                <label for="{$key}">{$key}</label>
+                                                <input class="form-control" id="{$key}" value="{$val}">
+                                            </div>
+                                        {/if}
+                                    {/foreach}
+                                    <input type="submit" value="Edytuj" class="btn btn-primary">
                                 {/if}
                             {/foreach}
-                            <input type="submit" value="Edytuj" class="btn btn-primary">
-                        {/if}
-                    {/foreach}
-                </form>
+                        </form>
+                    </div>
+                </div>
+            </div>
             {/if}
         </div>
     </div>
@@ -80,5 +89,14 @@
         $(document).ready(function () {
             $('#usersValues').DataTable();
         });
+    </script>
+
+    <script>
+        function deleteUser(id) {
+            var txt;
+            if (confirm("Na pewno chcesz usunąć użytkownika? Nie można będzie cofnąć tej operacji")) {
+                window.location.href = '{$conf->action_root}manageUsers/delete/'+id;
+            }
+        }
     </script>
 {/block}

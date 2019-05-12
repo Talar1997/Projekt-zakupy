@@ -26,7 +26,11 @@ class LogsControl
      *
      */
     public function getLogsFromDb(){
-        $this->logs = App::getDB()->select("action_log", "*");
+        $this->logs = App::getDB()->select("action_log", "*",[
+            "ORDER" => [
+                "id" => "DESC",
+            ]
+        ]);
     }
 
     /**

@@ -31,7 +31,9 @@
     </div>
     <script>
         $(document).ready(function () {
-            $('#logsValues').DataTable();
+            $('#logsValues').DataTable( {
+                "order": [[ 0, "desc" ]]
+            } );
         });
     </script>
 {/block}

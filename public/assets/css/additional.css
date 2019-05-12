@@ -1,0 +1,18 @@
+/*
+
+body{
+    position: relative !important;
+}
+
+.always-bottom {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.interactive-map{
+    height: 600px !important;
+}
+
+*/

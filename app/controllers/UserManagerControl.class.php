@@ -47,12 +47,23 @@ class UserManagerControl
      * @param $id
      */
     public function deleteUser($id){
-        App::getDB()->delete("user",[
+        $result = App::getDB()->select("user",[
+            'id'
+        ],[
             'id' => $id
         ]);
-        Utils::addInfoMessage("Użytkownik (".$id.") został usunięty");
-        $admin_login = SessionUtils::loadData("login", true);
-        Logs::addLog("Użytkownik (".$id.") został usunięty przez ".$admin_login);
+
+        if(!empty($result)){
+            App::getDB()->delete("user",[
+                'id' => $id
+            ]);
+            Utils::addInfoMessage("Użytkownik (".$id.") został usunięty");
+            $admin_login = SessionUtils::loadData("login", true);
+            Logs::addLog("Użytkownik (".$id.") został usunięty przez ".$admin_login);
+        }
+        else{
+            Utils::addErrorMessage("Użytkownik nie istnieje");
+        }
     }
 
     /**

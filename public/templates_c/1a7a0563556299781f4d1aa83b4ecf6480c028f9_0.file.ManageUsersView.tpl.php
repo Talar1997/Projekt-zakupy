@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-05-12 21:39:05
+/* Smarty version 3.1.33, created on 2019-05-12 23:04:07
   from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\ManageUsersView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cd87659f27ed6_07731777',
+  'unifunc' => 'content_5cd88a47c7e278_63312485',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1a7a0563556299781f4d1aa83b4ecf6480c028f9' => 
     array (
       0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\ManageUsersView.tpl',
-      1 => 1557689942,
+      1 => 1557694936,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5cd87659f27ed6_07731777 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cd88a47c7e278_63312485 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_375258755cd87659f0f404_43581720', 'intro');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_21035090065cd88a47c665f5_83026679', 'intro');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'intro'} */
-class Block_375258755cd87659f0f404_43581720 extends Smarty_Internal_Block
+class Block_21035090065cd88a47c665f5_83026679 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'intro' => 
   array (
-    0 => 'Block_375258755cd87659f0f404_43581720',
+    0 => 'Block_21035090065cd88a47c665f5_83026679',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -79,9 +79,8 @@ manageUsers/details/<?php echo $_smarty_tpl->tpl_vars['user']->value['id'];?>
                             <a type="button" class="btn btn-light btn-sm" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 manageUsers/edit/<?php echo $_smarty_tpl->tpl_vars['user']->value['id'];?>
 ">Edytuj</a>
-                            <a type="button" class="btn btn-danger btn-sm" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-manageUsers/delete/<?php echo $_smarty_tpl->tpl_vars['user']->value['id'];?>
-">Usuń</a>
+                            <a type="button" class="btn btn-danger btn-sm" onclick="deleteUser('<?php echo $_smarty_tpl->tpl_vars['user']->value['id'];?>
+')">Usuń</a>
                         </td>
                     </tr>
                 <?php
@@ -130,44 +129,53 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
             <?php }?>
 
             <?php if (isset($_smarty_tpl->tpl_vars['edit']->value)) {?>
-                <form>
-                    <?php
+            <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h3 class="thin text-center">Edycja użytkownika</h3>
+                        <p class="text-center text-muted">Jeżeli nie chcesz edytować niektórych pól, pozostaw je bez zmian.</p>
+                        <hr>
+                        <form>
+                            <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['users']->value, 'user');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['user']->value) {
 ?>
-                        <?php if ($_smarty_tpl->tpl_vars['user']->value['id'] == $_smarty_tpl->tpl_vars['id']->value) {?>
-                            <?php
+                                <?php if ($_smarty_tpl->tpl_vars['user']->value['id'] == $_smarty_tpl->tpl_vars['id']->value) {?>
+                                    <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['user']->value, 'val', false, 'key');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_vars['val']->value) {
 ?>
-                                <?php if ($_smarty_tpl->tpl_vars['key']->value == 'id') {?>
-                                    <input type="hidden" class="form-control" id="<?php echo $_smarty_tpl->tpl_vars['key']->value;?>
+                                        <?php if ($_smarty_tpl->tpl_vars['key']->value == 'id') {?>
+                                            <input type="hidden" class="form-control" id="<?php echo $_smarty_tpl->tpl_vars['key']->value;?>
 " value="<?php echo $_smarty_tpl->tpl_vars['val']->value;?>
 ">
-                                <?php }?>
-                                <?php if ($_smarty_tpl->tpl_vars['key']->value != 'id') {?>
-                                    <div class="form-group">
-                                        <label for="<?php echo $_smarty_tpl->tpl_vars['key']->value;?>
+                                        <?php }?>
+                                        <?php if ($_smarty_tpl->tpl_vars['key']->value != 'id') {?>
+                                            <div class="form-group">
+                                                <label for="<?php echo $_smarty_tpl->tpl_vars['key']->value;?>
 "><?php echo $_smarty_tpl->tpl_vars['key']->value;?>
 </label>
-                                        <input class="form-control" id="<?php echo $_smarty_tpl->tpl_vars['key']->value;?>
+                                                <input class="form-control" id="<?php echo $_smarty_tpl->tpl_vars['key']->value;?>
 " value="<?php echo $_smarty_tpl->tpl_vars['val']->value;?>
 ">
-                                    </div>
+                                            </div>
+                                        <?php }?>
+                                    <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                                    <input type="submit" value="Edytuj" class="btn btn-primary">
                                 <?php }?>
                             <?php
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-                            <input type="submit" value="Edytuj" class="btn btn-primary">
-                        <?php }?>
-                    <?php
-}
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-                </form>
+                        </form>
+                    </div>
+                </div>
+            </div>
             <?php }?>
         </div>
     </div>
@@ -176,6 +184,18 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         $(document).ready(function () {
             $('#usersValues').DataTable();
         });
+    <?php echo '</script'; ?>
+>
+
+    <?php echo '<script'; ?>
+>
+        function deleteUser(id) {
+            var txt;
+            if (confirm("Na pewno chcesz usunąć użytkownika? Nie można będzie cofnąć tej operacji")) {
+                window.location.href = '<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+manageUsers/delete/'+id;
+            }
+        }
     <?php echo '</script'; ?>
 >
 <?php

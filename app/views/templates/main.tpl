@@ -15,6 +15,7 @@
 	<link rel="stylesheet" href="{$conf->styles}/font-awesome.min.css">
 	<link rel="stylesheet" href="{$conf->styles}/bootstrap-theme.css" media="screen" >
 	<link rel="stylesheet" href="{$conf->styles}/main.css">
+	<link rel="stylesheet" href="{$conf->styles}/additional.css">
 	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
 
 	<script type="text/javascript" src="{$conf->scripts}/alertify.js"></script>
@@ -83,7 +84,7 @@
 
 	{block name=generated}{/block}
 
-	<footer id="footer" class="top-space">
+	<footer id="footer" class="top-space always-bottom">
 		<div class="footer1">
 			<div class="container">
 				<div class="row">

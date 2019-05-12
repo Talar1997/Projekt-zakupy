@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-05-09 22:29:45
+/* Smarty version 3.1.33, created on 2019-05-12 23:02:24
   from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\LogsView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cd48db9c93514_92672518',
+  'unifunc' => 'content_5cd889e0beb266_61276157',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fe86d05178a4f1c47ce28ce5283b76c64929096f' => 
     array (
       0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\LogsView.tpl',
-      1 => 1557433784,
+      1 => 1557694943,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5cd48db9c93514_92672518 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cd889e0beb266_61276157 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_8580752575cd48db9c86aa7_05835152', 'intro');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_602994965cd889e0bdef10_44307427', 'intro');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'intro'} */
-class Block_8580752575cd48db9c86aa7_05835152 extends Smarty_Internal_Block
+class Block_602994965cd889e0bdef10_44307427 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'intro' => 
   array (
-    0 => 'Block_8580752575cd48db9c86aa7_05835152',
+    0 => 'Block_602994965cd889e0bdef10_44307427',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -86,7 +86,9 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     <?php echo '<script'; ?>
 >
         $(document).ready(function () {
-            $('#logsValues').DataTable();
+            $('#logsValues').DataTable( {
+                "order": [[ 0, "desc" ]]
+            } );
         });
     <?php echo '</script'; ?>
 >

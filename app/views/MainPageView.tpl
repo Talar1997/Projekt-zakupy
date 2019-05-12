@@ -58,7 +58,7 @@
         </div>
     </div>
 
-    <div id="map"></div>
+    <div id="map" class="interactive-map"></div>
     <script>
         var customLabel = {
             restaurant: {
