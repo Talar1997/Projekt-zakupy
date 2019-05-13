@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-05-13 18:51:17
+/* Smarty version 3.1.33, created on 2019-05-13 18:59:55
   from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\ManageUsersView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cd9a085280066_48778794',
+  'unifunc' => 'content_5cd9a28b5f1b55_65806212',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1a7a0563556299781f4d1aa83b4ecf6480c028f9' => 
     array (
       0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\ManageUsersView.tpl',
-      1 => 1557766275,
+      1 => 1557766792,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5cd9a085280066_48778794 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cd9a28b5f1b55_65806212 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17406587535cd9a0852631b3_57231110', 'intro');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_12297167675cd9a28b5d32b4_51011561', 'intro');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'intro'} */
-class Block_17406587535cd9a0852631b3_57231110 extends Smarty_Internal_Block
+class Block_12297167675cd9a28b5d32b4_51011561 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'intro' => 
   array (
-    0 => 'Block_17406587535cd9a0852631b3_57231110',
+    0 => 'Block_12297167675cd9a28b5d32b4_51011561',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -228,7 +228,8 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         function deleteUser(id) {
             if (confirm("Na pewno chcesz usunąć użytkownika? Nie można będzie cofnąć tej operacji")) {
                 window.location.href = '<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-manageUsers/delete/'+id;
+manageUsers/<?php echo $_smarty_tpl->tpl_vars['offset']->value;?>
+/delete/'+id;
             }
         }
     <?php echo '</script'; ?>
