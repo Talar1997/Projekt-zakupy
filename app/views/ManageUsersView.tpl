@@ -21,25 +21,22 @@
                     <tr>
                         <th scope="row">{$user['id']}</th>
                         <td>{$user['login']}</td>
+                        <td>{$user['name']}</td>
                         <td>
-                            <!-- DO NAPRAWY -->
-                            {foreach $roles as $role}
-                                {foreach $role as $role_id => $role_name}
-                                    {if $role_id == $user['id_role']}
-                                        {$role_name}
-                                    {/if}
-                                {/foreach}
-                            {/foreach}
-                        </td>
-                        <td>
-                            <a type="button" class="btn btn-light btn-sm" href="{$conf->action_root}manageUsers/details/{$user['id']}">Szczegóły</a>
-                            <a type="button" class="btn btn-light btn-sm" href="{$conf->action_root}manageUsers/edit/{$user['id']}">Edytuj</a>
+                            <a type="button" class="btn btn-light btn-sm" href="{$conf->action_root}manageUsers/{$offset}/details/{$user['id']}">Szczegóły</a>
+                            <a type="button" class="btn btn-light btn-sm" href="{$conf->action_root}manageUsers/{$offset}/edit/{$user['id']}">Edytuj</a>
                             <a type="button" class="btn btn-danger btn-sm" onclick="deleteUser('{$user['id']}')">Usuń</a>
                         </td>
                     </tr>
                 {/foreach}
                 </tbody>
             </table>
+
+            {if $next_page > 1}
+                <a type="button" class="btn btn-light btn-sm float-right" href="{$conf->action_root}manageUsers/{$previous_page}">Załaduj poprzednie rekordy</a>
+            {/if}
+            <a type="button" class="btn btn-light btn-sm float-right" href="{$conf->action_root}manageUsers/{$next_page}">Załaduj następne rekordy</a>
+
             {if isset($details)}
                 <table class="table table-hover">
                 <thead>
@@ -77,11 +74,25 @@
                                         {if $key == 'id'}
                                             <input type="hidden" class="form-control" id="{$key}" value="{$val}">
                                         {/if}
-                                        {if $key != 'id'}
+                                        {if $key != 'id' && $key !='id_role' && $key != 'name'}
                                             <div class="form-group">
                                                 <label for="{$key}">{$key}</label>
                                                 <input class="form-control" id="{$key}" value="{$val}">
                                             </div>
+                                        {/if}
+                                        {if $key == 'id_role'}
+                                             <div class="form-group">
+                                                 <label for="{$key}">Rola</label>
+                                                <select class="form-control" name="id_role">
+                                                {foreach $roles as $role}
+                                                    <option value="{$role['id_role']}"
+                                                        {if $role['id_role'] == $val}
+                                                            selected
+                                                        {/if}
+                                                    >{$role['name']}</option>
+                                                {/foreach}
+                                                </select>
+                                             </div>
                                         {/if}
                                     {/foreach}
                                     <input type="submit" value="Edytuj" class="btn btn-primary">

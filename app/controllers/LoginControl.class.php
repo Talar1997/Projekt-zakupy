@@ -69,23 +69,21 @@ class LoginControl
 
         try{
             $accountData = App::getDB()->select("user", [
-                'id',
-                'login',
-                'password',
-                'id_role'
+                "[>]role" => ["id_role" => "id_role"],
+            ],[
+                'user.id',
+                'user.login',
+                'user.password',
+                'role.name',
             ],[
                 'login' => $this->form->login,
                 'password' => md5($this->form->password)
+            ],[
+                "LIMIT" => 1
             ]);
 
             if(!empty($accountData[0]["password"])){
                 $this->accountData = $accountData[0];
-
-                $role = App::getDB()->select("role", "name",[
-                    'id_role' => $this->accountData['id_role']
-                ]);
-
-                $this->accountData['role'] = $role[0];
             }
             else{
                 Utils::addErrorMessage("Nieprawidłowy login lub hasło");
@@ -105,9 +103,9 @@ class LoginControl
         if($this->validateLogin()){
             SessionUtils::storeData("id", $this->accountData["id"]);
             SessionUtils::storeData("login", $this->accountData["login"]);
-            SessionUtils::storeData("role", $this->accountData["role"]);
+            SessionUtils::storeData("role", $this->accountData["name"]);
 
-            RoleUtils::addRole($this->accountData["role"]);
+            RoleUtils::addRole($this->accountData["name"]);
             RoleUtils::addRole("logged");
             Utils::addInfoMessage("Logowanie udane!");
 

@@ -17,19 +17,24 @@ class TestControl
         $data["lat"] = 50.288740;
         $data["lng"] = 19.129940;
 
+        try{
+            $accountData = App::getDB()->select("user", [
+                "[>]role" => ["id_role" => "id_role"],
+            ],[
+                'user.id',
+                'user.login',
+                'user.password',
+                'role.name',
+            ],[
+                'login' => 'admin'
+            ],[
+                "LIMIT" => 1
+            ]);
+        }catch (\PDOException $e){
+            Utils::addErrorMessage("Błąd połączenia z bazą danych");
+        }
 
-        $db = App::getDB()->select("user", "*",[
-            'id' => 2
-        ]);
-
-        $db = $db[0];
-        $data['id_role'] = $db['id_role'];
-
-        $db = App::getDB()->select("role", "name",[
-           'id_role' => $db['id_role']
-        ]);
-
-        $data['role_name'] = $db[0];
+        $data += $accountData[0];
 
         App::getSmarty()->assign('data', $data);
         App::getSmarty()->assign('page_title','Debugger');

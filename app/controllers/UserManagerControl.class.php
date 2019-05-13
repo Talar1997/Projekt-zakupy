@@ -26,12 +26,28 @@ class UserManagerControl
      */
     public $users;
     public $roles;
+    public $offset = 0;
+    public $records = 50;
 
     /**
      *
      */
     public function getUsersFromDB(){
-        $this->users = App::getDB()->select("user", "*");
+        $this->users = App::getDB()->select("user", [
+            "[>]role" => ["id_role" => "id_role"],
+        ],[
+            'user.id',
+            'user.login',
+            'user.password',
+            'user.security_question',
+            'user.security_answer',
+            'user.email',
+            'user.id_role',
+            'role.name',
+        ],[
+            'LIMIT' => [($this->offset * $this->records), $this->records]
+        ]);
+
         $this->roles = App::getDB()->select("role", "*");
     }
 
@@ -42,6 +58,9 @@ class UserManagerControl
         $this->getUsersFromDB();
         App::getSmarty()->assign("roles", $this->roles);
         App::getSmarty()->assign("users", $this->users);
+        App::getSmarty()->assign("offset", $this->offset);
+        App::getSmarty()->assign("next_page", $this->offset + 1);
+        App::getSmarty()->assign("previous_page", $this->offset - 1);
         App::getSmarty()->assign("page_title", "Zarządzanie użytkownikami");
         App::getSmarty()->display("ManageUsersView.tpl");
     }
@@ -50,11 +69,19 @@ class UserManagerControl
      * @param $id
      */
     public function deleteUser($id){
-        $result = App::getDB()->select("user",[
-            'id'
+        $result = App::getDB()->select("user", [
+            "[>]role" => ["id_role" => "id_role"],
+        ],[
+            'user.id',
+            'role.name',
         ],[
             'id' => $id
         ]);
+
+        if(isset($result[0]) && $result[0]['name'] == 'admin'){
+            Utils::addErrorMessage("Nie można usunąć konta administratora. Zmień uprawnienia i spróbuj ponownie");
+            return false;
+        }
 
         if(!empty($result)){
             App::getDB()->delete("user",[
@@ -73,8 +100,8 @@ class UserManagerControl
      * @throws \SmartyException
      */
     public function action_manageUsers(){
-        $option = ParamUtils::getFromCleanURL(1);
-        $user_id = ParamUtils::getFromCleanURL(2);
+        $option = ParamUtils::getFromCleanURL(2);
+        $user_id = ParamUtils::getFromCleanURL(3);
 
         switch ($option){
             case 'details':
@@ -91,6 +118,8 @@ class UserManagerControl
                 break;
         }
 
+        $offset = ParamUtils::getFromCleanURL(1);
+        if(isset($offset) && is_numeric($offset) && $offset >= 0) $this->offset += $offset;
         $this->generateView();
     }
 }

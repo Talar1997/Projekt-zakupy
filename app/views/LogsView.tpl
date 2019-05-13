@@ -27,6 +27,10 @@
                 {/foreach}
                 </tbody>
             </table>
+            {if $next_page > 1}
+                <a type="button" class="btn btn-light btn-sm float-right" href="{$conf->action_root}adminLogs/{$previous_page}">Załaduj nowsze rekordy</a>
+            {/if}
+            <a type="button" class="btn btn-light btn-sm float-right" href="{$conf->action_root}adminLogs/{$next_page}">Załaduj starsze rekordy</a>
         </div>
     </div>
     <script>

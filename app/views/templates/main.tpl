@@ -8,7 +8,6 @@
 	<meta name="author"      content="Adam Talarczyk">
 
 	<link rel="stylesheet" type="text/css" href="{$conf->styles}/alertify.css">
-	<link rel="stylesheet" type="text/css" href="{$conf->styles}/idcard.css" >
 	<link rel="shortcut icon" href="{$conf->images}/gt_favicon.png">
 	<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
 	<link rel="stylesheet" href="{$conf->styles}/bootstrap.min.css">

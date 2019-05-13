@@ -8,7 +8,7 @@
 
 namespace app\controllers;
 
-
+use core\ParamUtils;
 use core\App;
 
 /**
@@ -22,6 +22,9 @@ class LogsControl
      */
     public $logs;
 
+    public $offset = 0;
+    public $records = 100;
+
     /**
      *
      */
@@ -29,7 +32,8 @@ class LogsControl
         $this->logs = App::getDB()->select("action_log", "*",[
             "ORDER" => [
                 "id_log" => "DESC",
-            ]
+            ],
+            'LIMIT' => [($this->offset * $this->records), $this->records]
         ]);
     }
 
@@ -38,6 +42,9 @@ class LogsControl
      */
     public function generateView(){
         $this->getLogsFromDB();
+        App::getSmarty()->assign("offset", $this->offset);
+        App::getSmarty()->assign("next_page", $this->offset + 1);
+        App::getSmarty()->assign("previous_page", $this->offset - 1);
         App::getSmarty()->assign("logs", $this->logs);
         App::getSmarty()->assign("page_title", "Logi administracyjne");
         App::getSmarty()->display("LogsView.tpl");
@@ -47,6 +54,8 @@ class LogsControl
      * @throws \SmartyException
      */
     public function action_adminLogs(){
+        $offset = ParamUtils::getFromCleanURL(1);
+        if(isset($offset) && is_numeric($offset) && $offset >= 0) $this->offset += $offset;
         $this->generateView();
     }
 }
