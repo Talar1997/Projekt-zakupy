@@ -25,12 +25,14 @@ class UserManagerControl
      * @var
      */
     public $users;
+    public $roles;
 
     /**
      *
      */
     public function getUsersFromDB(){
         $this->users = App::getDB()->select("user", "*");
+        $this->roles = App::getDB()->select("role", "*");
     }
 
     /**
@@ -38,6 +40,7 @@ class UserManagerControl
      */
     public function generateView(){
         $this->getUsersFromDB();
+        App::getSmarty()->assign("roles", $this->roles);
         App::getSmarty()->assign("users", $this->users);
         App::getSmarty()->assign("page_title", "Zarządzanie użytkownikami");
         App::getSmarty()->display("ManageUsersView.tpl");

@@ -21,7 +21,7 @@
                     <tr>
                         <th scope="row">{$user['id']}</th>
                         <td>{$user['login']}</td>
-                        <td>{$user['role']}</td>
+                        <td>{$user['id_role']}</td>
                         <td>
                             <a type="button" class="btn btn-light btn-sm" href="{$conf->action_root}manageUsers/details/{$user['id']}">Szczegóły</a>
                             <a type="button" class="btn btn-light btn-sm" href="{$conf->action_root}manageUsers/edit/{$user['id']}">Edytuj</a>

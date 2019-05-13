@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-05-09 20:27:51
-  from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\RestorePasswordView.tpl' */
+/* Smarty version 3.1.33, created on 2019-05-13 12:36:58
+  from '/Applications/XAMPP/xamppfiles/htdocs/Projekt/app/views/RestorePasswordView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cd471275034c1_80401075',
+  'unifunc' => 'content_5cd948cadbef59_57963773',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'd367124513625c19a79598b3490c127536c4e9a1' => 
+    'f5e4893276f11786d959d6e91de9bfa95f5859e5' => 
     array (
-      0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\RestorePasswordView.tpl',
-      1 => 1557426427,
+      0 => '/Applications/XAMPP/xamppfiles/htdocs/Projekt/app/views/RestorePasswordView.tpl',
+      1 => 1557690507,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5cd471275034c1_80401075 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cd948cadbef59_57963773 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_7823841415cd471274ff0a7_08112392', 'intro');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2905965095cd948cadbbe15_78161035', 'intro');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'intro'} */
-class Block_7823841415cd471274ff0a7_08112392 extends Smarty_Internal_Block
+class Block_2905965095cd948cadbbe15_78161035 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'intro' => 
   array (
-    0 => 'Block_7823841415cd471274ff0a7_08112392',
+    0 => 'Block_2905965095cd948cadbbe15_78161035',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

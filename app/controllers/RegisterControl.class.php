@@ -136,19 +136,24 @@ class RegisterControl
      */
     public function insertToDb(){
         try{
+            $userRole_id = App::getDB()->select("role", "id_role",[
+                'name' => 'user'
+            ]);
+
+            $userRole_id = $userRole_id[0];
+
             App::getDB()->insert("user",[
-                'id' => null,
                 'login' => $this->form->login,
                 'password' => md5($this->form->password),
                 'email' => $this->form->email,
-                'role' => 'user',
                 'security_question' => $this->form->security_question,
-                'security_answer' => md5($this->form->security_answer)
+                'security_answer' => md5($this->form->security_answer),
+                'id_role' => $userRole_id
             ]);
             Utils::addInfoMessage("Konto zostało utworzone");
             Logs::addLog("Utworzenie nowego konta: ".$this->form->login);
         }catch(\PDOException $e){
-            Utils::addErrorMessage("Błąd połączenia z bazą danych");
+            Utils::addErrorMessage("Błąd połączenia z bazą danych: ".$e->getMessage());
         }
     }
 

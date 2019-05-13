@@ -19,7 +19,7 @@
                 <tbody>
                 {foreach $logs as $log}
                     <tr>
-                        <th scope="row">{$log['id']}</th>
+                        <th scope="row">{$log['id_log']}</th>
                         <td>{$log['datetime']}</td>
                         <td>{$log['ip']}</td>
                         <td>{$log['log']}</td>

@@ -69,10 +69,10 @@ class LoginControl
 
         try{
             $accountData = App::getDB()->select("user", [
-                'login',
                 'id',
+                'login',
                 'password',
-                'role'
+                'id_role'
             ],[
                 'login' => $this->form->login,
                 'password' => md5($this->form->password)
@@ -80,6 +80,12 @@ class LoginControl
 
             if(!empty($accountData[0]["password"])){
                 $this->accountData = $accountData[0];
+
+                $role = App::getDB()->select("role", "name",[
+                    'id_role' => $this->accountData['id_role']
+                ]);
+
+                $this->accountData['role'] = $role[0];
             }
             else{
                 Utils::addErrorMessage("Nieprawidłowy login lub hasło");

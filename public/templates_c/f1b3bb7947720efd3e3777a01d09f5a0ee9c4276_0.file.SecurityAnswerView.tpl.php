@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-05-09 20:28:09
-  from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\SecurityAnswerView.tpl' */
+/* Smarty version 3.1.33, created on 2019-05-13 12:37:16
+  from '/Applications/XAMPP/xamppfiles/htdocs/Projekt/app/views/SecurityAnswerView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cd4713924fab3_31470600',
+  'unifunc' => 'content_5cd948dc5a9203_55625471',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'b640aa161df29a9357f5cf607543ab1aa83ea03c' => 
+    'f1b3bb7947720efd3e3777a01d09f5a0ee9c4276' => 
     array (
-      0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\SecurityAnswerView.tpl',
-      1 => 1557426486,
+      0 => '/Applications/XAMPP/xamppfiles/htdocs/Projekt/app/views/SecurityAnswerView.tpl',
+      1 => 1557690507,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5cd4713924fab3_31470600 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cd948dc5a9203_55625471 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17123664445cd47139249f39_84473673', 'intro');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17402630255cd948dc5a4ed8_62230419', 'intro');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'intro'} */
-class Block_17123664445cd47139249f39_84473673 extends Smarty_Internal_Block
+class Block_17402630255cd948dc5a4ed8_62230419 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'intro' => 
   array (
-    0 => 'Block_17123664445cd47139249f39_84473673',
+    0 => 'Block_17402630255cd948dc5a4ed8_62230419',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

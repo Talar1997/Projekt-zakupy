@@ -21,7 +21,6 @@ class Logs
      */
     public static function addLog($log){
         App::getDB()->insert("action_log", [
-            'id' => null,
             'datetime' => self::getCurrentDatetime(),
             'ip' => self::getUserIp(),
             'log' => $log

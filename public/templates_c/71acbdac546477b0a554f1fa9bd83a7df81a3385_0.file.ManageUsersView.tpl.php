@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-05-12 23:04:07
-  from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\ManageUsersView.tpl' */
+/* Smarty version 3.1.33, created on 2019-05-13 12:13:47
+  from '/Applications/XAMPP/xamppfiles/htdocs/Projekt/app/views/ManageUsersView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cd88a47c7e278_63312485',
+  'unifunc' => 'content_5cd9435bed7724_02009171',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '1a7a0563556299781f4d1aa83b4ecf6480c028f9' => 
+    '71acbdac546477b0a554f1fa9bd83a7df81a3385' => 
     array (
-      0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\ManageUsersView.tpl',
-      1 => 1557694936,
+      0 => '/Applications/XAMPP/xamppfiles/htdocs/Projekt/app/views/ManageUsersView.tpl',
+      1 => 1557742426,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5cd88a47c7e278_63312485 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cd9435bed7724_02009171 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_21035090065cd88a47c665f5_83026679', 'intro');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_6911120395cd9435bec6c86_99276205', 'intro');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'intro'} */
-class Block_21035090065cd88a47c665f5_83026679 extends Smarty_Internal_Block
+class Block_6911120395cd9435bec6c86_99276205 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'intro' => 
   array (
-    0 => 'Block_21035090065cd88a47c665f5_83026679',
+    0 => 'Block_6911120395cd9435bec6c86_99276205',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -70,7 +70,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['user']->value) {
 </th>
                         <td><?php echo $_smarty_tpl->tpl_vars['user']->value['login'];?>
 </td>
-                        <td><?php echo $_smarty_tpl->tpl_vars['user']->value['role'];?>
+                        <td><?php echo $_smarty_tpl->tpl_vars['user']->value['id_role'];?>
 </td>
                         <td>
                             <a type="button" class="btn btn-light btn-sm" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
@@ -190,7 +190,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     <?php echo '<script'; ?>
 >
         function deleteUser(id) {
-            var txt;
             if (confirm("Na pewno chcesz usunąć użytkownika? Nie można będzie cofnąć tej operacji")) {
                 window.location.href = '<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 manageUsers/delete/'+id;
