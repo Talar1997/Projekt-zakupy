@@ -21,7 +21,16 @@
                     <tr>
                         <th scope="row">{$user['id']}</th>
                         <td>{$user['login']}</td>
-                        <td>{$user['id_role']}</td>
+                        <td>
+                            <!-- DO NAPRAWY -->
+                            {foreach $roles as $role}
+                                {foreach $role as $role_id => $role_name}
+                                    {if $role_id == $user['id_role']}
+                                        {$role_name}
+                                    {/if}
+                                {/foreach}
+                            {/foreach}
+                        </td>
                         <td>
                             <a type="button" class="btn btn-light btn-sm" href="{$conf->action_root}manageUsers/details/{$user['id']}">Szczegóły</a>
                             <a type="button" class="btn btn-light btn-sm" href="{$conf->action_root}manageUsers/edit/{$user['id']}">Edytuj</a>

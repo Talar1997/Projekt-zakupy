@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Czas generowania: 12 Maj 2019, 21:46
--- Wersja serwera: 10.1.26-MariaDB
--- Wersja PHP: 7.1.8
+-- Host: localhost
+-- Czas generowania: 13 Maj 2019, 14:40
+-- Wersja serwera: 10.1.38-MariaDB
+-- Wersja PHP: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `action_log` (
-  `id` int(11) NOT NULL,
+  `id_log` int(11) NOT NULL,
   `datetime` datetime NOT NULL,
   `ip` varchar(20) COLLATE utf8_polish_ci NOT NULL,
   `log` varchar(512) COLLATE utf8_polish_ci NOT NULL
@@ -39,7 +39,7 @@ CREATE TABLE `action_log` (
 -- Zrzut danych tabeli `action_log`
 --
 
-INSERT INTO `action_log` (`id`, `datetime`, `ip`, `log`) VALUES
+INSERT INTO `action_log` (`id_log`, `datetime`, `ip`, `log`) VALUES
 (1, '2019-05-08 18:43:54', '::1', 'Logowanie na konto: admin'),
 (2, '2019-05-08 19:17:26', '::1', 'Logowanie na konto: admin'),
 (3, '2019-05-09 20:28:17', '::1', 'Logowanie na konto: admin'),
@@ -57,7 +57,22 @@ INSERT INTO `action_log` (`id`, `datetime`, `ip`, `log`) VALUES
 (15, '2019-05-09 22:50:27', '::1', 'Logowanie na konto: '),
 (16, '2019-05-09 22:50:35', '::1', 'Logowanie na konto: admin'),
 (17, '2019-05-09 22:51:17', '::1', 'Logowanie na konto: admin'),
-(18, '2019-05-12 21:32:21', '::1', 'Logowanie na konto: admin');
+(18, '2019-05-12 21:32:21', '::1', 'Logowanie na konto: admin'),
+(19, '2019-05-12 21:52:05', '::1', 'Logowanie na konto: admin'),
+(20, '2019-05-13 11:18:43', '::1', 'Logowanie na konto: admin'),
+(21, '2019-05-13 11:34:42', '::1', 'Użytkownik (14) został usunięty przez admin'),
+(22, '2019-05-13 12:08:08', '::1', 'Logowanie na konto: admin'),
+(23, '2019-05-13 12:17:30', '::1', 'Logowanie na konto: admin'),
+(24, '2019-05-13 12:22:43', '::1', 'Logowanie na konto: admin'),
+(25, '2019-05-13 12:35:09', '::1', 'Utworzenie nowego konta: Dupa'),
+(26, '2019-05-13 12:36:00', '::1', 'Utworzenie nowego konta: Talar'),
+(27, '2019-05-13 12:36:04', '::1', 'Logowanie na konto: Talar'),
+(28, '2019-05-13 12:36:11', '::1', 'Logowanie na konto: admin'),
+(29, '2019-05-13 12:36:26', '::1', 'Użytkownik (24) został usunięty przez admin'),
+(30, '2019-05-13 12:36:48', '::1', 'Utworzenie nowego konta: Talar'),
+(31, '2019-05-13 12:37:29', '::1', 'Udana zmiana hasła: Talar1997@mail.com'),
+(32, '2019-05-13 12:38:16', '::1', 'Logowanie na konto: Talar'),
+(33, '2019-05-13 12:38:23', '::1', 'Logowanie na konto: admin');
 
 -- --------------------------------------------------------
 
@@ -88,6 +103,25 @@ INSERT INTO `markers` (`id`, `name`, `address`, `lat`, `lng`, `type`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktura tabeli dla tabeli `role`
+--
+
+CREATE TABLE `role` (
+  `id_role` int(11) NOT NULL,
+  `name` varchar(20) COLLATE utf8_polish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+--
+-- Zrzut danych tabeli `role`
+--
+
+INSERT INTO `role` (`id_role`, `name`) VALUES
+(1, 'admin'),
+(2, 'user');
+
+-- --------------------------------------------------------
+
+--
 -- Struktura tabeli dla tabeli `user`
 --
 
@@ -95,44 +129,49 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `login` varchar(32) COLLATE utf8_polish_ci NOT NULL,
   `password` varchar(64) COLLATE utf8_polish_ci NOT NULL,
-  `role` varchar(16) COLLATE utf8_polish_ci NOT NULL,
   `security_question` varchar(1024) COLLATE utf8_polish_ci NOT NULL,
   `security_answer` varchar(256) COLLATE utf8_polish_ci NOT NULL,
-  `email` varchar(128) COLLATE utf8_polish_ci NOT NULL
+  `email` varchar(128) COLLATE utf8_polish_ci NOT NULL,
+  `id_role` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 --
 -- Zrzut danych tabeli `user`
 --
 
-INSERT INTO `user` (`id`, `login`, `password`, `role`, `security_question`, `security_answer`, `email`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', '2+2', 'a87ff679a2f3e71d9181a67b7542122c', 'admin@admin.pl'),
-(4, 'user', 'ee11cbb19052e40b07aac0ca060c23ee', 'user', '2x10', '98f13708210194c475687be6106a3b84', 'user@user.pl'),
-(11, 'user2', 'a1e03cf022862126dabb2b06e3223521', 'user', 'dupa', '9743a66f914cc249efca164485a19c5c', 'user2@user.pl'),
-(13, 'Chrupek2137', 'a1e03cf022862126dabb2b06e3223521', 'user', 'Dżejson', '8c01efe025e2933e1684867c9f0249a0', 'gunwo@gunwo.pll'),
-(14, 'AdminissstratorPrawie', 'a1e03cf022862126dabb2b06e3223521', 'user', 'asdasdasd', '31d2101c79a61ce5ccac29834141d3a2', 'admin2@2222.pl');
+INSERT INTO `user` (`id`, `login`, `password`, `security_question`, `security_answer`, `email`, `id_role`) VALUES
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'admin@admin.pl', 1),
+(2, 'user', 'ee11cbb19052e40b07aac0ca060c23ee', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user@user.pl', 2),
+(25, 'Talar', '12e5078007b0759c373d29f4b75a2979', 'Serwer', '421aa90e079fa326b6494f812ad13e79', 'talar1997@mail.com', 2);
 
 --
 -- Indeksy dla zrzutów tabel
 --
 
 --
--- Indexes for table `action_log`
+-- Indeksy dla tabeli `action_log`
 --
 ALTER TABLE `action_log`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_log`);
 
 --
--- Indexes for table `markers`
+-- Indeksy dla tabeli `markers`
 --
 ALTER TABLE `markers`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user`
+-- Indeksy dla tabeli `role`
+--
+ALTER TABLE `role`
+  ADD PRIMARY KEY (`id_role`);
+
+--
+-- Indeksy dla tabeli `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `rola` (`id_role`) USING BTREE;
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -142,17 +181,36 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT dla tabeli `action_log`
 --
 ALTER TABLE `action_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+
 --
 -- AUTO_INCREMENT dla tabeli `markers`
 --
 ALTER TABLE `markers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT dla tabeli `role`
+--
+ALTER TABLE `role`
+  MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT dla tabeli `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;COMMIT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- Ograniczenia dla zrzutów tabel
+--
+
+--
+-- Ograniczenia dla tabeli `user`
+--
+ALTER TABLE `user`
+  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`id_role`) REFERENCES `role` (`id_role`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
