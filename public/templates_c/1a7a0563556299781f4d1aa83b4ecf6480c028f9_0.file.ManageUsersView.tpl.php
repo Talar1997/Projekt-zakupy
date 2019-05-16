@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-05-13 18:59:55
+/* Smarty version 3.1.33, created on 2019-05-16 19:39:43
   from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\ManageUsersView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cd9a28b5f1b55_65806212',
+  'unifunc' => 'content_5cdda05f5b8a84_71848651',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1a7a0563556299781f4d1aa83b4ecf6480c028f9' => 
     array (
       0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\ManageUsersView.tpl',
-      1 => 1557766792,
+      1 => 1558028331,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5cd9a28b5f1b55_65806212 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cdda05f5b8a84_71848651 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_12297167675cd9a28b5d32b4_51011561', 'intro');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10493009345cdda05f59b590_86285301', 'intro');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'intro'} */
-class Block_12297167675cd9a28b5d32b4_51011561 extends Smarty_Internal_Block
+class Block_10493009345cdda05f59b590_86285301 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'intro' => 
   array (
-    0 => 'Block_12297167675cd9a28b5d32b4_51011561',
+    0 => 'Block_10493009345cdda05f59b590_86285301',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -100,6 +100,8 @@ manageUsers/<?php echo $_smarty_tpl->tpl_vars['previous_page']->value;?>
             <a type="button" class="btn btn-light btn-sm float-right" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 manageUsers/<?php echo $_smarty_tpl->tpl_vars['next_page']->value;?>
 ">Załaduj następne rekordy</a>
+            <a type="button" class="btn btn-light btn-sm float-right" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+manageUsers/-1">Załaduj wszystkich użytkowników</a>
 
             <?php if (isset($_smarty_tpl->tpl_vars['details']->value)) {?>
                 <table class="table table-hover">
@@ -110,29 +112,18 @@ manageUsers/<?php echo $_smarty_tpl->tpl_vars['next_page']->value;?>
                 </tr>
                 </thead>
                 <tbody>
-                <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['users']->value, 'user');
-if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['user']->value) {
-?>
-                    <?php if ($_smarty_tpl->tpl_vars['user']->value['id'] == $_smarty_tpl->tpl_vars['id']->value) {?>
-                        <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['user']->value, 'val', false, 'key');
+                    <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['userDetails']->value, 'val', false, 'key');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_vars['val']->value) {
 ?>
-                            <tr>
-                                <td><?php echo $_smarty_tpl->tpl_vars['key']->value;?>
+                        <tr>
+                            <td><?php echo $_smarty_tpl->tpl_vars['key']->value;?>
 </td>
-                                <td><?php echo $_smarty_tpl->tpl_vars['val']->value;?>
+                            <td><?php echo $_smarty_tpl->tpl_vars['val']->value;?>
 </td>
-                            </tr>
-                        <?php
-}
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-                    <?php }?>
-                <?php
+                        </tr>
+                    <?php
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
@@ -147,67 +138,53 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                         <h3 class="thin text-center">Edycja użytkownika</h3>
                         <p class="text-center text-muted">Jeżeli nie chcesz edytować niektórych pól, pozostaw je bez zmian.</p>
                         <hr>
-                        <form>
+                        <form method="post" action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+userEdit">
                             <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['users']->value, 'user');
-if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['user']->value) {
-?>
-                                <?php if ($_smarty_tpl->tpl_vars['user']->value['id'] == $_smarty_tpl->tpl_vars['id']->value) {?>
-                                    <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['user']->value, 'val', false, 'key');
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['userDetails']->value, 'val', false, 'key');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_vars['val']->value) {
 ?>
-                                        <?php if ($_smarty_tpl->tpl_vars['key']->value == 'id') {?>
-                                            <input type="hidden" class="form-control" id="<?php echo $_smarty_tpl->tpl_vars['key']->value;?>
+                                <?php if ($_smarty_tpl->tpl_vars['key']->value == 'id') {?>
+                                    <input type="hidden" class="form-control" name="<?php echo $_smarty_tpl->tpl_vars['key']->value;?>
 " value="<?php echo $_smarty_tpl->tpl_vars['val']->value;?>
 ">
-                                        <?php }?>
-                                        <?php if ($_smarty_tpl->tpl_vars['key']->value != 'id' && $_smarty_tpl->tpl_vars['key']->value != 'id_role' && $_smarty_tpl->tpl_vars['key']->value != 'name') {?>
-                                            <div class="form-group">
-                                                <label for="<?php echo $_smarty_tpl->tpl_vars['key']->value;?>
+                                <?php }?>
+                                <?php if ($_smarty_tpl->tpl_vars['key']->value != 'id' && $_smarty_tpl->tpl_vars['key']->value != 'id_role' && $_smarty_tpl->tpl_vars['key']->value != 'name') {?>
+                                    <div class="form-group">
+                                        <label for="<?php echo $_smarty_tpl->tpl_vars['key']->value;?>
 "><?php echo $_smarty_tpl->tpl_vars['key']->value;?>
 </label>
-                                                <input class="form-control" id="<?php echo $_smarty_tpl->tpl_vars['key']->value;?>
+                                        <input class="form-control" name="<?php echo $_smarty_tpl->tpl_vars['key']->value;?>
 " value="<?php echo $_smarty_tpl->tpl_vars['val']->value;?>
 ">
-                                            </div>
-                                        <?php }?>
-                                        <?php if ($_smarty_tpl->tpl_vars['key']->value == 'id_role') {?>
-                                             <div class="form-group">
-                                                 <label for="<?php echo $_smarty_tpl->tpl_vars['key']->value;?>
+                                    </div>
+                                <?php }?>
+                                <?php if ($_smarty_tpl->tpl_vars['key']->value == 'id_role') {?>
+                                    <div class="form-group">
+                                        <label for="<?php echo $_smarty_tpl->tpl_vars['key']->value;?>
 ">Rola</label>
-                                                <select class="form-control" name="id_role">
-                                                <?php
+                                        <select class="form-control" name="id_role">
+                                            <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['roles']->value, 'role');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['role']->value) {
 ?>
-                                                    <option value="<?php echo $_smarty_tpl->tpl_vars['role']->value['id_role'];?>
-"
-                                                        <?php if ($_smarty_tpl->tpl_vars['role']->value['id_role'] == $_smarty_tpl->tpl_vars['val']->value) {?>
-                                                            selected
-                                                        <?php }?>
-                                                    ><?php echo $_smarty_tpl->tpl_vars['role']->value['name'];?>
+                                                <option value="<?php echo $_smarty_tpl->tpl_vars['role']->value['id_role'];?>
+"<?php if ($_smarty_tpl->tpl_vars['role']->value['id_role'] == $_smarty_tpl->tpl_vars['val']->value) {?> selected<?php }?>><?php echo $_smarty_tpl->tpl_vars['role']->value['name'];?>
 </option>
-                                                <?php
+                                            <?php
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-                                                </select>
-                                             </div>
-                                        <?php }?>
-                                    <?php
-}
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-                                    <input type="submit" value="Edytuj" class="btn btn-primary">
+                                        </select>
+                                    </div>
                                 <?php }?>
                             <?php
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                            <input type="submit" value="Edytuj" class="btn btn-primary">
                         </form>
                     </div>
                 </div>

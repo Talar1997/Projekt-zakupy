@@ -56,6 +56,7 @@ class LogsControl
     public function action_adminLogs(){
         $offset = ParamUtils::getFromCleanURL(1);
         if(isset($offset) && is_numeric($offset) && $offset >= 0) $this->offset += $offset;
+        if($offset == -1) $this->records = App::getDB()->count("action_log","*");
         $this->generateView();
     }
 }

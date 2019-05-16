@@ -19,6 +19,7 @@
     //Todo
     Utils::addRoute('addPlace', 'AddPlaceControl', ['admin', 'user']);
     Utils::addRoute('manageUsers', 'UserManagerControl', ['admin']);
+    Utils::addRoute('userEdit', 'UserEditControl', ['admin']);
 
 
     //Utils::addRoute('action_name', 'controller_class_name');

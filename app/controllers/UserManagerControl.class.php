@@ -25,6 +25,7 @@ class UserManagerControl
      * @var
      */
     public $users;
+    public $user;
     public $roles;
     public $offset = 0;
     public $records = 50;
@@ -49,6 +50,25 @@ class UserManagerControl
         ]);
 
         $this->roles = App::getDB()->select("role", "*");
+    }
+
+    public function getUserFromDB($id){
+        $this->user = App::getDB()->select("user", [
+            "[>]role" => ["id_role" => "id_role"],
+        ],[
+            'user.id',
+            'user.login',
+            'user.password',
+            'user.security_question',
+            'user.security_answer',
+            'user.email',
+            'user.id_role',
+            'role.name',
+        ],[
+            'user.id' => $id
+        ]);
+
+        $this->user = $this->user[0];
     }
 
     /**
@@ -105,21 +125,23 @@ class UserManagerControl
 
         switch ($option){
             case 'details':
+                $this->getUserFromDB($user_id);
                 App::getSmarty()->assign("details", true);
-                App::getSmarty()->assign("id", $user_id);
+                App::getSmarty()->assign("userDetails", $this->user);
                 break;
             case "delete" :
                 $this->deleteUser($user_id);
                 break;
             case "edit" :
+                $this->getUserFromDB($user_id);
                 App::getSmarty()->assign("edit", true);
-                App::getSmarty()->assign("id", $user_id);
-                //Do zrobienia
+                App::getSmarty()->assign("userDetails", $this->user);
                 break;
         }
 
         $offset = ParamUtils::getFromCleanURL(1);
         if(isset($offset) && is_numeric($offset) && $offset >= 0) $this->offset += $offset;
+        if($offset == -1) $this->records = App::getDB()->count("user","*");
         $this->generateView();
     }
 }

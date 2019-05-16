@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-05-13 18:54:35
+/* Smarty version 3.1.33, created on 2019-05-16 19:44:37
   from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\LogsView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cd9a14baae2e9_61131532',
+  'unifunc' => 'content_5cdda185ee8ee5_26121216',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fe86d05178a4f1c47ce28ce5283b76c64929096f' => 
     array (
       0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\LogsView.tpl',
-      1 => 1557766408,
+      1 => 1558028656,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5cd9a14baae2e9_61131532 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cdda185ee8ee5_26121216 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_4337969215cd9a14ba9abf0_39950858', 'intro');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2091444465cdda185ed7a69_75787959', 'intro');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'intro'} */
-class Block_4337969215cd9a14ba9abf0_39950858 extends Smarty_Internal_Block
+class Block_2091444465cdda185ed7a69_75787959 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'intro' => 
   array (
-    0 => 'Block_4337969215cd9a14ba9abf0_39950858',
+    0 => 'Block_2091444465cdda185ed7a69_75787959',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -89,6 +89,8 @@ adminLogs/<?php echo $_smarty_tpl->tpl_vars['previous_page']->value;?>
             <a type="button" class="btn btn-light btn-sm float-right" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 adminLogs/<?php echo $_smarty_tpl->tpl_vars['next_page']->value;?>
 ">Załaduj starsze rekordy</a>
+            <a type="button" class="btn btn-light btn-sm float-right" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+adminLogs/-1">Załaduj wszystkie logi</a>
         </div>
     </div>
     <?php echo '<script'; ?>

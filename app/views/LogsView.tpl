@@ -31,6 +31,7 @@
                 <a type="button" class="btn btn-light btn-sm float-right" href="{$conf->action_root}adminLogs/{$previous_page}">Załaduj nowsze rekordy</a>
             {/if}
             <a type="button" class="btn btn-light btn-sm float-right" href="{$conf->action_root}adminLogs/{$next_page}">Załaduj starsze rekordy</a>
+            <a type="button" class="btn btn-light btn-sm float-right" href="{$conf->action_root}adminLogs/-1">Załaduj wszystkie logi</a>
         </div>
     </div>
     <script>
