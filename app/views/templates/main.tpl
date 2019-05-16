@@ -95,7 +95,7 @@
 
 							<a href="https://github.com/Talar1997">https://github.com/Talar1997</a> <br/> <br/>
 
-							<p>Programowanie Aplikacji Webowych, grupa 3</p>
+							<p>Projektowanie Aplikacji Webowych, grupa 3</p>
 						</div>
 					</div>
 

@@ -10,16 +10,32 @@ use core\SessionUtils;
 use core\Utils;
 use core\Validator;
 
+/**
+ * Class UserEditControl
+ * @package app\controllers
+ */
 class UserEditControl
 {
+    /**
+     * @var UserEditForm
+     */
     public $form;
+    /**
+     * @var
+     */
     public $user;
 
+    /**
+     * UserEditControl constructor.
+     */
     public function __construct()
     {
         $this->form = new UserEditForm();
     }
 
+    /**
+     *
+     */
     public function getParams(){
         $this->form->id = ParamUtils::getFromPost('id');
         $this->form->login = ParamUtils::getFromPost('login');
@@ -30,6 +46,9 @@ class UserEditControl
         $this->form->id_role = ParamUtils::getFromPost('id_role');
     }
 
+    /**
+     *
+     */
     public function getCurrentUserData(){
         $this->user = App::getDB()->select("user","*",[
             'id' => $this->form->id
@@ -37,6 +56,9 @@ class UserEditControl
         $this->user = $this->user[0];
     }
 
+    /**
+     * @return bool
+     */
     public function validateForm(){
         $v = new Validator();
         $v->validate($this->form->email,[
@@ -85,6 +107,9 @@ class UserEditControl
         else return false;
     }
 
+    /**
+     * @return bool
+     */
     public function checkForDuplicates(){
         //Sprawdzenie, czy login nie występuje u innego użytkownika
         $suspect = App::getDB()->select('user','id',[
@@ -113,6 +138,9 @@ class UserEditControl
         return true;
     }
 
+    /**
+     *
+     */
     public function updateUser(){
         //Szyfrowanie haseł, jeśli zmieniły się.
         if($this->form->password != $this->user['password']) $this->form->password = md5($this->form->password);
@@ -134,6 +162,9 @@ class UserEditControl
         Logs::addLog("Edycja użytkownika ".$this->form->id." przez administratora: ".$adm );
     }
 
+    /**
+     *
+     */
     public function generateView(){
         if($this->validateForm()) {
             $this->updateUser();
@@ -141,6 +172,9 @@ class UserEditControl
         header("Location: ".App::getConf()->app_url."/manageUsers/0/edit/".$this->form->id);
     }
 
+    /**
+     *
+     */
     public function action_userEdit(){
         $this->getParams();
         $this->getCurrentUserData();

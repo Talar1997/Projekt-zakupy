@@ -5,8 +5,15 @@ use core\App;
 use core\RoleUtils;
 use core\SessionUtils;
 
+/**
+ * Class TestControl
+ * @package app\controllers
+ */
 class TestControl
 {
+    /**
+     * @throws \SmartyException
+     */
     public function action_test(){
         $data["RoleisLogged"] = RoleUtils::inRole("logged");
         $data["RoleisUser"] = RoleUtils::inRole("user");
