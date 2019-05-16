@@ -9,8 +9,12 @@ Projekt stworzony na potrzeby zajęć Języki programowania dynamicznych stron i
 * Szablon HTML - https://www.gettemplate.com/
 * Google Maps API - https://cloud.google.com/maps-platform/
 * Favicon Generator - https://favicon.io/favicon-generator/
+* Zdjęcie w tle na stronie głównej - https://unsplash.com/photos/S8r7iuyjGV4
 
 ## Funkcjonalności
+
+### Strona główna
+Poza kilkoma pierdołami posiada na dole mapę z widokiem wszystkich sklepów dodanych przez wszystkich użytkowników. Menu rozwijane dostosowuje się do roli użytkownika. Jeśli jest niezalogowany, to zobaczy tylko przycisk rejestracji i logowania. Jeśli się zaloguje i jest użytkownikiem, to widzi tylko możliwe opcje dodania sklepów itp, jeżeli jest adminem, to dochodzą również opcje moderowania użytkownikami, sklepami, podgląd logów itp.
 
 ### Rejestracja
 Pozwala użytkownikowi utworzyć nowe konto w serwisie. Strona wymaga podania takich informacji jak:
@@ -41,11 +45,11 @@ Jeżeli wszystkie pola zostaną poprawnie zwalidowane, następuje update w bazie
 Podstrona dla zalogowanych administratorów umożliwiająca przejrzenie logów administracyjnych. Logi przechowywane są w bazie danych w osobnej tabeli, poza treścią znajduje się tam czas, w którym został dodany oraz adres IP wykonawcy danej czynności. W logach zapisują się rejestracje, nieudane oraz udane próby odzyskania hasła, usunięcie/modyfikacja użytkownika przez administratora i inne logi, które pojawią się wraz z implementacją nowych funkcji. Logów nie da się usuwać, można je tylko przeglądać.
 
 ### Zarządzanie użytkownikami
-Zarządzanie użytkownikami sterowane jest osobnym kontrolerem, domyślnie wyświetlana jest lista wszystkich użytkowników wraz z wyszukiwarką obsługiwaną js-owym skryptem z bootstrapa. Na każdym użytkowniku możemy wykonać trzy akcje:
+Zarządzanie użytkownikami sterowane jest osobnym kontrolerem, domyślnie wyświetlana jest lista 50 użytkowników wraz z wyszukiwarką obsługiwaną js-owym skryptem z bootstrapa. Na każdym użytkowniku możemy wykonać trzy akcje:
 - Zobaczyć szczegóły użytkownika - a konkretniej wyświetlić więcej informacji o nim (domyślnie jest id i login), przy podglądzie widzimy wszystkie wartości przechowywane w bazie danych o danym userze
-- Usunąć użytkownika - wiąże się to z usunięciem konkretnego rekordu z bazy i dodaniem wpisu w logach, że taka akcja została wykonana przez danego admdinistratora
-- [Do dokończenia] Edytować użytkownika - skrypt umożliwia zmiane wszystkich wartości poza id. Formularz wysyła do kontrolera wszystkie pola, jednak jeśli dane pole nie różni się od tego w bazie (np. hash hasła) to nie wykona się żadna akcja. Pole hasła jest walidowane tak jak przy rejestracji. Login i email również jest walidowany, sprawdzane jest czy dane wartości nie istnieją już w bazie danych.
-
+- Usunąć użytkownika - wiąże się to z usunięciem konkretnego rekordu z bazy i dodaniem wpisu w logach, że taka akcja została wykonana przez danego administratora. Usunięcie administratora jest niemożliwe, strona zwróci komunikat z informacją, że najpierw trzeba zmienić rolę.
+- Edytować użytkownika - skrypt umożliwia zmiane wszystkich wartości poza id. Formularz wysyła do kontrolera wszystkie pola, jednak jeśli dane pole nie różni się od tego w bazie (np. hash hasła) to nie wykona się żadna akcja. Pole hasła jest walidowane tak jak przy rejestracji. Login i email również jest walidowany, sprawdzane jest czy dane wartości nie istnieją już w bazie danych.
+Możemy również wyświetlić wszystkich użytkowników, bądź przejść do 50 kolejnych. Ta forma zabezpieczenia ma na celu zablokowania możliwości wysypania się czegoś przy większej ilości userów.
 
 ### Dodawanie nowych miejsc
 [do uzupełnienia]
