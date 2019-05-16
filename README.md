@@ -41,6 +41,13 @@ Ktok 1 prowadzi do zweryfikowania, czy podany adres istnieje w bazie danych. Na 
 
 Jeżeli wszystkie pola zostaną poprawnie zwalidowane, następuje update w bazie.
 
+### Role
+W projekcie wyróżnić można kilka ról, prezentującej się w następującej hierarchi:
+- Administrator - osoba z uprawnieniami do wszystkiego, bez wyjątku.
+- Moderator - osoba z mniejszymi uprawnieniami niż admin, nie może usuwać użytkowników, nie może edytować kont administratorów i innych moderatorów, nie może ustawić użytkownikowi wyższej rangi. Moderator może za to zarządzać użytkownikami i zbanowanymi (zmieniać im login, hasła, role (z użytkownika na zbanowanego i na odwrót) itp. Dodatkowo wraz z rozwojem projektu będzie zajmował się moderowaniem sklepów i lokacji. Nie ma dostępu do logów, do podstrony do debugowania ani do generowanego xmla.
+- Użytkownik - posiada najbardziej podstawowe funkcje, takie jak dodawanie nowych miejsc itp.
+- Zbanowany - może przeglądać sklepy i miejsca ale nie może żadnego dodać.
+
 ### Logi administracyjne
 Podstrona dla zalogowanych administratorów umożliwiająca przejrzenie logów administracyjnych. Logi przechowywane są w bazie danych w osobnej tabeli, poza treścią znajduje się tam czas, w którym został dodany oraz adres IP wykonawcy danej czynności. W logach zapisują się rejestracje, nieudane oraz udane próby odzyskania hasła, usunięcie/modyfikacja użytkownika przez administratora i inne logi, które pojawią się wraz z implementacją nowych funkcji. Logów nie da się usuwać, można je tylko przeglądać.
 
