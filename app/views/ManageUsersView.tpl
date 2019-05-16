@@ -79,7 +79,9 @@
                         <td>
                             <a type="button" class="btn btn-light btn-sm" href="{$conf->action_root}manageUsers/{$offset}/details/{$user['id']}">Szczegóły</a>
                             <a type="button" class="btn btn-light btn-sm" href="{$conf->action_root}manageUsers/{$offset}/edit/{$user['id']}">Edytuj</a>
-                            <a type="button" class="btn btn-danger btn-sm" onclick="deleteUser('{$user['id']}')">Usuń</a>
+                            {if core\RoleUtils::inRole("admin")}
+                                <a type="button" class="btn btn-danger btn-sm" onclick="deleteUser('{$user['id']}')">Usuń</a>
+                            {/if}
                         </td>
                     </tr>
                 {/foreach}

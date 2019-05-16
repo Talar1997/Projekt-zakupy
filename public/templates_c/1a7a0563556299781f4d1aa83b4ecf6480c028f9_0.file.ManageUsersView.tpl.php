@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-05-16 20:20:10
+/* Smarty version 3.1.33, created on 2019-05-16 20:53:04
   from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\ManageUsersView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cdda9da58bf28_34248123',
+  'unifunc' => 'content_5cddb1900724b2_99935253',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1a7a0563556299781f4d1aa83b4ecf6480c028f9' => 
     array (
       0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\ManageUsersView.tpl',
-      1 => 1558030808,
+      1 => 1558032781,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5cdda9da58bf28_34248123 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cddb1900724b2_99935253 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_11350399245cdda9da56f976_39854709', 'intro');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_626813455cddb1900569d1_71929477', 'intro');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'intro'} */
-class Block_11350399245cdda9da56f976_39854709 extends Smarty_Internal_Block
+class Block_626813455cddb1900569d1_71929477 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'intro' => 
   array (
-    0 => 'Block_11350399245cdda9da56f976_39854709',
+    0 => 'Block_626813455cddb1900569d1_71929477',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -168,8 +168,10 @@ manageUsers/<?php echo $_smarty_tpl->tpl_vars['offset']->value;?>
 manageUsers/<?php echo $_smarty_tpl->tpl_vars['offset']->value;?>
 /edit/<?php echo $_smarty_tpl->tpl_vars['user']->value['id'];?>
 ">Edytuj</a>
-                            <a type="button" class="btn btn-danger btn-sm" onclick="deleteUser('<?php echo $_smarty_tpl->tpl_vars['user']->value['id'];?>
+                            <?php if (core\RoleUtils::inRole("admin")) {?>
+                                <a type="button" class="btn btn-danger btn-sm" onclick="deleteUser('<?php echo $_smarty_tpl->tpl_vars['user']->value['id'];?>
 ')">Usuń</a>
+                            <?php }?>
                         </td>
                     </tr>
                 <?php

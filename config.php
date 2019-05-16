@@ -23,3 +23,5 @@ $conf->db_option = [ PDO::ATTR_CASE => PDO::CASE_NATURAL, PDO::ATTR_ERRMODE => P
 $conf->styles = $conf->app_root.'/assets/css';
 $conf->scripts = $conf->app_root.'/assets/js';
 $conf->images = $conf->app_root.'/assets/images';
+
+//$conf->debug = false;

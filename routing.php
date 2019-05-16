@@ -17,9 +17,9 @@
     Utils::addRoute('adminLogs', 'LogsControl', ['admin']);
 
     //Todo
-    Utils::addRoute('addPlace', 'AddPlaceControl', ['admin', 'user']);
-    Utils::addRoute('manageUsers', 'UserManagerControl', ['admin']);
-    Utils::addRoute('userEdit', 'UserEditControl', ['admin']);
+    Utils::addRoute('addPlace', 'AddPlaceControl', ['admin', 'moderator' , 'user']);
+    Utils::addRoute('manageUsers', 'UserManagerControl', ['admin', 'moderator']);
+    Utils::addRoute('userEdit', 'UserEditControl', ['admin', 'moderator']);
 
 
     //Utils::addRoute('action_name', 'controller_class_name');

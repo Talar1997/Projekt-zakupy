@@ -130,6 +130,10 @@ class UserManagerControl
                 App::getSmarty()->assign("userDetails", $this->user);
                 break;
             case "delete" :
+                if(SessionUtils::loadData('role', true) == 'moderator'){
+                    Utils::addErrorMessage("Tylko administrator może usuwać użytkowników!");
+                    break;
+                }
                 $this->deleteUser($user_id);
                 break;
             case "edit" :

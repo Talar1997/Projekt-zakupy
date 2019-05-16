@@ -102,6 +102,7 @@ class UserEditControl
         ]);
 
         $this->checkForDuplicates();
+        $this->checkIsForbidden();
 
         if(!App::getMessages()->isError()) return true;
         else return false;
@@ -138,6 +139,22 @@ class UserEditControl
         return true;
     }
 
+    public function checkIsForbidden(){
+        if(SessionUtils::loadData('role', true) == 'moderator'){
+            if($this->user['id_role'] <= 2){
+                Utils::addErrorMessage("Moderator nie może edytować kont innych niż użytkownik i zbanowany!");
+                return false;
+            }
+
+            if($this->form->id_role <= 2){
+                Utils::addErrorMessage("Moderator nie może nadawać uprawnień administratora ani moderatora!");
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     /**
      *
      */
@@ -158,8 +175,9 @@ class UserEditControl
         ]);
 
         Utils::addInfoMessage("Pomyślnie zmieniono dane użytkownika");
-        $adm = SessionUtils::loadData('login', true);
-        Logs::addLog("Edycja użytkownika ".$this->form->id." przez administratora: ".$adm );
+        $login = SessionUtils::loadData('login', true);
+        $role = SessionUtils::loadData('role', true);
+        Logs::addLog("Edycja użytkownika ".$this->form->id." przez ".$role.": ".$login );
     }
 
     /**

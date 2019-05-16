@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Czas generowania: 13 Maj 2019, 14:40
--- Wersja serwera: 10.1.38-MariaDB
--- Wersja PHP: 7.3.2
+-- Host: 127.0.0.1
+-- Czas generowania: 16 Maj 2019, 21:23
+-- Wersja serwera: 10.1.26-MariaDB
+-- Wersja PHP: 7.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -72,7 +72,54 @@ INSERT INTO `action_log` (`id_log`, `datetime`, `ip`, `log`) VALUES
 (30, '2019-05-13 12:36:48', '::1', 'Utworzenie nowego konta: Talar'),
 (31, '2019-05-13 12:37:29', '::1', 'Udana zmiana hasła: Talar1997@mail.com'),
 (32, '2019-05-13 12:38:16', '::1', 'Logowanie na konto: Talar'),
-(33, '2019-05-13 12:38:23', '::1', 'Logowanie na konto: admin');
+(33, '2019-05-13 12:38:23', '::1', 'Logowanie na konto: admin'),
+(34, '2019-05-13 18:56:34', '::1', 'Logowanie na konto: admin'),
+(35, '2019-05-16 16:47:49', '::1', 'Logowanie na konto: admin'),
+(36, '2019-05-16 19:28:27', '::1', 'Logowanie na konto: userXD10'),
+(37, '2019-05-16 19:35:22', '::1', 'Edycja użytkownika 10 przez administratora: userXD10'),
+(38, '2019-05-16 19:36:37', '::1', 'Edycja użytkownika 2 przez administratora: userXD10'),
+(39, '2019-05-16 19:44:47', '::1', 'Logowanie na konto: admin'),
+(40, '2019-05-16 20:41:34', '::1', 'Logowanie na konto: admin'),
+(41, '2019-05-16 20:48:21', '::1', 'Logowanie na konto: admin'),
+(42, '2019-05-16 20:48:33', '::1', 'Edycja użytkownika 9 przez administratora: admin'),
+(43, '2019-05-16 20:48:40', '::1', 'Logowanie na konto: user9'),
+(44, '2019-05-16 20:49:35', '::1', 'Logowanie na konto: admin'),
+(45, '2019-05-16 20:49:51', '::1', 'Edycja użytkownika 6 przez administratora: admin'),
+(46, '2019-05-16 20:49:56', '::1', 'Edycja użytkownika 6 przez administratora: admin'),
+(47, '2019-05-16 20:50:10', '::1', 'Logowanie na konto: moderator6'),
+(48, '2019-05-16 20:50:13', '::1', 'Logowanie na konto: '),
+(49, '2019-05-16 20:50:14', '::1', 'Logowanie na konto: '),
+(50, '2019-05-16 20:50:19', '::1', 'Logowanie na konto: '),
+(51, '2019-05-16 20:51:05', '::1', 'Logowanie na konto: '),
+(52, '2019-05-16 20:52:14', '::1', 'Logowanie na konto: '),
+(53, '2019-05-16 20:54:46', '::1', 'Logowanie na konto: admin'),
+(54, '2019-05-16 20:55:33', '::1', 'Użytkownik (8) został usunięty przez admin'),
+(55, '2019-05-16 20:59:24', '::1', 'Logowanie na konto: moderator6'),
+(56, '2019-05-16 20:59:33', '::1', 'Edycja użytkownika 2 przez administratora: moderator6'),
+(57, '2019-05-16 20:59:45', '::1', 'Edycja użytkownika 2 przez administratora: moderator6'),
+(58, '2019-05-16 21:01:39', '::1', 'Edycja użytkownika 2 przez administratora: moderator6'),
+(59, '2019-05-16 21:01:53', '::1', 'Edycja użytkownika 2 przez administratora: moderator6'),
+(60, '2019-05-16 21:09:53', '::1', 'Edycja użytkownika 2 przez administratora: moderator6'),
+(61, '2019-05-16 21:09:55', '::1', 'Edycja użytkownika 2 przez administratora: moderator6'),
+(62, '2019-05-16 21:10:16', '::1', 'Edycja użytkownika 3 przez administratora: moderator6'),
+(63, '2019-05-16 21:10:20', '::1', 'Edycja użytkownika 3 przez administratora: moderator6'),
+(64, '2019-05-16 21:11:12', '::1', 'Edycja użytkownika 3 przez administratora: moderator6'),
+(65, '2019-05-16 21:11:15', '::1', 'Edycja użytkownika 3 przez administratora: moderator6'),
+(66, '2019-05-16 21:12:20', '::1', 'Edycja użytkownika 3 przez administratora: moderator6'),
+(67, '2019-05-16 21:13:09', '::1', 'Logowanie na konto: admin'),
+(68, '2019-05-16 21:14:07', '::1', 'Edycja użytkownika 2 przez admin: admin'),
+(69, '2019-05-16 21:14:12', '::1', 'Edycja użytkownika 4 przez admin: admin'),
+(70, '2019-05-16 21:14:18', '::1', 'Edycja użytkownika 5 przez admin: admin'),
+(71, '2019-05-16 21:14:22', '::1', 'Edycja użytkownika 6 przez admin: admin'),
+(72, '2019-05-16 21:14:28', '::1', 'Edycja użytkownika 7 przez admin: admin'),
+(73, '2019-05-16 21:22:17', '::1', 'Edycja użytkownika 2 przez admin: admin'),
+(74, '2019-05-16 21:22:23', '::1', 'Edycja użytkownika 3 przez admin: admin'),
+(75, '2019-05-16 21:22:29', '::1', 'Edycja użytkownika 4 przez admin: admin'),
+(76, '2019-05-16 21:22:35', '::1', 'Edycja użytkownika 7 przez admin: admin'),
+(77, '2019-05-16 21:22:42', '::1', 'Edycja użytkownika 5 przez admin: admin'),
+(78, '2019-05-16 21:22:48', '::1', 'Edycja użytkownika 6 przez admin: admin'),
+(79, '2019-05-16 21:22:56', '::1', 'Edycja użytkownika 10 przez admin: admin'),
+(80, '2019-05-16 21:23:26', '::1', 'Logowanie na konto: admin');
 
 -- --------------------------------------------------------
 
@@ -117,7 +164,9 @@ CREATE TABLE `role` (
 
 INSERT INTO `role` (`id_role`, `name`) VALUES
 (1, 'admin'),
-(2, 'user');
+(2, 'moderator'),
+(3, 'user'),
+(4, 'zbanowany');
 
 -- --------------------------------------------------------
 
@@ -141,130 +190,128 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `login`, `password`, `security_question`, `security_answer`, `email`, `id_role`) VALUES
 (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'admin@admin.pl', 1),
-(2, 'user', 'ee11cbb19052e40b07aac0ca060c23ee', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user@user.pl', 2),
-(3, 'user3', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user3@localhost.pl', 2),
-(4, 'user4', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user4@localhost.pl', 2),
-(5, 'user5', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user5@localhost.pl', 2),
-(6, 'user6', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user6@localhost.pl', 2),
-(7, 'user7', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user7@localhost.pl', 2),
-(8, 'user8', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user8@localhost.pl', 2),
-(9, 'user9', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user9@localhost.pl', 2),
-(10, 'user10', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user10@localhost.pl', 2),
-(11, 'user11', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user11@localhost.pl', 2),
-(12, 'user12', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user12@localhost.pl', 2),
-(13, 'user13', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user13@localhost.pl', 2),
-(14, 'user14', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user14@localhost.pl', 2),
+(2, 'PierwszyUser', 'ee11cbb19052e40b07aac0ca060c23ee', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user@local.pl', 3),
+(3, 'DrugiUser', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user3@localhost.pl', 3),
+(4, 'TrzeciUser', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user4@localhost.pl', 3),
+(5, 'Moderator1', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user5@localhost.pl', 2),
+(6, 'ZbanowanyZbyszek', 'a1e03cf022862126dabb2b06e3223521', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user6@localhost.pl', 4),
+(7, 'user', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user7@localhost.pl', 3),
+(9, 'user9', 'a1e03cf022862126dabb2b06e3223521', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user9@localhost.pl', 3),
+(10, 'DrugiAdmin', '64a4e327e97c1e7926f9240edb937362', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user18x0@localhost.pl', 1),
+(11, 'user11', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user11@localhost.pl', 3),
+(12, 'user12', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user12@localhost.pl', 4),
+(13, 'user13', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user13@localhost.pl', 3),
+(14, 'user14', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user14@localhost.pl', 3),
 (15, 'user15', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user15@localhost.pl', 2),
-(16, 'user16', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user16@localhost.pl', 2),
-(17, 'user17', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user17@localhost.pl', 2),
-(18, 'user18', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user18@localhost.pl', 2),
-(19, 'user19', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user19@localhost.pl', 2),
-(20, 'user20', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user20@localhost.pl', 2),
-(21, 'user21', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user21@localhost.pl', 2),
-(22, 'user22', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user22@localhost.pl', 2),
-(23, 'user23', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user23@localhost.pl', 2),
-(24, 'user24', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user24@localhost.pl', 2),
+(16, 'user16', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user16@localhost.pl', 3),
+(17, 'user17', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user17@localhost.pl', 3),
+(18, 'user18', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user18@localhost.pl', 4),
+(19, 'user19', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user19@localhost.pl', 3),
+(20, 'user20', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user20@localhost.pl', 1),
+(21, 'user21', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user21@localhost.pl', 3),
+(22, 'user22', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user22@localhost.pl', 3),
+(23, 'user23', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user23@localhost.pl', 3),
+(24, 'user24', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user24@localhost.pl', 4),
 (25, 'user25', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user25@localhost.pl', 2),
-(26, 'user26', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user26@localhost.pl', 2),
-(27, 'user27', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user27@localhost.pl', 2),
-(28, 'user28', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user28@localhost.pl', 2),
-(29, 'user29', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user29@localhost.pl', 2),
-(30, 'user30', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user30@localhost.pl', 2),
-(31, 'user31', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user31@localhost.pl', 2),
-(32, 'user32', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user32@localhost.pl', 2),
-(33, 'user33', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user33@localhost.pl', 2),
-(34, 'user34', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user34@localhost.pl', 2),
+(26, 'user26', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user26@localhost.pl', 3),
+(27, 'user27', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user27@localhost.pl', 3),
+(28, 'user28', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user28@localhost.pl', 3),
+(29, 'user29', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user29@localhost.pl', 3),
+(30, 'user30', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user30@localhost.pl', 1),
+(31, 'user31', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user31@localhost.pl', 3),
+(32, 'user32', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user32@localhost.pl', 3),
+(33, 'user33', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user33@localhost.pl', 3),
+(34, 'user34', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user34@localhost.pl', 3),
 (35, 'user35', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user35@localhost.pl', 2),
-(36, 'user36', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user36@localhost.pl', 2),
-(37, 'user37', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user37@localhost.pl', 2),
-(38, 'user38', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user38@localhost.pl', 2),
-(39, 'user39', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user39@localhost.pl', 2),
-(40, 'user40', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user40@localhost.pl', 2),
-(41, 'user41', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user41@localhost.pl', 2),
-(42, 'user42', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user42@localhost.pl', 2),
-(43, 'user43', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user43@localhost.pl', 2),
-(44, 'user44', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user44@localhost.pl', 2),
+(36, 'user36', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user36@localhost.pl', 4),
+(37, 'user37', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user37@localhost.pl', 3),
+(38, 'user38', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user38@localhost.pl', 3),
+(39, 'user39', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user39@localhost.pl', 3),
+(40, 'user40', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user40@localhost.pl', 1),
+(41, 'user41', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user41@localhost.pl', 3),
+(42, 'user42', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user42@localhost.pl', 4),
+(43, 'user43', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user43@localhost.pl', 3),
+(44, 'user44', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user44@localhost.pl', 3),
 (45, 'user45', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user45@localhost.pl', 2),
-(46, 'user46', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user46@localhost.pl', 2),
-(47, 'user47', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user47@localhost.pl', 2),
-(48, 'user48', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user48@localhost.pl', 2),
-(49, 'user49', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user49@localhost.pl', 2),
-(50, 'user50', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user50@localhost.pl', 2),
-(51, 'user51', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user51@localhost.pl', 2),
-(52, 'user52', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user52@localhost.pl', 2),
-(53, 'user53', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user53@localhost.pl', 2),
-(54, 'user54', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user54@localhost.pl', 2),
+(46, 'user46', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user46@localhost.pl', 3),
+(47, 'user47', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user47@localhost.pl', 3),
+(48, 'user48', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user48@localhost.pl', 4),
+(49, 'user49', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user49@localhost.pl', 3),
+(50, 'user50', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user50@localhost.pl', 1),
+(51, 'user51', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user51@localhost.pl', 3),
+(52, 'user52', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user52@localhost.pl', 3),
+(53, 'user53', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user53@localhost.pl', 3),
+(54, 'user54', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user54@localhost.pl', 4),
 (55, 'user55', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user55@localhost.pl', 2),
-(56, 'user56', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user56@localhost.pl', 2),
-(57, 'user57', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user57@localhost.pl', 2),
-(58, 'user58', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user58@localhost.pl', 2),
-(59, 'user59', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user59@localhost.pl', 2),
-(60, 'user60', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user60@localhost.pl', 2),
-(61, 'user61', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user61@localhost.pl', 2),
-(62, 'user62', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user62@localhost.pl', 2),
-(63, 'user63', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user63@localhost.pl', 2),
-(64, 'user64', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user64@localhost.pl', 2),
+(56, 'user56', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user56@localhost.pl', 3),
+(57, 'user57', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user57@localhost.pl', 3),
+(58, 'user58', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user58@localhost.pl', 3),
+(59, 'user59', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user59@localhost.pl', 3),
+(60, 'user60', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user60@localhost.pl', 1),
+(61, 'user61', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user61@localhost.pl', 3),
+(62, 'user62', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user62@localhost.pl', 3),
+(63, 'user63', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user63@localhost.pl', 3),
+(64, 'user64', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user64@localhost.pl', 3),
 (65, 'user65', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user65@localhost.pl', 2),
-(66, 'user66', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user66@localhost.pl', 2),
-(67, 'user67', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user67@localhost.pl', 2),
-(68, 'user68', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user68@localhost.pl', 2),
-(69, 'user69', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user69@localhost.pl', 2),
-(70, 'user70', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user70@localhost.pl', 2),
-(71, 'user71', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user71@localhost.pl', 2),
-(72, 'user72', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user72@localhost.pl', 2),
-(73, 'user73', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user73@localhost.pl', 2),
-(74, 'user74', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user74@localhost.pl', 2),
+(66, 'user66', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user66@localhost.pl', 4),
+(67, 'user67', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user67@localhost.pl', 3),
+(68, 'user68', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user68@localhost.pl', 3),
+(69, 'user69', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user69@localhost.pl', 3),
+(70, 'user70', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user70@localhost.pl', 1),
+(71, 'user71', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user71@localhost.pl', 3),
+(72, 'user72', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user72@localhost.pl', 4),
+(73, 'user73', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user73@localhost.pl', 3),
+(74, 'user74', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user74@localhost.pl', 3),
 (75, 'user75', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user75@localhost.pl', 2),
-(76, 'user76', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user76@localhost.pl', 2),
-(77, 'user77', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user77@localhost.pl', 2),
-(78, 'user78', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user78@localhost.pl', 2),
-(79, 'user79', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user79@localhost.pl', 2),
-(80, 'user80', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user80@localhost.pl', 2),
-(81, 'user81', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user81@localhost.pl', 2),
-(82, 'user82', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user82@localhost.pl', 2),
-(83, 'user83', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user83@localhost.pl', 2),
-(84, 'user84', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user84@localhost.pl', 2),
+(76, 'user76', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user76@localhost.pl', 3),
+(77, 'user77', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user77@localhost.pl', 3),
+(78, 'user78', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user78@localhost.pl', 4),
+(79, 'user79', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user79@localhost.pl', 3),
+(80, 'user80', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user80@localhost.pl', 1),
+(81, 'user81', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user81@localhost.pl', 3),
+(82, 'user82', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user82@localhost.pl', 3),
+(83, 'user83', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user83@localhost.pl', 3),
+(84, 'user84', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user84@localhost.pl', 4),
 (85, 'user85', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user85@localhost.pl', 2),
-(86, 'user86', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user86@localhost.pl', 2),
-(87, 'user87', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user87@localhost.pl', 2),
-(88, 'user88', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user88@localhost.pl', 2),
-(89, 'user89', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user89@localhost.pl', 2),
-(90, 'user90', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user90@localhost.pl', 2),
-(91, 'user91', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user91@localhost.pl', 2),
-(92, 'user92', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user92@localhost.pl', 2),
-(93, 'user93', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user93@localhost.pl', 2),
-(94, 'user94', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user94@localhost.pl', 2),
+(86, 'user86', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user86@localhost.pl', 3),
+(87, 'user87', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user87@localhost.pl', 3),
+(88, 'user88', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user88@localhost.pl', 3),
+(89, 'user89', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user89@localhost.pl', 3),
+(90, 'user90', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user90@localhost.pl', 1),
+(91, 'user91', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user91@localhost.pl', 3),
+(92, 'user92', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user92@localhost.pl', 3),
+(93, 'user93', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user93@localhost.pl', 3),
+(94, 'user94', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user94@localhost.pl', 3),
 (95, 'user95', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user95@localhost.pl', 2),
-(96, 'user96', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user96@localhost.pl', 2),
-(97, 'user97', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user97@localhost.pl', 2),
-(98, 'user98', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user98@localhost.pl', 2),
-(99, 'user99', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user99@localhost.pl', 2);
-
+(96, 'user96', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user96@localhost.pl', 4),
+(97, 'user97', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user97@localhost.pl', 3),
+(98, 'user98', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user98@localhost.pl', 3),
+(99, 'user99', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user99@localhost.pl', 3);
 
 --
 -- Indeksy dla zrzutów tabel
 --
 
 --
--- Indeksy dla tabeli `action_log`
+-- Indexes for table `action_log`
 --
 ALTER TABLE `action_log`
   ADD PRIMARY KEY (`id_log`);
 
 --
--- Indeksy dla tabeli `markers`
+-- Indexes for table `markers`
 --
 ALTER TABLE `markers`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeksy dla tabeli `role`
+-- Indexes for table `role`
 --
 ALTER TABLE `role`
   ADD PRIMARY KEY (`id_role`);
 
 --
--- Indeksy dla tabeli `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
@@ -278,26 +325,22 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT dla tabeli `action_log`
 --
 ALTER TABLE `action_log`
-  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
-
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 --
 -- AUTO_INCREMENT dla tabeli `markers`
 --
 ALTER TABLE `markers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
 -- AUTO_INCREMENT dla tabeli `role`
 --
 ALTER TABLE `role`
-  MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
+  MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT dla tabeli `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 --
 -- Ograniczenia dla zrzutów tabel
 --

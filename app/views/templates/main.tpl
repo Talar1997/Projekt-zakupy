@@ -52,11 +52,14 @@
 									<li><a href="{$conf->action_root}addPlace">Dodaj sklep</a></li>
 									<li><a href="{$conf->action_root}xxx">xRanking użytkowników</a></li>
 									<li><a href="{$conf->action_root}xxx">xMój profil</a></li>
-									{if core\RoleUtils::inRole("admin")}
+									{if core\RoleUtils::inRole("admin") || core\RoleUtils::inRole("moderator")}
 										<li class="divider"></li>
 										<li><a href="{$conf->action_root}manageUsers">Moderuj użytkowników</a></li>
-										<li><a href="{$conf->action_root}adminLogs">Logi administracyjne</a></li>
 										<li><a href="{$conf->action_root}yyy">xModeruj sklepy</a></li>
+										<li class="divider"></li>
+									{/if}
+									{if core\RoleUtils::inRole("admin")}
+										<li><a href="{$conf->action_root}adminLogs">Logi administracyjne</a></li>
 										<li><a href="{$conf->action_root}test">Debuger</a></li>
 										<li><a href="{$conf->action_root}generateXML">XML</a></li>
 										<li class="divider"></li>
