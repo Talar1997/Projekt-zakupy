@@ -17,4 +17,6 @@ class UserEditForm
     public $security_answer;
     public $email;
     public $id_role;
+    public $reputation;
+    public $description;
 }

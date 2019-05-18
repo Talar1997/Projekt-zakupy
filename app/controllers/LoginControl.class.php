@@ -105,6 +105,12 @@ class LoginControl
             SessionUtils::storeData("login", $this->accountData["login"]);
             SessionUtils::storeData("role", $this->accountData["name"]);
 
+            App::getDB()->update('user_details',[
+                'last_login' => (new \DateTime())->format('Y-m-d H:i:s')
+            ],[
+                'id_details' => $this->accountData["id"]
+            ]);
+
             RoleUtils::addRole($this->accountData["name"]);
             RoleUtils::addRole("logged");
             Utils::addInfoMessage("Logowanie udane!");

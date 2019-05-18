@@ -27,7 +27,7 @@ class UserManagerControl
     public $users;
     public $user;
     public $roles;
-    public $offset = 0;
+    public $offset = 1;
     public $records = 50;
 
     /**
@@ -46,7 +46,7 @@ class UserManagerControl
             'user.id_role',
             'role.name',
         ],[
-            'LIMIT' => [($this->offset * $this->records), $this->records]
+            'LIMIT' => [(($this->offset - 1) * $this->records), $this->records]
         ]);
 
         $this->roles = App::getDB()->select("role", "*");
@@ -55,6 +55,7 @@ class UserManagerControl
     public function getUserFromDB($id){
         $this->user = App::getDB()->select("user", [
             "[>]role" => ["id_role" => "id_role"],
+            "[>]user_details" => ["id" => "id_details"]
         ],[
             'user.id',
             'user.login',
@@ -62,6 +63,8 @@ class UserManagerControl
             'user.security_question',
             'user.security_answer',
             'user.email',
+            'user_details.description',
+            'user_details.reputation',
             'user.id_role',
             'role.name',
         ],[
@@ -143,9 +146,11 @@ class UserManagerControl
                 break;
         }
 
+
+        //Może by użyć validatora?
         $offset = ParamUtils::getFromCleanURL(1);
-        if(isset($offset) && is_numeric($offset) && $offset >= 0) $this->offset += $offset;
-        if($offset == -1) $this->records = App::getDB()->count("user","*");
+        if(isset($offset) && is_numeric($offset) && $offset > 0) $this->offset += $offset - 1;
+        if($offset == 0) $this->records = App::getDB()->count("user","*");
         $this->generateView();
     }
 }

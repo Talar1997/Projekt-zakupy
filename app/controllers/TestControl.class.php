@@ -27,11 +27,16 @@ class TestControl
         try{
             $accountData = App::getDB()->select("user", [
                 "[>]role" => ["id_role" => "id_role"],
+                "[>]user_details" => ["id" => "id_details"]
             ],[
                 'user.id',
                 'user.login',
                 'user.password',
                 'role.name',
+                'user_details.reputation',
+                'user_details.description',
+                'user_details.register_date',
+                'user_details.last_login'
             ],[
                 'login' => 'admin'
             ],[
@@ -47,6 +52,11 @@ class TestControl
         App::getSmarty()->assign('page_title','Debugger');
         App::getSmarty()->assign('page_description','Debugger');
         App::getSmarty()->display('TestView.tpl');
+
+        /*$d = (new \DateTime())->format('Y-m-d H:i:s');
+        for($i = 1; $i < 100; $i++){
+            echo "('$i', 'default.jpg', '$i', 'Lorem ipsum', '$d', '$d'), <br/>";
+        }*/
     }
 
 }

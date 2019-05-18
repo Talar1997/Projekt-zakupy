@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 16 Maj 2019, 21:23
+-- Czas generowania: 18 Maj 2019, 20:58
 -- Wersja serwera: 10.1.26-MariaDB
 -- Wersja PHP: 7.1.8
 
@@ -119,7 +119,28 @@ INSERT INTO `action_log` (`id_log`, `datetime`, `ip`, `log`) VALUES
 (77, '2019-05-16 21:22:42', '::1', 'Edycja użytkownika 5 przez admin: admin'),
 (78, '2019-05-16 21:22:48', '::1', 'Edycja użytkownika 6 przez admin: admin'),
 (79, '2019-05-16 21:22:56', '::1', 'Edycja użytkownika 10 przez admin: admin'),
-(80, '2019-05-16 21:23:26', '::1', 'Logowanie na konto: admin');
+(80, '2019-05-16 21:23:26', '::1', 'Logowanie na konto: admin'),
+(81, '2019-05-16 21:30:46', '::1', 'Logowanie na konto: admin'),
+(82, '2019-05-18 13:09:48', '::1', 'Logowanie na konto: admin'),
+(83, '2019-05-18 13:15:19', '::1', 'Edycja użytkownika 50 przez admin: admin'),
+(84, '2019-05-18 13:15:25', '::1', 'Użytkownik (50) został usunięty przez admin'),
+(85, '2019-05-18 13:56:32', '::1', 'Edycja użytkownika 1 przez admin: admin'),
+(86, '2019-05-18 13:56:39', '::1', 'Logowanie na konto: admin'),
+(87, '2019-05-18 13:57:34', '::1', 'Utworzenie nowego konta: user'),
+(88, '2019-05-18 13:57:41', '::1', 'Logowanie na konto: user'),
+(89, '2019-05-18 14:52:30', '::1', 'Logowanie na konto: admin'),
+(90, '2019-05-18 19:47:25', '::1', 'Utworzenie nowego konta: adsasda'),
+(91, '2019-05-18 19:48:53', '::1', 'Logowanie na konto: admin'),
+(92, '2019-05-18 19:56:50', '::1', 'Logowanie na konto: admin'),
+(93, '2019-05-18 19:57:45', '::1', 'Logowanie na konto: admin'),
+(94, '2019-05-18 20:46:18', '::1', 'Logowanie na konto: admin'),
+(95, '2019-05-18 20:52:11', '::1', 'Edycja użytkownika 2 przez admin: admin'),
+(96, '2019-05-18 20:52:15', '::1', 'Edycja użytkownika 2 przez admin: admin'),
+(97, '2019-05-18 20:54:30', '::1', 'Edycja użytkownika 2 przez admin: admin'),
+(98, '2019-05-18 20:55:45', '::1', 'Utworzenie nowego konta: nowyAdmin'),
+(99, '2019-05-18 20:55:49', '::1', 'Logowanie na konto: admin'),
+(100, '2019-05-18 20:56:12', '::1', 'Edycja użytkownika 100 przez admin: admin'),
+(101, '2019-05-18 20:56:15', '::1', 'Edycja użytkownika 100 przez admin: admin');
 
 -- --------------------------------------------------------
 
@@ -286,7 +307,129 @@ INSERT INTO `user` (`id`, `login`, `password`, `security_question`, `security_an
 (96, 'user96', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user96@localhost.pl', 4),
 (97, 'user97', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user97@localhost.pl', 3),
 (98, 'user98', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user98@localhost.pl', 3),
-(99, 'user99', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user99@localhost.pl', 3);
+(99, 'user99', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user99@localhost.pl', 3),
+(100, 'nowyAdmin', 'a1e03cf022862126dabb2b06e3223521', 'test', '098f6bcd4621d373cade4e832627b4f6', 'admin@pl.admin', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `user_details`
+--
+
+CREATE TABLE `user_details` (
+  `id_details` int(11) NOT NULL,
+  `avatar_ref` varchar(128) COLLATE utf8_polish_ci NOT NULL DEFAULT 'default.jpg',
+  `reputation` int(11) NOT NULL DEFAULT '0',
+  `description` text COLLATE utf8_polish_ci NOT NULL,
+  `last_login` datetime NOT NULL,
+  `register_date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+--
+-- Zrzut danych tabeli `user_details`
+--
+
+INSERT INTO `user_details` (`id_details`, `avatar_ref`, `reputation`, `description`, `last_login`, `register_date`) VALUES
+(1, 'default.jpg', 1, 'Lorem ipsum', '2019-05-18 20:55:49', '2019-05-18 20:26:19'),
+(2, 'default.jpg', 20, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(3, 'default.jpg', 3, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(4, 'default.jpg', 4, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(5, 'default.jpg', 5, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(6, 'default.jpg', 6, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(7, 'default.jpg', 7, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(8, 'default.jpg', 8, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(9, 'default.jpg', 9, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(10, 'default.jpg', 10, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(11, 'default.jpg', 11, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(12, 'default.jpg', 12, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(13, 'default.jpg', 13, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(14, 'default.jpg', 14, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(15, 'default.jpg', 15, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(16, 'default.jpg', 16, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(17, 'default.jpg', 17, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(18, 'default.jpg', 18, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(19, 'default.jpg', 19, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(20, 'default.jpg', 20, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(21, 'default.jpg', 21, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(22, 'default.jpg', 22, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(23, 'default.jpg', 23, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(24, 'default.jpg', 24, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(25, 'default.jpg', 25, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(26, 'default.jpg', 26, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(27, 'default.jpg', 27, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(28, 'default.jpg', 28, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(29, 'default.jpg', 29, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(30, 'default.jpg', 30, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(31, 'default.jpg', 31, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(32, 'default.jpg', 32, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(33, 'default.jpg', 33, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(34, 'default.jpg', 34, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(35, 'default.jpg', 35, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(36, 'default.jpg', 36, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(37, 'default.jpg', 37, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(38, 'default.jpg', 38, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(39, 'default.jpg', 39, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(40, 'default.jpg', 40, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(41, 'default.jpg', 41, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(42, 'default.jpg', 42, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(43, 'default.jpg', 43, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(44, 'default.jpg', 44, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(45, 'default.jpg', 45, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(46, 'default.jpg', 46, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(47, 'default.jpg', 47, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(48, 'default.jpg', 48, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(49, 'default.jpg', 49, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(50, 'default.jpg', 50, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(51, 'default.jpg', 51, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(52, 'default.jpg', 52, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(53, 'default.jpg', 53, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(54, 'default.jpg', 54, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(55, 'default.jpg', 55, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(56, 'default.jpg', 56, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(57, 'default.jpg', 57, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(58, 'default.jpg', 58, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(59, 'default.jpg', 59, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(60, 'default.jpg', 60, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(61, 'default.jpg', 61, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(62, 'default.jpg', 62, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(63, 'default.jpg', 63, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(64, 'default.jpg', 64, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(65, 'default.jpg', 65, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(66, 'default.jpg', 66, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(67, 'default.jpg', 67, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(68, 'default.jpg', 68, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(69, 'default.jpg', 69, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(70, 'default.jpg', 70, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(71, 'default.jpg', 71, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(72, 'default.jpg', 72, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(73, 'default.jpg', 73, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(74, 'default.jpg', 74, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(75, 'default.jpg', 75, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(76, 'default.jpg', 76, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(77, 'default.jpg', 77, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(78, 'default.jpg', 78, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(79, 'default.jpg', 79, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(80, 'default.jpg', 80, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(81, 'default.jpg', 81, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(82, 'default.jpg', 82, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(83, 'default.jpg', 83, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(84, 'default.jpg', 84, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(85, 'default.jpg', 85, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(86, 'default.jpg', 86, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(87, 'default.jpg', 87, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(88, 'default.jpg', 88, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(89, 'default.jpg', 89, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(90, 'default.jpg', 90, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(91, 'default.jpg', 91, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(92, 'default.jpg', 92, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(93, 'default.jpg', 93, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(94, 'default.jpg', 94, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(95, 'default.jpg', 95, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(96, 'default.jpg', 96, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(97, 'default.jpg', 97, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(98, 'default.jpg', 98, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(99, 'default.jpg', 99, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(100, 'default.jpg', 150, '', '0000-00-00 00:00:00', '2019-05-18 20:55:45');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -318,6 +461,13 @@ ALTER TABLE `user`
   ADD KEY `rola` (`id_role`) USING BTREE;
 
 --
+-- Indexes for table `user_details`
+--
+ALTER TABLE `user_details`
+  ADD PRIMARY KEY (`id_details`),
+  ADD KEY `id_details` (`id_details`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -325,7 +475,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT dla tabeli `action_log`
 --
 ALTER TABLE `action_log`
-  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 --
 -- AUTO_INCREMENT dla tabeli `markers`
 --
@@ -340,7 +490,12 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT dla tabeli `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+--
+-- AUTO_INCREMENT dla tabeli `user_details`
+--
+ALTER TABLE `user_details`
+  MODIFY `id_details` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 --
 -- Ograniczenia dla zrzutów tabel
 --

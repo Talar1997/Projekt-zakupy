@@ -150,6 +150,17 @@ class RegisterControl
                 'security_answer' => md5($this->form->security_answer),
                 'id_role' => $userRole_id
             ]);
+
+            $userId = App::getDB()->select("user","id", [
+                'login' => $this->form->login
+            ]);
+
+            $userId = $userId[0];
+
+            App::getDB()->insert("user_details",[
+                'id_details' => $userId,
+                'register_date' => (new \DateTime())->format('Y-m-d H:i:s')
+            ]);
             Utils::addInfoMessage("Konto zostało utworzone");
             Logs::addLog("Utworzenie nowego konta: ".$this->form->login);
         }catch(\PDOException $e){

@@ -44,6 +44,8 @@ class UserEditControl
         $this->form->security_answer = ParamUtils::getFromPost('security_answer');
         $this->form->email = ParamUtils::getFromPost('email');
         $this->form->id_role = ParamUtils::getFromPost('id_role');
+        $this->form->reputation = ParamUtils::getFromPost('reputation');
+        $this->form->description = ParamUtils::getFromPost('description');
     }
 
     /**
@@ -99,6 +101,13 @@ class UserEditControl
             'min_length' => 1,
             'max_length' => 256,
             'required_message' => 'Odpowiedź na pytanie bezpieczeństwa jest wymagane!'
+        ]);
+
+        $v->validate($this->form->reputation,[
+            'required' => true,
+            'int' => true,
+            'required_message' => 'Odpowiedź na pytanie bezpieczeństwa jest wymagane!',
+            'validator_message' => 'Reputacja musi być liczbą całkowitą!'
         ]);
 
         $this->checkForDuplicates();
@@ -172,6 +181,13 @@ class UserEditControl
             'id_role' => $this->form->id_role,
         ],[
             'id' => $this->form->id
+        ]);
+
+        App::getDB()->update('user_details',[
+            'reputation' => $this->form->reputation,
+            'description' => $this->form->description,
+        ],[
+            'id_details' => $this->form->id
         ]);
 
         Utils::addInfoMessage("Pomyślnie zmieniono dane użytkownika");
