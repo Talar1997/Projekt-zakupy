@@ -77,6 +77,14 @@
                         infoWindow.setContent(infowincontent);
                         infoWindow.open(map, marker);
                     });
+
+                    //Zaznaczanie lokalizacji
+                    //+https://developers.google.com/maps/documentation/javascript/examples/places-searchbox
+                    google.maps.event.addListener(map, "rightclick", function(event) {
+                        var lat = event.latLng.lat();
+                        var lng = event.latLng.lng();
+                        alert("Lat=" + lat + "; Lng=" + lng);
+                    });
                 });
             });
         }

@@ -24,7 +24,6 @@ class TestControl
         $data["lat"] = 50.288740;
         $data["lng"] = 19.129940;
 
-        try{
             $accountData = App::getDB()->select("user", [
                 "[>]role" => ["id_role" => "id_role"],
                 "[>]user_details" => ["id" => "id_details"]
@@ -32,19 +31,14 @@ class TestControl
                 'user.id',
                 'user.login',
                 'user.password',
-                'role.name',
-                'user_details.reputation',
+                'user.security_question',
+                'user.security_answer',
+                'user.email',
                 'user_details.description',
-                'user_details.register_date',
-                'user_details.last_login'
-            ],[
-                'login' => 'admin'
-            ],[
-                "LIMIT" => 1
+                'user_details.reputation',
+                'user.id_role',
+                'role.name',
             ]);
-        }catch (\PDOException $e){
-            Utils::addErrorMessage("Błąd połączenia z bazą danych");
-        }
 
         $data += $accountData[0];
 
