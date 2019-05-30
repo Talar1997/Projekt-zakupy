@@ -88,11 +88,11 @@
                 </tbody>
             </table>
 
-            {if $next_page > 1}
+            {if $previous_page > 0}
                 <a type="button" class="btn btn-light btn-sm float-right" href="{$conf->action_root}manageUsers/{$previous_page}">Załaduj poprzednie rekordy</a>
             {/if}
             <a type="button" class="btn btn-light btn-sm float-right" href="{$conf->action_root}manageUsers/{$next_page}">Załaduj następne rekordy</a>
-            <a type="button" class="btn btn-light btn-sm float-right" href="{$conf->action_root}manageUsers/-1">Załaduj wszystkich użytkowników</a>
+            <a type="button" class="btn btn-light btn-sm float-right" href="{$conf->action_root}manageUsers/0">Załaduj wszystkich użytkowników</a>
         </div>
     </div>
     <script>

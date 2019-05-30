@@ -147,10 +147,9 @@ class UserManagerControl
         }
 
 
-        //Może by użyć validatora?
         $offset = ParamUtils::getFromCleanURL(1);
         if(isset($offset) && is_numeric($offset) && $offset > 0) $this->offset += $offset - 1;
-        if($offset == 0) $this->records = App::getDB()->count("user","*");
+        if(isset($offset) && $offset == 0) $this->records = App::getDB()->count("user","*");
         $this->generateView();
     }
 }
