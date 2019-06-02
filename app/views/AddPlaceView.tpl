@@ -120,11 +120,17 @@
 
                 <script>
                     var customLabel = {
-                        restaurant: {
+                        gastronomy: {
                             label: 'R'
                         },
                         bar: {
                             label: 'B'
+                        },
+                        gas_station: {
+                            label: 'G'
+                        },
+                        shop: {
+                            label: 'S'
                         }
                     };
 
@@ -193,13 +199,13 @@
                             }
                         });
 
-                        {if isset($form->lat) && isset($form->lng)}
+                        {if (is_numeric($form->lat) || is_numeric($form->lng))}
                             var latlng = new google.maps.LatLng({$form->lat}, {$form->lng});
                             userMarker.setPosition(latlng);
+                            map.panTo(latlng);
                         {/if}
 
                         //Zaznaczanie lokalizacji
-                        //+https://developers.google.com/maps/documentation/javascript/examples/places-searchbox
                         google.maps.event.addListener(map, "click", function(event) {
                             var lat = event.latLng.lat();
                             var lng = event.latLng.lng();

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-05-30 23:41:45
+/* Smarty version 3.1.33, created on 2019-06-02 16:54:39
   from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\AddPlaceView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cf04e192f7380_92827879',
+  'unifunc' => 'content_5cf3e32fc4b3c7_84613199',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'dca444a7195faf7956da339586cefc644f6fe92f' => 
     array (
       0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\AddPlaceView.tpl',
-      1 => 1559252500,
+      1 => 1559487273,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5cf04e192f7380_92827879 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cf3e32fc4b3c7_84613199 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20205961955cf04e192e6718_48537242', 'intro');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_435058735cf3e32fc38916_74988448', 'intro');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'intro'} */
-class Block_20205961955cf04e192e6718_48537242 extends Smarty_Internal_Block
+class Block_435058735cf3e32fc38916_74988448 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'intro' => 
   array (
-    0 => 'Block_20205961955cf04e192e6718_48537242',
+    0 => 'Block_435058735cf3e32fc38916_74988448',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -172,11 +172,17 @@ addPlace" method="post">
                 <?php echo '<script'; ?>
 >
                     var customLabel = {
-                        restaurant: {
+                        gastronomy: {
                             label: 'R'
                         },
                         bar: {
                             label: 'B'
+                        },
+                        gas_station: {
+                            label: 'G'
+                        },
+                        shop: {
+                            label: 'S'
                         }
                     };
 
@@ -246,15 +252,15 @@ generateXML', function(data) {
                             }
                         });
 
-                        <?php if (isset($_smarty_tpl->tpl_vars['form']->value->lat) && isset($_smarty_tpl->tpl_vars['form']->value->lng)) {?>
+                        <?php if ((is_numeric($_smarty_tpl->tpl_vars['form']->value->lat) || is_numeric($_smarty_tpl->tpl_vars['form']->value->lng))) {?>
                             var latlng = new google.maps.LatLng(<?php echo $_smarty_tpl->tpl_vars['form']->value->lat;?>
 , <?php echo $_smarty_tpl->tpl_vars['form']->value->lng;?>
 );
                             userMarker.setPosition(latlng);
+                            map.panTo(latlng);
                         <?php }?>
 
                         //Zaznaczanie lokalizacji
-                        //+https://developers.google.com/maps/documentation/javascript/examples/places-searchbox
                         google.maps.event.addListener(map, "click", function(event) {
                             var lat = event.latLng.lat();
                             var lng = event.latLng.lng();

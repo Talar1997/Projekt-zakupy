@@ -5,6 +5,8 @@ namespace app\controllers;
 use app\forms\PlaceForm;
 use core\App;
 use core\ParamUtils;
+use core\SessionUtils;
+use core\Utils;
 use core\Validator;
 
 
@@ -36,7 +38,7 @@ class AddPlaceControl
         $this->form->type = ParamUtils::getFromPost('type');
         if(!empty($_POST['category'])) {
             foreach ($_POST['category'] as $selected) {
-                $this->form->category = $this->form->category.'-'.$selected;
+                $this->form->category [] = $selected;
             }
         }
         $this->form->time_open = ParamUtils::getFromPost('time_open');
@@ -112,8 +114,22 @@ class AddPlaceControl
             'validator_message' => "Koordynaty powinny być liczbą zmiennoprzecinkową"
         ]);
 
+        $this->checkForDuplicates();
+
         if(!App::getMessages()->isError()) return true;
         else return false;
+    }
+
+    public function checkForDuplicates(){
+        $record = App::getDB()->select('markers','id',[
+            'name' => $this->form->shopName,
+            'address' => $this->form->address,
+            'type' => $this->form->type
+        ]);
+
+        if(isset($record[0])){
+            Utils::addErrorMessage("Podany sklep istnieje już pod tym adresem!");
+        }
     }
 
     /**
@@ -129,21 +145,20 @@ class AddPlaceControl
             'type' => $this->form->type
         ]);
 
-        // Czemu nie wyszukuje tego id?
         $newAddedId = App::getDB()->select('markers','id',[
             'name' => $this->form->shopName,
             'address' => $this->form->address,
             'type' => $this->form->type
         ]);
 
-
         App::getDB()->insert('marker_details',[
             'id_details' => null,
-            'id_marker' => $newAddedId,
+            'id_marker' => $newAddedId[0],
             'description' => $this->form->description,
-            'category' => $this->form->category,
+            'category[JSON]' => $this->form->category,
             'open_hour' => $this->form->time_open,
-            'close_hour' => $this->form->time_close
+            'close_hour' => $this->form->time_close,
+            'author' => SessionUtils::loadData('id', true)
         ]);
     }
 

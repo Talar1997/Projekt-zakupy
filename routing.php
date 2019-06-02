@@ -15,8 +15,6 @@
     Utils::addRoute('test', 'TestControl');
     Utils::addRoute('generateXML', 'GenerateXMLControl');
     Utils::addRoute('adminLogs', 'LogsControl', ['admin']);
-
-    //Todo
     Utils::addRoute('addPlace', 'AddPlaceControl', ['admin', 'moderator' , 'user']);
     Utils::addRoute('manageUsers', 'UserManagerControl', ['admin', 'moderator']);
     Utils::addRoute('userEdit', 'UserEditControl', ['admin', 'moderator']);
