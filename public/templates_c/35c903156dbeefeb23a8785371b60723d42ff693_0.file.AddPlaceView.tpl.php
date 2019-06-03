@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-06-02 16:54:39
-  from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\AddPlaceView.tpl' */
+/* Smarty version 3.1.33, created on 2019-06-03 11:38:52
+  from '/Applications/XAMPP/xamppfiles/htdocs/Projekt/app/views/AddPlaceView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cf3e32fc4b3c7_84613199',
+  'unifunc' => 'content_5cf4eaacd93b63_59627495',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'dca444a7195faf7956da339586cefc644f6fe92f' => 
+    '35c903156dbeefeb23a8785371b60723d42ff693' => 
     array (
-      0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\AddPlaceView.tpl',
-      1 => 1559487273,
+      0 => '/Applications/XAMPP/xamppfiles/htdocs/Projekt/app/views/AddPlaceView.tpl',
+      1 => 1559554694,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5cf3e32fc4b3c7_84613199 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cf4eaacd93b63_59627495 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_435058735cf3e32fc38916_74988448', 'intro');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10800351165cf4eaacd87cc2_00505421', 'intro');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'intro'} */
-class Block_435058735cf3e32fc38916_74988448 extends Smarty_Internal_Block
+class Block_10800351165cf4eaacd87cc2_00505421 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'intro' => 
   array (
-    0 => 'Block_435058735cf3e32fc38916_74988448',
+    0 => 'Block_10800351165cf4eaacd87cc2_00505421',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

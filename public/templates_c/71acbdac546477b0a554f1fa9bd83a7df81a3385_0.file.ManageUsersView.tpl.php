@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-05-20 12:25:48
+/* Smarty version 3.1.33, created on 2019-06-03 11:38:50
   from '/Applications/XAMPP/xamppfiles/htdocs/Projekt/app/views/ManageUsersView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5ce280ac43c182_72643090',
+  'unifunc' => 'content_5cf4eaaa0624d0_30103435',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '71acbdac546477b0a554f1fa9bd83a7df81a3385' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/Projekt/app/views/ManageUsersView.tpl',
-      1 => 1558345284,
+      1 => 1559554694,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ce280ac43c182_72643090 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cf4eaaa0624d0_30103435 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_11481939415ce280ac422234_57410374', 'intro');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1557836085cf4eaaa04db30_35288624', 'intro');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'intro'} */
-class Block_11481939415ce280ac422234_57410374 extends Smarty_Internal_Block
+class Block_1557836085cf4eaaa04db30_35288624 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'intro' => 
   array (
-    0 => 'Block_11481939415ce280ac422234_57410374',
+    0 => 'Block_1557836085cf4eaaa04db30_35288624',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -181,7 +181,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 </tbody>
             </table>
 
-            <?php if ($_smarty_tpl->tpl_vars['next_page']->value > 1) {?>
+            <?php if ($_smarty_tpl->tpl_vars['previous_page']->value > 0) {?>
                 <a type="button" class="btn btn-light btn-sm float-right" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 manageUsers/<?php echo $_smarty_tpl->tpl_vars['previous_page']->value;?>
 ">Załaduj poprzednie rekordy</a>
@@ -190,7 +190,7 @@ manageUsers/<?php echo $_smarty_tpl->tpl_vars['previous_page']->value;?>
 manageUsers/<?php echo $_smarty_tpl->tpl_vars['next_page']->value;?>
 ">Załaduj następne rekordy</a>
             <a type="button" class="btn btn-light btn-sm float-right" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-manageUsers/-1">Załaduj wszystkich użytkowników</a>
+manageUsers/0">Załaduj wszystkich użytkowników</a>
         </div>
     </div>
     <?php echo '<script'; ?>

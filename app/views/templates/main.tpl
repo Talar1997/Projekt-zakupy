@@ -51,7 +51,7 @@
 									<li><a href="{$conf->action_root}xxx">xSzukaj sklepu</a></li>
 									<li><a href="{$conf->action_root}addPlace">Dodaj sklep</a></li>
 									<li><a href="{$conf->action_root}xxx">xRanking użytkowników</a></li>
-									<li><a href="{$conf->action_root}xxx">xMój profil</a></li>
+									<li><a href="{$conf->action_root}profile">Mój profil</a></li>
 									{if core\RoleUtils::inRole("admin") || core\RoleUtils::inRole("moderator")}
 										<li class="divider"></li>
 										<li><a href="{$conf->action_root}manageUsers">Moderuj użytkowników</a></li>
