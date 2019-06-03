@@ -25,4 +25,5 @@ class Config extends \ArrayObject{
     public $styles;
     public $scripts;
     public $images;
+    public $avatars;
 }

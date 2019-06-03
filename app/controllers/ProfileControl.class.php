@@ -19,6 +19,7 @@ class ProfileControl
 {
     public $id;
     public $userData;
+    public $addedPlaces;
 
     public function getUserFromDb($id){
         $this->user = App::getDB()->select("user", [
@@ -42,10 +43,26 @@ class ProfileControl
         return $this->user[0];
     }
 
+    public function getAddedPlaces($id){
+        $records = App::getDB()->select("markers",[
+            "[>]marker_details" => ["id" => "id_marker"],
+        ],[
+            'markers.name',
+            'markers.address',
+            'marker_details.votes'
+        ],[
+            'marker_details.author'=> $id
+        ]);
+
+        return $records;
+    }
+
     public function generateView(){
         $this->userData = $this->getUserFromDb($this->id);
+        $this->addedPlaces = $this->getAddedPlaces($this->id);
         App::getSmarty()->assign("profile", $this->userData);
-        App::getSmarty()->assign("page_title", "Profil użytkownika");
+        App::getSmarty()->assign("places", $this->addedPlaces);
+        App::getSmarty()->assign("page_title", "Profil użytkownika: " .$this->userData['login']);
         App::getSmarty()->display("ProfileView.tpl");
     }
 

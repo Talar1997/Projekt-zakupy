@@ -77,11 +77,18 @@
                         <td>{$user['login']}</td>
                         <td>{$user['name']}</td>
                         <td>
-                            <a type="button" class="btn btn-light btn-sm" href="{$conf->action_root}manageUsers/{$offset}/details/{$user['id']}">Szczegóły</a>
-                            <a type="button" class="btn btn-light btn-sm" href="{$conf->action_root}manageUsers/{$offset}/edit/{$user['id']}">Edytuj</a>
-                            {if core\RoleUtils::inRole("admin")}
-                                <a type="button" class="btn btn-danger btn-sm" onclick="deleteUser('{$user['id']}')">Usuń</a>
-                            {/if}
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">
+                                    <span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="{$conf->action_root}/profile/{$user['id']}">Profil</a></li>
+                                    <li><a class="dropdown-item" href="{$conf->action_root}manageUsers/{$offset}/details/{$user['id']}">Szczegóły</a></li>
+                                    <li><a class="dropdown-item" href="{$conf->action_root}manageUsers/{$offset}/edit/{$user['id']}">Edytuj</a></li>
+                                    {if core\RoleUtils::inRole("admin")}
+                                        <li><a class="dropdown-item" onclick="deleteUser('{$user['id']}')">Usuń</a></li>
+                                    {/if}
+                                </ul>
+                            </div>
                         </td>
                     </tr>
                 {/foreach}

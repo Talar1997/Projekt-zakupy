@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-06-03 11:38:50
-  from '/Applications/XAMPP/xamppfiles/htdocs/Projekt/app/views/ManageUsersView.tpl' */
+/* Smarty version 3.1.33, created on 2019-06-03 22:47:51
+  from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\ManageUsersView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cf4eaaa0624d0_30103435',
+  'unifunc' => 'content_5cf587777d0d16_71482274',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '71acbdac546477b0a554f1fa9bd83a7df81a3385' => 
+    '1a7a0563556299781f4d1aa83b4ecf6480c028f9' => 
     array (
-      0 => '/Applications/XAMPP/xamppfiles/htdocs/Projekt/app/views/ManageUsersView.tpl',
-      1 => 1559554694,
+      0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\ManageUsersView.tpl',
+      1 => 1559594870,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5cf4eaaa0624d0_30103435 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cf587777d0d16_71482274 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1557836085cf4eaaa04db30_35288624', 'intro');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_15775656065cf587777b49f2_63314560', 'intro');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'intro'} */
-class Block_1557836085cf4eaaa04db30_35288624 extends Smarty_Internal_Block
+class Block_15775656065cf587777b49f2_63314560 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'intro' => 
   array (
-    0 => 'Block_1557836085cf4eaaa04db30_35288624',
+    0 => 'Block_15775656065cf587777b49f2_63314560',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -160,18 +160,27 @@ foreach ($_from as $_smarty_tpl->tpl_vars['user']->value) {
                         <td><?php echo $_smarty_tpl->tpl_vars['user']->value['name'];?>
 </td>
                         <td>
-                            <a type="button" class="btn btn-light btn-sm" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">
+                                    <span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+/profile/<?php echo $_smarty_tpl->tpl_vars['user']->value['id'];?>
+">Profil</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 manageUsers/<?php echo $_smarty_tpl->tpl_vars['offset']->value;?>
 /details/<?php echo $_smarty_tpl->tpl_vars['user']->value['id'];?>
-">Szczegóły</a>
-                            <a type="button" class="btn btn-light btn-sm" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+">Szczegóły</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 manageUsers/<?php echo $_smarty_tpl->tpl_vars['offset']->value;?>
 /edit/<?php echo $_smarty_tpl->tpl_vars['user']->value['id'];?>
-">Edytuj</a>
-                            <?php if (core\RoleUtils::inRole("admin")) {?>
-                                <a type="button" class="btn btn-danger btn-sm" onclick="deleteUser('<?php echo $_smarty_tpl->tpl_vars['user']->value['id'];?>
-')">Usuń</a>
-                            <?php }?>
+">Edytuj</a></li>
+                                    <?php if (core\RoleUtils::inRole("admin")) {?>
+                                        <li><a class="dropdown-item" onclick="deleteUser('<?php echo $_smarty_tpl->tpl_vars['user']->value['id'];?>
+')">Usuń</a></li>
+                                    <?php }?>
+                                </ul>
+                            </div>
                         </td>
                     </tr>
                 <?php
