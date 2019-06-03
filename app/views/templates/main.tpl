@@ -47,10 +47,9 @@
 							<li class="dropdown">
 								<a class="dropdown-toggle btn" data-toggle="dropdown">Narzędzia <b class="caret"></b></a>
 								<ul class="dropdown-menu">
-									<li><a href="{$conf->action_root}xxx">xPanel główny</a></li>
+									<li><a href="{$conf->action_root}mainPanel">xPanel główny</a></li>
 									<li><a href="{$conf->action_root}xxx">xSzukaj sklepu</a></li>
 									<li><a href="{$conf->action_root}addPlace">Dodaj sklep</a></li>
-									<li><a href="{$conf->action_root}xxx">xRanking użytkowników</a></li>
 									<li><a href="{$conf->action_root}profile">Mój profil</a></li>
 									{if core\RoleUtils::inRole("admin") || core\RoleUtils::inRole("moderator")}
 										<li class="divider"></li>

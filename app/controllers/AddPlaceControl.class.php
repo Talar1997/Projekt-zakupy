@@ -168,6 +168,8 @@ class AddPlaceControl
     public function generateView(){
         if($this->validatePlace()){
             $this->insertToDB();
+            Utils::addInfoMessage("Pomyślnie dodano nowe miejsce!");
+            header("Location: ".App::getConf()->app_url."/mainPanel");
         }
         else{
             App::getSmarty()->assign("title", "Dodaj nowe miejsce");

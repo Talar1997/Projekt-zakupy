@@ -36,6 +36,9 @@
                                             <li class="list-group-item">Id: {$profile['id']}</li>
                                             <li class="list-group-item">Ostatnio zalogowany: {$profile['last_login']}</li>
                                             <li class="list-group-item">Adres email: {$profile['email']}</li>
+                                            <li class="list-group-item">
+                                                <a href="{$conf->action_root}manageUsers/1/edit/{$profile['id']}"><button class="btn btn-primary">Edytuj użytkownika</button></a>
+                                            </li>
                                         {/if}
                                     </ul>
                                 </div>

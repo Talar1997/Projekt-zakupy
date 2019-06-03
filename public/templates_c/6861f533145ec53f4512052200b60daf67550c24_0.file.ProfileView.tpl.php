@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-06-03 22:38:42
+/* Smarty version 3.1.33, created on 2019-06-03 23:02:24
   from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\ProfileView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cf58552061006_05163062',
+  'unifunc' => 'content_5cf58ae0540372_40651500',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6861f533145ec53f4512052200b60daf67550c24' => 
     array (
       0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\ProfileView.tpl',
-      1 => 1559594319,
+      1 => 1559595742,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5cf58552061006_05163062 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cf58ae0540372_40651500 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_18049874295cf58552045417_85763329', 'intro');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17143536495cf58ae0524850_82670757', 'intro');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'intro'} */
-class Block_18049874295cf58552045417_85763329 extends Smarty_Internal_Block
+class Block_17143536495cf58ae0524850_82670757 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'intro' => 
   array (
-    0 => 'Block_18049874295cf58552045417_85763329',
+    0 => 'Block_17143536495cf58ae0524850_82670757',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -101,6 +101,11 @@ if ($_prefixVariable4) {?><span class="banned">Zbanowani</span><?php }?>
 </li>
                                             <li class="list-group-item">Adres email: <?php echo $_smarty_tpl->tpl_vars['profile']->value['email'];?>
 </li>
+                                            <li class="list-group-item">
+                                                <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+manageUsers/1/edit/<?php echo $_smarty_tpl->tpl_vars['profile']->value['id'];?>
+"><button class="btn btn-primary">Edytuj użytkownika</button></a>
+                                            </li>
                                         <?php }?>
                                     </ul>
                                 </div>

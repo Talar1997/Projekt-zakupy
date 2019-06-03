@@ -1,12 +1,55 @@
-{extends file="main.tpl"}
-{block name=intro}
+<?php
+/* Smarty version 3.1.33, created on 2019-06-03 22:57:47
+  from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\AddPlaceView.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.33',
+  'unifunc' => 'content_5cf589cb0b8885_34707497',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'dca444a7195faf7956da339586cefc644f6fe92f' => 
+    array (
+      0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\AddPlaceView.tpl',
+      1 => 1559595463,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5cf589cb0b8885_34707497 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_loadInheritance();
+$_smarty_tpl->inheritance->init($_smarty_tpl, true);
+?>
+
+<?php 
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_14733254865cf589cb0a92a1_73620184', 'intro');
+$_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
+}
+/* {block 'intro'} */
+class Block_14733254865cf589cb0a92a1_73620184 extends Smarty_Internal_Block
+{
+public $subBlocks = array (
+  'intro' => 
+  array (
+    0 => 'Block_14733254865cf589cb0a92a1_73620184',
+  ),
+);
+public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
+?>
+
     <header id="head" class="secondary"></header>
     <!-- container -->
     <div class="container">
 
         <ol class="breadcrumb">
-            <li><a href="{$conf->action_root}main">Strona główna</a></li>
-            <li class="active">{$page_title}</li>
+            <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+main">Strona główna</a></li>
+            <li class="active"><?php echo $_smarty_tpl->tpl_vars['page_title']->value;?>
+</li>
         </ol>
 
         <div class="row">
@@ -20,14 +63,17 @@
                 <div class="col-md-6 col-sm-8 row">
                     <div class="panel panel-default">
                         <div class="panel-body" id="addingForm">
-                         <form action="{$conf->action_root}addPlace" method="post">
+                         <form action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+addPlace" method="post">
                                 <div class="top-margin">
                                     <label>Nazwa miejsca <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" name="shopName" placeholder="Pełna nazwa" value="{$form->shopName}">
+                                    <input type="text" class="form-control" name="shopName" placeholder="Pełna nazwa" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->shopName;?>
+">
                                 </div>
                                 <div class="top-margin">
                                     <label>Adres <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" name="address" placeholder="Adres wraz z miejscowością" value="{$form->address}">
+                                    <input type="text" class="form-control" name="address" placeholder="Adres wraz z miejscowością" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->address;?>
+">
                                 </div>
 
                                 <div class="form-group top-margin">
@@ -84,21 +130,26 @@
                                      <label>Godziny otwarcia (Od, do)<span class="text-danger">*</span></label>
                                      <div class="row">
                                          <div class="col-md-6">
-                                             <input type="time" class="form-control" name="time_open" value="{$form->time_open}">
+                                             <input type="time" class="form-control" name="time_open" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->time_open;?>
+">
                                          </div>
                                          <div class="col-md-6">
-                                             <input type="time" class="form-control" name="time_close" value="{$form->time_close}">
+                                             <input type="time" class="form-control" name="time_close" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->time_close;?>
+">
                                          </div>
                                      </div>
                                  </div>
 
                                 <div class="form-group">
                                     <label for="description">Opis (nie wymagane)</label>
-                                    <textarea class="form-control" rows="3" name="description" id="description">{$form->description}</textarea>
+                                    <textarea class="form-control" rows="3" name="description" id="description"><?php echo $_smarty_tpl->tpl_vars['form']->value->description;?>
+</textarea>
                                 </div>
 
-                             <input type="hidden" class="form-control" name="lat" id="lat" value="{$form->lat}">
-                             <input type="hidden" class="form-control" name="lng" id="lng" value="{$form->lng}">
+                             <input type="hidden" class="form-control" name="lat" id="lat" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->lat;?>
+">
+                             <input type="hidden" class="form-control" name="lng" id="lng" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->lng;?>
+">
 
 
                                 <hr>
@@ -118,7 +169,8 @@
                     <div id="map"></div>
                 </div>
 
-                <script>
+                <?php echo '<script'; ?>
+>
                     var customLabel = {
                         gastronomy: {
                             label: 'R'
@@ -157,7 +209,8 @@
                         }
 
                         // Change this depending on the name of your PHP or XML file
-                        downloadUrl('{$conf->action_root}generateXML', function(data) {
+                        downloadUrl('<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+generateXML', function(data) {
                             var xml = data.responseXML;
                             var markers = xml.documentElement.getElementsByTagName('marker');
                             Array.prototype.forEach.call(markers, function(markerElem) {
@@ -199,11 +252,13 @@
                             }
                         });
 
-                        {if (is_numeric($form->lat) || is_numeric($form->lng))}
-                            var latlng = new google.maps.LatLng({$form->lat}, {$form->lng});
+                        <?php if ((is_numeric($_smarty_tpl->tpl_vars['form']->value->lat) || is_numeric($_smarty_tpl->tpl_vars['form']->value->lng))) {?>
+                            var latlng = new google.maps.LatLng(<?php echo $_smarty_tpl->tpl_vars['form']->value->lat;?>
+, <?php echo $_smarty_tpl->tpl_vars['form']->value->lng;?>
+);
                             userMarker.setPosition(latlng);
                             map.panTo(latlng);
-                        {/if}
+                        <?php }?>
 
                         //Zaznaczanie lokalizacji
                         google.maps.event.addListener(map, "click", function(event) {
@@ -236,14 +291,19 @@
                     }
 
                     function doNothing() {}
-                </script>
-                <script async defer
+                <?php echo '</script'; ?>
+>
+                <?php echo '<script'; ?>
+ async defer
                         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKDC4RkalzqSIb9AgI_nP7Qny28Dkhw_Y&callback=initMap">
-                </script>
-                <script>
+                <?php echo '</script'; ?>
+>
+                <?php echo '<script'; ?>
+>
                     var offsetHeight = document.getElementById('addingForm').offsetHeight;
                     document.getElementById("map").style.height = offsetHeight + "px";
-                </script>
+                <?php echo '</script'; ?>
+>
 
             </article>
             <!-- /Article -->
@@ -253,4 +313,8 @@
 
     </div>	<!-- /container -->
 
-{/block}
+<?php
+}
+}
+/* {/block 'intro'} */
+}
