@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 18 Maj 2019, 20:58
+-- Czas generowania: 03 Cze 2019, 07:10
 -- Wersja serwera: 10.1.26-MariaDB
 -- Wersja PHP: 7.1.8
 
@@ -140,7 +140,12 @@ INSERT INTO `action_log` (`id_log`, `datetime`, `ip`, `log`) VALUES
 (98, '2019-05-18 20:55:45', '::1', 'Utworzenie nowego konta: nowyAdmin'),
 (99, '2019-05-18 20:55:49', '::1', 'Logowanie na konto: admin'),
 (100, '2019-05-18 20:56:12', '::1', 'Edycja użytkownika 100 przez admin: admin'),
-(101, '2019-05-18 20:56:15', '::1', 'Edycja użytkownika 100 przez admin: admin');
+(101, '2019-05-18 20:56:15', '::1', 'Edycja użytkownika 100 przez admin: admin'),
+(102, '2019-05-30 16:00:09', '::1', 'Logowanie na konto: admin'),
+(103, '2019-05-30 16:04:43', '::1', 'Edycja użytkownika 6 przez admin: admin'),
+(104, '2019-06-02 13:55:13', '::1', 'Logowanie na konto: admin'),
+(105, '2019-06-02 17:17:44', '::1', 'Logowanie na konto: admin'),
+(106, '2019-06-02 18:59:51', '::1', 'Logowanie na konto: admin');
 
 -- --------------------------------------------------------
 
@@ -162,11 +167,40 @@ CREATE TABLE `markers` (
 --
 
 INSERT INTO `markers` (`id`, `name`, `address`, `lat`, `lng`, `type`) VALUES
-(1, 'Uniwersytet Śląski', 'ul. Będzińska, Sosnowiec', 50.288738, 19.129940, 'restaurant'),
-(2, 'Lorem Ipsum ', 'ul. Będzińska, Sosnowiec', 50.287739, 19.128941, 'bar'),
-(3, 'Lorem Ipsum ', 'ul. Będzińska, Sosnowiec', 50.287739, 18.128941, 'bar'),
-(4, 'Lorem Ipsum ', 'ul. Będzińska, Sosnowiec', 51.287739, 19.128941, 'bar'),
-(5, 'Lorem Ipsum ', 'ul. Będzińska, Sosnowiec', 52.287739, 23.128941, 'bar');
+(1, 'E. Leclerc', 'Braci Miroszewskich 2H Sosnowiec', 50.292431, 19.183718, 'shop'),
+(2, 'Stacja BP', 'Braci Miroszewskich 2H Sosnowiec', 50.292328, 19.182644, 'gas_station'),
+(3, 'Biedronka', 'Generała Tadeusza Bora-Komorowskiego 3', 50.287571, 19.173782, 'shop'),
+(4, '\"SILVA-TOP\" Bolesław Bolek', 'Radzionkowska 34A 42-622 Świerklaniec Polska', 50.433716, 18.924637, 'gas_station'),
+(5, 'Salex', 'Racławicka 17 41-205 Sosnowiec', 50.292618, 19.140018, 'gas_station');
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `marker_details`
+--
+
+CREATE TABLE `marker_details` (
+  `id_details` int(11) NOT NULL,
+  `id_marker` int(11) NOT NULL,
+  `description` text COLLATE utf8_polish_ci NOT NULL,
+  `category` varchar(1024) COLLATE utf8_polish_ci NOT NULL,
+  `open_hour` time NOT NULL,
+  `close_hour` time NOT NULL,
+  `added_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `author` int(11) NOT NULL,
+  `votes` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+--
+-- Zrzut danych tabeli `marker_details`
+--
+
+INSERT INTO `marker_details` (`id_details`, `id_marker`, `description`, `category`, `open_hour`, `close_hour`, `added_time`, `author`, `votes`) VALUES
+(1, 1, '', '[\"alcohol\",\"bread\",\"cosmetics\",\"fruits\",\"meats\"]', '10:00:00', '21:00:00', '2019-06-02 16:27:23', 1, 0),
+(2, 2, 'Całodobowy', '[\"alcohol\"]', '00:00:00', '00:00:00', '2019-06-02 17:14:23', 1, 0),
+(3, 3, 'Brudno tam jest', '[\"alcohol\",\"bread\",\"cosmetics\",\"fruits\",\"meats\"]', '07:00:00', '21:00:00', '2019-06-02 17:15:12', 1, 0),
+(4, 4, '', '[\"bread\"]', '06:00:00', '21:00:00', '2019-06-02 17:19:10', 1, 0),
+(5, 5, 'Śmierdzi', '[\"alcohol\",\"bread\",\"cosmetics\",\"fruits\",\"meats\"]', '00:00:00', '21:37:00', '2019-06-02 17:28:42', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -215,7 +249,7 @@ INSERT INTO `user` (`id`, `login`, `password`, `security_question`, `security_an
 (3, 'DrugiUser', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user3@localhost.pl', 3),
 (4, 'TrzeciUser', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user4@localhost.pl', 3),
 (5, 'Moderator1', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user5@localhost.pl', 2),
-(6, 'ZbanowanyZbyszek', 'a1e03cf022862126dabb2b06e3223521', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user6@localhost.pl', 4),
+(6, 'ZbanowanyZbyszekhshshs', 'a1e03cf022862126dabb2b06e3223521', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user6@localhost.pl', 4),
 (7, 'user', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user7@localhost.pl', 3),
 (9, 'user9', 'a1e03cf022862126dabb2b06e3223521', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user9@localhost.pl', 3),
 (10, 'DrugiAdmin', '64a4e327e97c1e7926f9240edb937362', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user18x0@localhost.pl', 1),
@@ -330,7 +364,7 @@ CREATE TABLE `user_details` (
 --
 
 INSERT INTO `user_details` (`id_details`, `avatar_ref`, `reputation`, `description`, `last_login`, `register_date`) VALUES
-(1, 'default.jpg', 1, 'Lorem ipsum', '2019-05-18 20:55:49', '2019-05-18 20:26:19'),
+(1, 'default.jpg', 1, 'Lorem ipsum', '2019-06-02 18:59:51', '2019-05-18 20:26:19'),
 (2, 'default.jpg', 20, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
 (3, 'default.jpg', 3, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
 (4, 'default.jpg', 4, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
@@ -448,6 +482,12 @@ ALTER TABLE `markers`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `marker_details`
+--
+ALTER TABLE `marker_details`
+  ADD PRIMARY KEY (`id_details`);
+
+--
 -- Indexes for table `role`
 --
 ALTER TABLE `role`
@@ -475,12 +515,17 @@ ALTER TABLE `user_details`
 -- AUTO_INCREMENT dla tabeli `action_log`
 --
 ALTER TABLE `action_log`
-  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 --
 -- AUTO_INCREMENT dla tabeli `markers`
 --
 ALTER TABLE `markers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT dla tabeli `marker_details`
+--
+ALTER TABLE `marker_details`
+  MODIFY `id_details` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT dla tabeli `role`
 --

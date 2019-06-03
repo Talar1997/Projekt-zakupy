@@ -44,7 +44,7 @@ class RegisterControl
      * @return bool
      */
     public function validateForm(){
-        if(!empty(SessionUtils::loadData("id", true))) return true;
+        if( !empty(SessionUtils::loadData("id", true))) return true;
         if( !(isset($this->form->email) && isset($this->form->login)) ) return false;
         if( !(isset($this->form->password) && isset($this->form->security_answer)) ) return false;
         if( !(isset($this->form->security_question)) ) return false;
