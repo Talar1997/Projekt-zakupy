@@ -47,6 +47,7 @@ class ProfileControl
         $records = App::getDB()->select("markers",[
             "[>]marker_details" => ["id" => "id_marker"],
         ],[
+            'markers.id',
             'markers.name',
             'markers.address',
             'marker_details.votes'

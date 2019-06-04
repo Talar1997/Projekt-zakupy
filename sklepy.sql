@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 03 Cze 2019, 07:10
+-- Czas generowania: 03 Cze 2019, 23:08
 -- Wersja serwera: 10.1.26-MariaDB
 -- Wersja PHP: 7.1.8
 
@@ -145,7 +145,14 @@ INSERT INTO `action_log` (`id_log`, `datetime`, `ip`, `log`) VALUES
 (103, '2019-05-30 16:04:43', '::1', 'Edycja użytkownika 6 przez admin: admin'),
 (104, '2019-06-02 13:55:13', '::1', 'Logowanie na konto: admin'),
 (105, '2019-06-02 17:17:44', '::1', 'Logowanie na konto: admin'),
-(106, '2019-06-02 18:59:51', '::1', 'Logowanie na konto: admin');
+(106, '2019-06-02 18:59:51', '::1', 'Logowanie na konto: admin'),
+(107, '2019-06-03 17:54:21', '::1', 'Logowanie na konto: admin'),
+(108, '2019-06-03 18:05:19', '::1', 'Logowanie na konto: admin'),
+(109, '2019-06-03 21:55:20', '::1', 'Logowanie na konto: admin'),
+(110, '2019-06-03 21:55:39', '::1', 'Logowanie na konto: admin'),
+(111, '2019-06-03 22:31:14', '::1', 'Edycja użytkownika 2 przez admin: admin'),
+(112, '2019-06-03 22:31:21', '::1', 'Logowanie na konto: PierwszyUser'),
+(113, '2019-06-03 22:32:16', '::1', 'Logowanie na konto: admin');
 
 -- --------------------------------------------------------
 
@@ -171,7 +178,9 @@ INSERT INTO `markers` (`id`, `name`, `address`, `lat`, `lng`, `type`) VALUES
 (2, 'Stacja BP', 'Braci Miroszewskich 2H Sosnowiec', 50.292328, 19.182644, 'gas_station'),
 (3, 'Biedronka', 'Generała Tadeusza Bora-Komorowskiego 3', 50.287571, 19.173782, 'shop'),
 (4, '\"SILVA-TOP\" Bolesław Bolek', 'Radzionkowska 34A 42-622 Świerklaniec Polska', 50.433716, 18.924637, 'gas_station'),
-(5, 'Salex', 'Racławicka 17 41-205 Sosnowiec', 50.292618, 19.140018, 'gas_station');
+(5, 'Salex', 'Racławicka 17 41-205 Sosnowiec', 50.292618, 19.140018, 'gas_station'),
+(6, 'PEPCO', 'Koszalińska 1A, Sosnowiec', 50.284733, 19.176334, 'shop'),
+(7, 'Biedronka', 'Teofila Lenartowicza 39C', 50.295013, 19.191097, 'gas_station');
 
 -- --------------------------------------------------------
 
@@ -200,7 +209,9 @@ INSERT INTO `marker_details` (`id_details`, `id_marker`, `description`, `categor
 (2, 2, 'Całodobowy', '[\"alcohol\"]', '00:00:00', '00:00:00', '2019-06-02 17:14:23', 1, 0),
 (3, 3, 'Brudno tam jest', '[\"alcohol\",\"bread\",\"cosmetics\",\"fruits\",\"meats\"]', '07:00:00', '21:00:00', '2019-06-02 17:15:12', 1, 0),
 (4, 4, '', '[\"bread\"]', '06:00:00', '21:00:00', '2019-06-02 17:19:10', 1, 0),
-(5, 5, 'Śmierdzi', '[\"alcohol\",\"bread\",\"cosmetics\",\"fruits\",\"meats\"]', '00:00:00', '21:37:00', '2019-06-02 17:28:42', 1, 0);
+(5, 5, 'Śmierdzi', '[\"alcohol\",\"bread\",\"cosmetics\",\"fruits\",\"meats\"]', '00:00:00', '21:37:00', '2019-06-02 17:28:42', 1, 0),
+(6, 6, 'Nic ciekawego', '[\"cosmetics\"]', '06:00:00', '23:00:00', '2019-06-03 20:32:00', 2, 0),
+(7, 7, '', '[\"press\"]', '05:00:00', '21:00:00', '2019-06-03 20:57:52', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -245,7 +256,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `login`, `password`, `security_question`, `security_answer`, `email`, `id_role`) VALUES
 (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'admin@admin.pl', 1),
-(2, 'PierwszyUser', 'ee11cbb19052e40b07aac0ca060c23ee', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user@local.pl', 3),
+(2, 'PierwszyUser', 'a1e03cf022862126dabb2b06e3223521', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user@local.pl', 3),
 (3, 'DrugiUser', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user3@localhost.pl', 3),
 (4, 'TrzeciUser', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user4@localhost.pl', 3),
 (5, 'Moderator1', '21232f297a57a5a743894a0e4a801fc3', 'Nazwa serwera', '421aa90e079fa326b6494f812ad13e79', 'user5@localhost.pl', 2),
@@ -364,8 +375,8 @@ CREATE TABLE `user_details` (
 --
 
 INSERT INTO `user_details` (`id_details`, `avatar_ref`, `reputation`, `description`, `last_login`, `register_date`) VALUES
-(1, 'default.jpg', 1, 'Lorem ipsum', '2019-06-02 18:59:51', '2019-05-18 20:26:19'),
-(2, 'default.jpg', 20, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
+(1, 'default.jpg', 1, 'Lorem ipsum', '2019-06-03 22:32:16', '2019-05-18 20:26:19'),
+(2, 'default.jpg', 20, 'Lorem ipsum', '2019-06-03 22:31:21', '2019-05-18 20:26:19'),
 (3, 'default.jpg', 3, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
 (4, 'default.jpg', 4, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
 (5, 'default.jpg', 5, 'Lorem ipsum', '2019-05-18 20:26:19', '2019-05-18 20:26:19'),
@@ -485,7 +496,8 @@ ALTER TABLE `markers`
 -- Indexes for table `marker_details`
 --
 ALTER TABLE `marker_details`
-  ADD PRIMARY KEY (`id_details`);
+  ADD PRIMARY KEY (`id_details`),
+  ADD KEY `id_marker` (`id_marker`);
 
 --
 -- Indexes for table `role`
@@ -515,17 +527,17 @@ ALTER TABLE `user_details`
 -- AUTO_INCREMENT dla tabeli `action_log`
 --
 ALTER TABLE `action_log`
-  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
 --
 -- AUTO_INCREMENT dla tabeli `markers`
 --
 ALTER TABLE `markers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT dla tabeli `marker_details`
 --
 ALTER TABLE `marker_details`
-  MODIFY `id_details` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_details` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT dla tabeli `role`
 --
@@ -549,7 +561,8 @@ ALTER TABLE `user_details`
 -- Ograniczenia dla tabeli `user`
 --
 ALTER TABLE `user`
-  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`id_role`) REFERENCES `role` (`id_role`);
+  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`id_role`) REFERENCES `role` (`id_role`),
+  ADD CONSTRAINT `user_ibfk_2` FOREIGN KEY (`id`) REFERENCES `user_details` (`id_details`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

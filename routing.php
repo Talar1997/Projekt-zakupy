@@ -19,6 +19,6 @@
     Utils::addRoute('manageUsers', 'UserManagerControl', ['admin', 'moderator']);
     Utils::addRoute('userEdit', 'UserEditControl', ['admin', 'moderator']);
     Utils::addRoute('profile', 'ProfileControl', ['admin', 'moderator', 'user']);
-
+    Utils::addRoute('panel', 'PanelControl', ['admin', 'moderator', 'user']);
 
     //Utils::addRoute('action_name', 'controller_class_name');

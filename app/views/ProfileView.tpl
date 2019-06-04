@@ -7,9 +7,7 @@
                 <li class="active">{$page_title}</li>
             </ol>
             <h2 class="text-center thin">Profil użytkownika <b>{$profile['login']}</b></h2>
-            <!-- test -->
             <div class="col-md-12">
-
                 <!-- resumt -->
                 <div class="panel panel-default">
                     <div class="panel-heading resume-heading">
@@ -76,10 +74,6 @@
                     <h3 class="text-center thin">Użytkownik nie dodał jeszcze żadnego miejsca!</h3>
                 {/if}
             </div>
-            <!-- resume -->
-
-        </div>
-
         </div>
     </div>
 {/block}

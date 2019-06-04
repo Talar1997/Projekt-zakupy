@@ -117,6 +117,13 @@
                 <div class="map-style col-md-6 col-sm-12 row new-place">
                     <div id="map"></div>
                 </div>
+            </article>
+            <!-- /Article -->
+
+            <div class="space"> . </div>
+        </div>
+
+    </div>	<!-- /container -->
 
                 <script>
                     var customLabel = {
@@ -244,13 +251,4 @@
                     var offsetHeight = document.getElementById('addingForm').offsetHeight;
                     document.getElementById("map").style.height = offsetHeight + "px";
                 </script>
-
-            </article>
-            <!-- /Article -->
-
-            <div class="space"> . </div>
-        </div>
-
-    </div>	<!-- /container -->
-
 {/block}
