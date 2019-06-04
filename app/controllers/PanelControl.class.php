@@ -16,6 +16,8 @@ class PanelControl
     public $lastAdded;
     public $topUsers;
     public $lastRegister;
+    public $allPlaces;
+    public $allUsers;
 
     public function getLastAdded(){
         $records = App::getDB()->select("markers",[
@@ -24,9 +26,7 @@ class PanelControl
         ],[
             'markers.id',
             'markers.name',
-            'marker_details.category',
-            'user.login',
-            'marker_details.added_time'
+            'markers.address'
         ],[
             "ORDER" => [
                 "marker_details.added_time" => "DESC",
@@ -73,10 +73,22 @@ class PanelControl
         return $records;
     }
 
+    public function getAmountOfUsers(){
+        $count = App::getDB()->count("user", "id");
+        return $count;
+    }
+
+    public function getAmountOfPlaces(){
+        $count = App::getDB()->count("markers", "id");
+        return $count;
+    }
+
     public function action_panel(){
         $this->lastAdded = $this->getLastAdded();
         $this->lastRegister = $this->getLastRegister();
         $this->topUsers = $this->getTopUsers();
+        $this->allPlaces = $this->getAmountOfPlaces();
+        $this->allUsers = $this->getAmountOfUsers();
         $this->generateView();
     }
 
@@ -84,6 +96,8 @@ class PanelControl
         App::getSmarty()->assign('lastAdded', $this->lastAdded);
         App::getSmarty()->assign('lastRegister', $this->lastRegister);
         App::getSmarty()->assign('topUsers', $this->topUsers);
+        App::getSmarty()->assign('allPlaces', $this->allPlaces);
+        App::getSmarty()->assign('allUsers', $this->allUsers);
         App::getSmarty()->assign('page_title', "Panel główny");
         App::getSmarty()->display("PanelView.tpl");
     }

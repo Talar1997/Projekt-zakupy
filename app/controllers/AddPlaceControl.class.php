@@ -169,7 +169,7 @@ class AddPlaceControl
         if($this->validatePlace()){
             $this->insertToDB();
             Utils::addInfoMessage("Pomyślnie dodano nowe miejsce!");
-            header("Location: ".App::getConf()->app_url."/mainPanel");
+            header("Location: ".App::getConf()->app_url."/panel");
         }
         else{
             App::getSmarty()->assign("title", "Dodaj nowe miejsce");

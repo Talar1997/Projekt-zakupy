@@ -85,7 +85,7 @@
                                     <li><a class="dropdown-item" href="{$conf->action_root}manageUsers/{$offset}/details/{$user['id']}">Szczegóły</a></li>
                                     <li><a class="dropdown-item" href="{$conf->action_root}manageUsers/{$offset}/edit/{$user['id']}">Edytuj</a></li>
                                     {if core\RoleUtils::inRole("admin")}
-                                        <li><a class="dropdown-item" onclick="deleteUser('{$user['id']}')">Usuń</a></li>
+                                        <li><a class="dropdown-item" onclick="deleteUser('{$user['id']}')" href="#">Usuń</a></li>
                                     {/if}
                                 </ul>
                             </div>

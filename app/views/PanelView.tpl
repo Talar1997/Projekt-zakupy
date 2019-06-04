@@ -20,7 +20,57 @@
                     <h4>Wyszukiwarka</h4>
                     <div class="panel panel-default">
                         <div class="panel-body">
-
+                            <form method="POST" action="{$conf->action_root}searchPlace">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control" placeholder="Nazwa sklepu">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control" placeholder="Adres">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <select class="form-control" name="type">
+                                            <option value="default">Typ</option>
+                                            <option value="default">Wszystko</option>
+                                            <option value="gas_station">Stacja benzynowa</option>
+                                            <option value="bar">Bar</option>
+                                            <option value="gastronomy">Gastronomia</option>
+                                            <option value="shop">Sklep</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <hr>
+                                <label class="checkbox-inline">
+                                    <input class="form-check-input" type="checkbox" value="alcohol" name="category[]">
+                                    Alkohol i papierosy
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input class="form-check-input" type="checkbox" value="bread" name="category[]">
+                                    Pieczywo
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input class="form-check-input" type="checkbox" value="cosmetics" name="category[]">
+                                    Chemia i kosmetyki
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input class="form-check-input" type="checkbox" value="fruits" name="category[]">
+                                    Owoce i warzywa
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input class="form-check-input" type="checkbox" value="meats" name="category[]">
+                                    Mięso i wędliny
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input class="form-check-input" type="checkbox" value="press" name="category[]">
+                                    Prasa
+                                </label>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input type="submit" class="btn btn-primary" value="Szukaj">
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -30,7 +80,16 @@
                         <h4>Ostatnio dodane</h4>
                         <ul class="list-group">
                             {foreach $lastAdded as $last}
-                                <li class="list-group-item">{$last['name']} - {$last['category']}</li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <a href="{$conf->action_root}shop/{$last['id']}">{$last['name']}</a>
+                                        </div>
+                                        <div class="col-md-7">
+                                            {$last['address']}
+                                        </div>
+                                    </div>
+                                </li>
                             {/foreach}
                         </ul>
                     </div>
@@ -38,12 +97,22 @@
                         <h4>Najlepsi użytkownicy</h4>
                         <ul class="list-group">
                             {foreach $topUsers as $usr}
-                                <li class="list-group-item">{$usr['login']} - {$usr['reputation']}</li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <a href="{$conf->action_root}profile/{$usr['id']}">{$usr['login']}</a>
+                                        </div>
+                                        <div class="col-md-6 ">
+                                            Reputacja: {$usr['reputation']}
+                                        </div>
+                                    </div>
+                                </li>
                             {/foreach}
                         </ul>
                     </div>
                 </div>
-                <div class="map-style col-md-6 col-sm-12 new-place row">
+                <div class="map-style col-md-6 col-sm-12">
+                    <h4>Mapa</h4>
                     <div id="map"></div>
                 </div>
 
@@ -53,15 +122,39 @@
                     <h4>Ostatnio zarejestrowani</h4>
                     <ul class="list-group">
                         {foreach $lastRegister as $last}
-                            <li class="list-group-item">{$last['login']} - {$last['register_date']}</li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <a href="{$conf->action_root}profile/{$last['id']}">{$last['login']}</a>
+                                    </div>
+                                    <div class="col-md-6">
+                                        {$last['register_date']}
+                                    </div>
+                                </div>
+                            </li>
                         {/foreach}
                     </ul>
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <h4>Akcje</h4>
                     <ul class="list-group">
-                        <li class="list-group-item">Dodaj sklep</li>
-                        <li class="list-group-item">Mój profil</li>
+                        <li class="list-group-item"><a href="{$conf->action_root}addPlace">Dodaj sklep</a></li>
+                        <li class="list-group-item"><a href="{$conf->action_root}profile">Mój profil</a></li>
+                        <li class="list-group-item"><a href="{$conf->action_root}logout">Wyloguj</a></li>
+                    </ul>
+                </div>
+            </article>
+            <article class="col-md-12 col-xs-12 maincontent">
+                <div class="col-md-6 col-sm-6">
+                    <h4>Ilość miejsc w naszej bazie</h4>
+                    <ul class="list-group">
+                        <li class="list-group-item"><h4>{$allPlaces}</h4></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <h4>Ilość użytkowników</h4>
+                    <ul class="list-group">
+                        <li class="list-group-item"><h4>{$allUsers}</h4></li>
                     </ul>
                 </div>
             </article>
@@ -184,7 +277,7 @@
     <script>
         var x1 = document.getElementById('h1').offsetHeight;
         var x2 = document.getElementById('h1').offsetHeight;
-        var offset = x1 + x2 + 30;
+        var offset = x1 + x2;
         document.getElementById("map").style.height = offset + "px";
     </script>
 

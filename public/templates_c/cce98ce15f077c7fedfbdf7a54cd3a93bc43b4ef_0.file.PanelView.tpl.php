@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-06-04 17:30:37
+/* Smarty version 3.1.33, created on 2019-06-04 23:51:30
   from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\PanelView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cf68e9d5b9196_68446990',
+  'unifunc' => 'content_5cf6e7e2d92f40_83013300',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'cce98ce15f077c7fedfbdf7a54cd3a93bc43b4ef' => 
     array (
       0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\PanelView.tpl',
-      1 => 1559662231,
+      1 => 1559685090,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5cf68e9d5b9196_68446990 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cf6e7e2d92f40_83013300 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_13800285195cf68e9d5a91e4_40533070', 'intro');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_15421635125cf6e7e2d7d593_73190504', 'intro');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'intro'} */
-class Block_13800285195cf68e9d5a91e4_40533070 extends Smarty_Internal_Block
+class Block_15421635125cf6e7e2d7d593_73190504 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'intro' => 
   array (
-    0 => 'Block_13800285195cf68e9d5a91e4_40533070',
+    0 => 'Block_15421635125cf6e7e2d7d593_73190504',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -63,7 +63,58 @@ main">Strona główna</a></li>
                     <h4>Wyszukiwarka</h4>
                     <div class="panel panel-default">
                         <div class="panel-body">
-
+                            <form method="POST" action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+searchPlace">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control" placeholder="Nazwa sklepu">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control" placeholder="Adres">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <select class="form-control" name="type">
+                                            <option value="default">Typ</option>
+                                            <option value="default">Wszystko</option>
+                                            <option value="gas_station">Stacja benzynowa</option>
+                                            <option value="bar">Bar</option>
+                                            <option value="gastronomy">Gastronomia</option>
+                                            <option value="shop">Sklep</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <hr>
+                                <label class="checkbox-inline">
+                                    <input class="form-check-input" type="checkbox" value="alcohol" name="category[]">
+                                    Alkohol i papierosy
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input class="form-check-input" type="checkbox" value="bread" name="category[]">
+                                    Pieczywo
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input class="form-check-input" type="checkbox" value="cosmetics" name="category[]">
+                                    Chemia i kosmetyki
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input class="form-check-input" type="checkbox" value="fruits" name="category[]">
+                                    Owoce i warzywa
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input class="form-check-input" type="checkbox" value="meats" name="category[]">
+                                    Mięso i wędliny
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input class="form-check-input" type="checkbox" value="press" name="category[]">
+                                    Prasa
+                                </label>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input type="submit" class="btn btn-primary" value="Szukaj">
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -77,9 +128,20 @@ $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->t
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['last']->value) {
 ?>
-                                <li class="list-group-item"><?php echo $_smarty_tpl->tpl_vars['last']->value['name'];?>
- - <?php echo $_smarty_tpl->tpl_vars['last']->value['category'];?>
-</li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+shop/<?php echo $_smarty_tpl->tpl_vars['last']->value['id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['last']->value['name'];?>
+</a>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <?php echo $_smarty_tpl->tpl_vars['last']->value['address'];?>
+
+                                        </div>
+                                    </div>
+                                </li>
                             <?php
 }
 }
@@ -94,9 +156,20 @@ $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->t
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['usr']->value) {
 ?>
-                                <li class="list-group-item"><?php echo $_smarty_tpl->tpl_vars['usr']->value['login'];?>
- - <?php echo $_smarty_tpl->tpl_vars['usr']->value['reputation'];?>
-</li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+profile/<?php echo $_smarty_tpl->tpl_vars['usr']->value['id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['usr']->value['login'];?>
+</a>
+                                        </div>
+                                        <div class="col-md-6 ">
+                                            Reputacja: <?php echo $_smarty_tpl->tpl_vars['usr']->value['reputation'];?>
+
+                                        </div>
+                                    </div>
+                                </li>
                             <?php
 }
 }
@@ -104,7 +177,8 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                         </ul>
                     </div>
                 </div>
-                <div class="map-style col-md-6 col-sm-12 new-place row">
+                <div class="map-style col-md-6 col-sm-12">
+                    <h4>Mapa</h4>
                     <div id="map"></div>
                 </div>
 
@@ -118,9 +192,20 @@ $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->t
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['last']->value) {
 ?>
-                            <li class="list-group-item"><?php echo $_smarty_tpl->tpl_vars['last']->value['login'];?>
- - <?php echo $_smarty_tpl->tpl_vars['last']->value['register_date'];?>
-</li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+profile/<?php echo $_smarty_tpl->tpl_vars['last']->value['id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['last']->value['login'];?>
+</a>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <?php echo $_smarty_tpl->tpl_vars['last']->value['register_date'];?>
+
+                                    </div>
+                                </div>
+                            </li>
                         <?php
 }
 }
@@ -130,8 +215,28 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 <div class="col-md-6 col-sm-12">
                     <h4>Akcje</h4>
                     <ul class="list-group">
-                        <li class="list-group-item">Dodaj sklep</li>
-                        <li class="list-group-item">Mój profil</li>
+                        <li class="list-group-item"><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+addPlace">Dodaj sklep</a></li>
+                        <li class="list-group-item"><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+profile">Mój profil</a></li>
+                        <li class="list-group-item"><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+logout">Wyloguj</a></li>
+                    </ul>
+                </div>
+            </article>
+            <article class="col-md-12 col-xs-12 maincontent">
+                <div class="col-md-6 col-sm-6">
+                    <h4>Ilość miejsc w naszej bazie</h4>
+                    <ul class="list-group">
+                        <li class="list-group-item"><h4><?php echo $_smarty_tpl->tpl_vars['allPlaces']->value;?>
+</h4></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <h4>Ilość użytkowników</h4>
+                    <ul class="list-group">
+                        <li class="list-group-item"><h4><?php echo $_smarty_tpl->tpl_vars['allUsers']->value;?>
+</h4></li>
                     </ul>
                 </div>
             </article>
@@ -260,7 +365,7 @@ generateXML', function(data) {
 >
         var x1 = document.getElementById('h1').offsetHeight;
         var x2 = document.getElementById('h1').offsetHeight;
-        var offset = x1 + x2 + 30;
+        var offset = x1 + x2;
         document.getElementById("map").style.height = offset + "px";
     <?php echo '</script'; ?>
 >

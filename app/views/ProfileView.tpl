@@ -52,7 +52,7 @@
                                     <th>Nazwa</th>
                                     <th>Adres</th>
                                     <th>Głosy</th>
-                                    <th>Akcje</th>
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -61,7 +61,7 @@
                                         <td>{$p['name']}</td>
                                         <td>{$p['address']}</td>
                                         <td>{$p['votes']}</td>
-                                        <td>tu będzie guzik</td>
+                                        <td><a href="{$conf->action_root}shop/{$p['id']}">Szczegóły</a></td>
                                     </tr>
                                 {/foreach}
                                 </tbody>
