@@ -44,10 +44,9 @@ class RegisterControl
      * @return bool
      */
     public function validateForm(){
-        if( !empty(SessionUtils::loadData("id", true))) return true;
-        if( !(isset($this->form->email) && isset($this->form->login)) ) return false;
-        if( !(isset($this->form->password) && isset($this->form->security_answer)) ) return false;
-        if( !(isset($this->form->security_question)) ) return false;
+        if(!empty(SessionUtils::load("id", true))) return true;
+
+        if(!$this->form->checkIsNull()) return false;
 
         $v = new Validator();
         $v->validate($this->form->email,[
@@ -110,19 +109,19 @@ class RegisterControl
      */
     public function checkForDuplicate(){
         try{
-            $loginCount = App::getDB()->count("user", [
+            $loginCount = App::getDB()->has("user", [
                 'login' => $this->form->login
             ]);
 
-            $emailCount = App::getDB()->count("user",[
-               'email' => $this->form->email
+            $emailCount = App::getDB()->has("user",[
+                'email' => $this->form->email
             ]);
 
-            if($loginCount > 0){
+            if($loginCount){
                 Utils::addErrorMessage("Podany login jest już zajęty");
             }
 
-            if($emailCount > 0){
+            if($emailCount){
                 Utils::addErrorMessage("Podany email jest już zajęty");
             }
 
@@ -136,13 +135,18 @@ class RegisterControl
      */
     public function insertToDb(){
         try{
-            $userRole_id = App::getDB()->select("role", "id_role",[
+            $userRole_id = App::getDB()->get("role", "id_role",[
                 'name' => 'user'
             ]);
 
-            $userRole_id = $userRole_id[0];
+            App::getDB()->insert("user_details",[
+                'register_date' => (new \DateTime())->format('Y-m-d H:i:s')
+            ]);
+
+            $userId = App::getDB()->id();
 
             App::getDB()->insert("user",[
+                'id' => $userId,
                 'login' => $this->form->login,
                 'password' => md5($this->form->password),
                 'email' => $this->form->email,
@@ -151,20 +155,10 @@ class RegisterControl
                 'id_role' => $userRole_id
             ]);
 
-            $userId = App::getDB()->select("user","id", [
-                'login' => $this->form->login
-            ]);
-
-            $userId = $userId[0];
-
-            App::getDB()->insert("user_details",[
-                'id_details' => $userId,
-                'register_date' => (new \DateTime())->format('Y-m-d H:i:s')
-            ]);
             Utils::addInfoMessage("Konto zostało utworzone");
             Logs::addLog("Utworzenie nowego konta: ".$this->form->login);
         }catch(\PDOException $e){
-            Utils::addErrorMessage("Błąd połączenia z bazą danych: ".$e->getMessage());
+            Utils::addErrorMessage("Błąd połączenia z bazą danych!");
         }
     }
 

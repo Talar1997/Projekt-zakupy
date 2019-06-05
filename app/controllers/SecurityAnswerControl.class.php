@@ -59,7 +59,7 @@ class SecurityAnswerControl
         }
 
         try{
-            $accountData = App::getDB()->select("user",[
+            $accountData = App::getDB()->get("user",[
                 'id',
                 'security_question',
                 'security_answer'
@@ -67,8 +67,8 @@ class SecurityAnswerControl
                 'email' => $this->userMail
             ]);
 
-            $this->securityQuestion = $accountData[0]['security_question'];
-            $this->userId = $accountData[0]['id'];
+            $this->securityQuestion = $accountData['security_question'];
+            $this->userId = $accountData['id'];
 
             if( empty($accountData) ){
                 header("Location: ".App::getConf()->app_url."/restore");
@@ -80,7 +80,7 @@ class SecurityAnswerControl
         if(! (isset($this->form->password_repeat) && (isset($this->form->password)))) return false;
         if(! (isset($this->form->security_answer) && (isset($this->form->email)))) return false;
 
-        $securityAnswer = $accountData[0]["security_answer"];
+        $securityAnswer = $accountData["security_answer"];
 
         if(md5($this->form->security_answer) != $securityAnswer){
             Utils::addErrorMessage("Odpowiedź na pytanie bezpieczeństwa jest nieprawidłowa!");

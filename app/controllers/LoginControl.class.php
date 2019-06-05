@@ -46,9 +46,9 @@ class LoginControl
      * @return bool
      */
     public function validateLogin(){
-        if(!empty(SessionUtils::loadData("id", true))) return true;
+        if(!empty(SessionUtils::load("id", true))) return true;
 
-        if( !(isset($this->form->login) && isset($this->form->password)) ) return false;
+        if(!$this->form->checkIsNull()) return false;
 
         $v = new Validator();
         $v->validate($this->form->login,[
@@ -68,7 +68,7 @@ class LoginControl
         if(App::getMessages()->isError()) return false;
 
         try{
-            $accountData = App::getDB()->select("user", [
+            $this->accountData = App::getDB()->get("user", [
                 "[>]role" => ["id_role" => "id_role"],
             ],[
                 'user.id',
@@ -78,14 +78,9 @@ class LoginControl
             ],[
                 'login' => $this->form->login,
                 'password' => md5($this->form->password)
-            ],[
-                "LIMIT" => 1
             ]);
 
-            if(!empty($accountData[0]["password"])){
-                $this->accountData = $accountData[0];
-            }
-            else{
+            if(empty($this->accountData)){
                 Utils::addErrorMessage("Nieprawidłowy login lub hasło");
             }
         }catch(\PDOException $e){
@@ -101,9 +96,9 @@ class LoginControl
      */
     public function generateView(){
         if($this->validateLogin()){
-            SessionUtils::storeData("id", $this->accountData["id"]);
-            SessionUtils::storeData("login", $this->accountData["login"]);
-            SessionUtils::storeData("role", $this->accountData["name"]);
+            SessionUtils::store("id", $this->accountData["id"]);
+            SessionUtils::store("login", $this->accountData["login"]);
+            SessionUtils::store("role", $this->accountData["name"]);
 
             App::getDB()->update('user_details',[
                 'last_login' => (new \DateTime())->format('Y-m-d H:i:s')
@@ -138,7 +133,7 @@ class LoginControl
      */
     public function action_logout(){
         RoleUtils::removeRole("logged");
-        RoleUtils::removeRole(SessionUtils::loadData("role"));
+        RoleUtils::removeRole(SessionUtils::load("role"));
         SessionUtils::remove("id");
         SessionUtils::remove("login");
         SessionUtils::remove("role");

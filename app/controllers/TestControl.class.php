@@ -18,9 +18,9 @@ class TestControl
         $data["RoleisLogged"] = RoleUtils::inRole("logged");
         $data["RoleisUser"] = RoleUtils::inRole("user");
         $data["RoleisAdmin"] = RoleUtils::inRole("admin");
-        $data["SessionId"] = SessionUtils::loadData("id",true);
-        $data["SessionLogin"] = SessionUtils::loadData("login",true);
-        $data["SessionRole"] = SessionUtils::loadData("role",true);
+        $data["SessionId"] = SessionUtils::load("id",true);
+        $data["SessionLogin"] = SessionUtils::load("login",true);
+        $data["SessionRole"] = SessionUtils::load("role",true);
         $data["lat"] = 50.288740;
         $data["lng"] = 19.129940;
 

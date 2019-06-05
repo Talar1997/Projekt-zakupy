@@ -34,44 +34,51 @@ class UserManagerControl
      *
      */
     public function getUsersFromDB(){
-        $this->users = App::getDB()->select("user", [
-            "[>]role" => ["id_role" => "id_role"],
-        ],[
-            'user.id',
-            'user.login',
-            'user.password',
-            'user.security_question',
-            'user.security_answer',
-            'user.email',
-            'user.id_role',
-            'role.name',
-        ],[
-            'LIMIT' => [(($this->offset - 1) * $this->records), $this->records]
-        ]);
+        try{
+            $this->users = App::getDB()->select("user", [
+                "[>]role" => ["id_role" => "id_role"],
+            ],[
+                'user.id',
+                'user.login',
+                'user.password',
+                'user.security_question',
+                'user.security_answer',
+                'user.email',
+                'user.id_role',
+                'role.name',
+            ],[
+                'LIMIT' => [(($this->offset - 1) * $this->records), $this->records]
+            ]);
 
-        $this->roles = App::getDB()->select("role", "*");
+            $this->roles = App::getDB()->select("role", "*");
+        }catch(\PDOException $e){
+            Utils::addErrorMessage("Błąd połączenia z bazą danych!");
+        }
     }
 
     public function getUserFromDB($id){
-        $this->user = App::getDB()->select("user", [
-            "[>]role" => ["id_role" => "id_role"],
-            "[>]user_details" => ["id" => "id_details"]
-        ],[
-            'user.id',
-            'user.login',
-            'user.password',
-            'user.security_question',
-            'user.security_answer',
-            'user.email',
-            'user_details.description',
-            'user_details.reputation',
-            'user.id_role',
-            'role.name',
-        ],[
-            'user.id' => $id
-        ]);
+        try{
+            $this->user = App::getDB()->get("user", [
+                "[>]role" => ["id_role" => "id_role"],
+                "[>]user_details" => ["id" => "id_details"]
+            ],[
+                'user.id',
+                'user.login',
+                'user.password',
+                'user.security_question',
+                'user.security_answer',
+                'user.email',
+                'user_details.description',
+                'user_details.reputation',
+                'user.id_role',
+                'role.name',
+            ],[
+                'user.id' => $id
+            ]);
 
-        $this->user = $this->user[0];
+        }catch(\PDOException $e){
+            Utils::addErrorMessage("Błąd połączenia z bazą danych!");
+        }
     }
 
     /**
@@ -92,31 +99,38 @@ class UserManagerControl
      * @param $id
      */
     public function deleteUser($id){
-        $result = App::getDB()->select("user", [
-            "[>]role" => ["id_role" => "id_role"],
-        ],[
-            'user.id',
-            'role.name',
-        ],[
-            'id' => $id
-        ]);
-
-        if(isset($result[0]) && $result[0]['name'] == 'admin'){
-            Utils::addErrorMessage("Nie można usunąć konta administratora. Zmień uprawnienia i spróbuj ponownie");
-            return false;
-        }
-
-        if(!empty($result)){
-            App::getDB()->delete("user",[
+        try{
+            $result = App::getDB()->get("user", [
+                "[>]role" => ["id_role" => "id_role"],
+            ],[
+                'user.id',
+                'role.name',
+            ],[
                 'id' => $id
             ]);
-            Utils::addInfoMessage("Użytkownik (".$id.") został usunięty");
-            $admin_login = SessionUtils::loadData("login", true);
-            Logs::addLog("Użytkownik (".$id.") został usunięty przez ".$admin_login);
+
+            if(isset($result) && $result['name'] == 'admin'){
+                Utils::addErrorMessage("Nie można usunąć konta administratora. Zmień uprawnienia i spróbuj ponownie");
+                return false;
+            }
+
+            if(!empty($result)){
+                App::getDB()->delete("user",[
+                    'id' => $id
+                ]);
+
+                Utils::addInfoMessage("Użytkownik (".$id.") został usunięty");
+                $admin_login = SessionUtils::load("login", true);
+                Logs::addLog("Użytkownik (".$id.") został usunięty przez ".$admin_login);
+            }
+            else{
+                Utils::addErrorMessage("Użytkownik nie istnieje");
+            }
+        }catch(\PDOException $e){
+            Utils::addErrorMessage("Błąd połączenia z bazą danych!");
         }
-        else{
-            Utils::addErrorMessage("Użytkownik nie istnieje");
-        }
+
+        return false;
     }
 
     /**
@@ -133,7 +147,7 @@ class UserManagerControl
                 App::getSmarty()->assign("userDetails", $this->user);
                 break;
             case "delete" :
-                if(SessionUtils::loadData('role', true) == 'moderator'){
+                if(SessionUtils::load('role', true) == 'moderator'){
                     Utils::addErrorMessage("Tylko administrator może usuwać użytkowników!");
                     break;
                 }

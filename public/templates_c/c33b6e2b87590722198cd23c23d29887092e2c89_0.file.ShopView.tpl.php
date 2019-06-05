@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-06-04 23:51:54
+/* Smarty version 3.1.33, created on 2019-06-05 13:10:04
   from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\ShopView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cf6e7fa5b62c7_97608814',
+  'unifunc' => 'content_5cf7a30c3cbc84_92385105',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c33b6e2b87590722198cd23c23d29887092e2c89' => 
     array (
       0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\ShopView.tpl',
-      1 => 1559684312,
+      1 => 1559733003,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5cf6e7fa5b62c7_97608814 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cf7a30c3cbc84_92385105 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_9719257995cf6e7fa5a9230_80591054', 'intro');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_12438430735cf7a30c3bc525_61932010', 'intro');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'intro'} */
-class Block_9719257995cf6e7fa5a9230_80591054 extends Smarty_Internal_Block
+class Block_12438430735cf7a30c3bc525_61932010 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'intro' => 
   array (
-    0 => 'Block_9719257995cf6e7fa5a9230_80591054',
+    0 => 'Block_12438430735cf7a30c3bc525_61932010',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -124,7 +124,7 @@ profile/<?php echo $_smarty_tpl->tpl_vars['place']->value['id'];?>
                 center: new google.maps.LatLng(<?php echo $_smarty_tpl->tpl_vars['place']->value['lat'];?>
 , <?php echo $_smarty_tpl->tpl_vars['place']->value['lng'];?>
 ),
-                zoom: 13
+                zoom: 15
             });
             var infoWindow = new google.maps.InfoWindow;
 

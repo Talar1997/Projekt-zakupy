@@ -21,7 +21,7 @@ class RestorePasswordControl
     }
 
     public function validateData(){
-        if( !(isset($this->form->email)) ) return false;
+        if(!$this->form->checkIsNull()) return false;
 
         $v = new Validator();
         $v->validate($this->form->email,[
@@ -34,22 +34,23 @@ class RestorePasswordControl
             'validator_message' => "Nieprawidłowy adres email"
         ]);
 
+        $this->checkIsExist();
+
+        if(!App::getMessages()->isError()) return true;
+        else return false;
+    }
+
+    public function checkIsExist(){
         try{
-            $accountData = App::getDB()->select("user",[
-                'id',
-            ],[
+            $this->userId = App::getDB()->get("user","id",[
                 'email' => $this->form->email
             ]);
 
-            if(empty($accountData)) Utils::addErrorMessage("Konto o podanym adresie email nie istnieje");
-            else $this->userId = $accountData[0]['id'];
+            if(empty($this->userId)) Utils::addErrorMessage("Konto o podanym adresie email nie istnieje");
 
         }catch (\PDOException $e){
             Utils::addErrorMessage("Błąd połączenia z bazą danych");
         }
-
-        if(!App::getMessages()->isError()) return true;
-        else return false;
     }
 
     public function generateView(){

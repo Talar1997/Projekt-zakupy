@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-06-04 23:51:30
+/* Smarty version 3.1.33, created on 2019-06-05 13:08:20
   from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\PanelView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cf6e7e2d92f40_83013300',
+  'unifunc' => 'content_5cf7a2a47b99c6_94799776',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'cce98ce15f077c7fedfbdf7a54cd3a93bc43b4ef' => 
     array (
       0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\PanelView.tpl',
-      1 => 1559685090,
+      1 => 1559732898,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5cf6e7e2d92f40_83013300 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cf7a2a47b99c6_94799776 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_15421635125cf6e7e2d7d593_73190504', 'intro');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1928537735cf7a2a4738dc1_62333989', 'intro');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'intro'} */
-class Block_15421635125cf6e7e2d7d593_73190504 extends Smarty_Internal_Block
+class Block_1928537735cf7a2a4738dc1_62333989 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'intro' => 
   array (
-    0 => 'Block_15421635125cf6e7e2d7d593_73190504',
+    0 => 'Block_1928537735cf7a2a4738dc1_62333989',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -158,13 +158,13 @@ foreach ($_from as $_smarty_tpl->tpl_vars['usr']->value) {
 ?>
                                 <li class="list-group-item">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-5">
                                             <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 profile/<?php echo $_smarty_tpl->tpl_vars['usr']->value['id'];?>
 "><?php echo $_smarty_tpl->tpl_vars['usr']->value['login'];?>
 </a>
                                         </div>
-                                        <div class="col-md-6 ">
+                                        <div class="col-md-7 ">
                                             Reputacja: <?php echo $_smarty_tpl->tpl_vars['usr']->value['reputation'];?>
 
                                         </div>
@@ -194,13 +194,13 @@ foreach ($_from as $_smarty_tpl->tpl_vars['last']->value) {
 ?>
                             <li class="list-group-item">
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-5">
                                         <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 profile/<?php echo $_smarty_tpl->tpl_vars['last']->value['id'];?>
 "><?php echo $_smarty_tpl->tpl_vars['last']->value['login'];?>
 </a>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-7">
                                         <?php echo $_smarty_tpl->tpl_vars['last']->value['register_date'];?>
 
                                     </div>

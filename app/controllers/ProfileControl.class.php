@@ -22,38 +22,52 @@ class ProfileControl
     public $addedPlaces;
 
     public function getUserFromDb($id){
-        $this->user = App::getDB()->select("user", [
-            "[>]role" => ["id_role" => "id_role"],
-            "[>]user_details" => ["id" => "id_details"]
-        ],[
-            'user.id',
-            'user.login',
-            'user.email',
-            'user_details.description',
-            'user_details.reputation',
-            'user.id_role',
-            'role.name',
-            'user_details.last_login',
-            'user_details.register_date',
-            'user_details.avatar_ref'
-        ],[
-            'user.id' => $id
-        ]);
+        $user = null;
 
-        return $this->user[0];
+        try{
+            $user = App::getDB()->get("user", [
+                "[>]role" => ["id_role" => "id_role"],
+                "[>]user_details" => ["id" => "id_details"]
+            ],[
+                'user.id',
+                'user.login',
+                'user.email',
+                'user_details.description',
+                'user_details.reputation',
+                'user.id_role',
+                'role.name',
+                'user_details.last_login',
+                'user_details.register_date',
+                'user_details.avatar_ref'
+            ],[
+                'user.id' => $id
+            ]);
+
+
+        }catch(\PDOException $e){
+            Utils::addErrorMessage("Błąd połączenia z bazą danych!");
+        }
+
+        return $user;
     }
 
     public function getAddedPlaces($id){
-        $records = App::getDB()->select("markers",[
-            "[>]marker_details" => ["id" => "id_marker"],
-        ],[
-            'markers.id',
-            'markers.name',
-            'markers.address',
-            'marker_details.votes'
-        ],[
-            'marker_details.author'=> $id
-        ]);
+        $records = null;
+
+        try{
+            $records = App::getDB()->select("markers",[
+                "[>]marker_details" => ["id" => "id_marker"],
+            ],[
+                'markers.id',
+                'markers.name',
+                'markers.address',
+                'marker_details.votes'
+            ],[
+                'marker_details.author'=> $id
+            ]);
+        }catch(\PDOException $e){
+            Utils::addErrorMessage("Błąd połączenia z bazą danych!");
+        }
 
         return $records;
     }

@@ -10,6 +10,7 @@ namespace app\controllers;
 
 
 use core\App;
+use core\Utils;
 
 class PanelControl
 {
@@ -20,66 +21,93 @@ class PanelControl
     public $allUsers;
 
     public function getLastAdded(){
-        $records = App::getDB()->select("markers",[
-            "[>]marker_details" => ["id" => "id_marker"],
-            "[>]user" => ["marker_details.author" => "id"],
-        ],[
-            'markers.id',
-            'markers.name',
-            'markers.address'
-        ],[
-            "ORDER" => [
-                "marker_details.added_time" => "DESC",
-            ],
-            'LIMIT' => 5
-        ]);
+        $records = null;
+        try{
+            $records = App::getDB()->select("markers",[
+                "[>]marker_details" => ["id" => "id_marker"],
+                "[>]user" => ["marker_details.author" => "id"],
+            ],[
+                'markers.id',
+                'markers.name',
+                'markers.address'
+            ],[
+                "ORDER" => [
+                    "marker_details.added_time" => "DESC",
+                ],
+                'LIMIT' => 5
+            ]);
+        }catch(\PDOException $e){
+            Utils::addErrorMessage("Błąd połączenia z bazą danych!");
+        }
 
         return $records;
     }
 
     public function getLastRegister(){
-        $records = App::getDB()->select("user", [
-            "[>]user_details" => ["id" => "id_details"]
-        ],[
-            'user.id',
-            'user.login',
-            'user_details.register_date',
-            'user_details.avatar_ref'
-        ],[
-            "ORDER" => [
-                'user_details.register_date' => "DESC",
-            ],
-            'LIMIT' => 5
-        ]);
+        $records = null;
+        try{
+            $records = App::getDB()->select("user", [
+                "[>]user_details" => ["id" => "id_details"]
+            ],[
+                'user.id',
+                'user.login',
+                'user_details.register_date',
+                'user_details.avatar_ref'
+            ],[
+                "ORDER" => [
+                    'user_details.register_date' => "DESC",
+                ],
+                'LIMIT' => 5
+            ]);
+        }catch(\PDOException $e){
+            Utils::addErrorMessage("Błąd połączenia z bazą danych!");
+        }
 
         return $records;
     }
 
     public function getTopUsers(){
-        $records = App::getDB()->select("user", [
-            "[>]user_details" => ["id" => "id_details"]
-        ],[
-            'user.id',
-            'user.login',
-            'user_details.reputation',
-            'user_details.avatar_ref'
-        ],[
-            "ORDER" => [
-                'user_details.reputation' => "DESC",
-            ],
-            'LIMIT' => 5
-        ]);
+        $records = null;
+        try{
+            $records = App::getDB()->select("user", [
+                "[>]user_details" => ["id" => "id_details"]
+            ],[
+                'user.id',
+                'user.login',
+                'user_details.reputation',
+                'user_details.avatar_ref'
+            ],[
+                "ORDER" => [
+                    'user_details.reputation' => "DESC",
+                ],
+                'LIMIT' => 5
+            ]);
+        }catch(\PDOException $e){
+            Utils::addErrorMessage("Błąd połączenia z bazą danych!");
+        }
 
         return $records;
     }
 
     public function getAmountOfUsers(){
-        $count = App::getDB()->count("user", "id");
+        $count = 0;
+        try{
+            $count = App::getDB()->count("user", "id");
+        }catch(\PDOException $e){
+            Utils::addErrorMessage("Błąd połączenia z bazą danych!");
+        }
+
         return $count;
     }
 
     public function getAmountOfPlaces(){
-        $count = App::getDB()->count("markers", "id");
+        $count = 0;
+        try{
+            $count = App::getDB()->count("markers", "id");
+        }catch(\PDOException $e){
+            Utils::addErrorMessage("Błąd połączenia z bazą danych!");
+        }
+
         return $count;
     }
 

@@ -99,10 +99,10 @@
                             {foreach $topUsers as $usr}
                                 <li class="list-group-item">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-5">
                                             <a href="{$conf->action_root}profile/{$usr['id']}">{$usr['login']}</a>
                                         </div>
-                                        <div class="col-md-6 ">
+                                        <div class="col-md-7 ">
                                             Reputacja: {$usr['reputation']}
                                         </div>
                                     </div>
@@ -124,10 +124,10 @@
                         {foreach $lastRegister as $last}
                             <li class="list-group-item">
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-5">
                                         <a href="{$conf->action_root}profile/{$last['id']}">{$last['login']}</a>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-7">
                                         {$last['register_date']}
                                     </div>
                                 </div>

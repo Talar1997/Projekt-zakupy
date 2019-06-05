@@ -10,6 +10,7 @@ namespace app\controllers;
 
 use core\ParamUtils;
 use core\App;
+use core\Utils;
 
 /**
  * Class LogsControl
@@ -21,7 +22,6 @@ class LogsControl
      * @var
      */
     public $logs;
-
     public $offset = 0;
     public $records = 100;
 
@@ -29,12 +29,17 @@ class LogsControl
      *
      */
     public function getLogsFromDb(){
-        $this->logs = App::getDB()->select("action_log", "*",[
-            "ORDER" => [
-                "id_log" => "DESC",
-            ],
-            'LIMIT' => [($this->offset * $this->records), $this->records]
-        ]);
+        try{
+            $this->logs = App::getDB()->select("action_log", "*",[
+                "ORDER" => [
+                    "id_log" => "DESC",
+                ],
+                'LIMIT' => [($this->offset * $this->records), $this->records]
+            ]);
+        }catch (\PDOException $e){
+            Utils::addErrorMessage("Błąd połączenia z bazą danych!");
+        }
+
     }
 
     /**

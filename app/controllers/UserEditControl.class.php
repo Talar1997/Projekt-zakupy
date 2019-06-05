@@ -52,10 +52,13 @@ class UserEditControl
      *
      */
     public function getCurrentUserData(){
-        $this->user = App::getDB()->select("user","*",[
-            'id' => $this->form->id
-        ]);
-        $this->user = $this->user[0];
+        try{
+            $this->user = App::getDB()->get("user","*",[
+                'id' => $this->form->id
+            ]);
+        }catch(\PDOException $e){
+            Utils::addErrorMessage("Błąd połączenia z bazą danych!");
+        }
     }
 
     /**
@@ -118,50 +121,70 @@ class UserEditControl
     }
 
     /**
-     * @return bool
+     *
      */
     public function checkForDuplicates(){
-        //Sprawdzenie, czy login nie występuje u innego użytkownika
-        $suspect = App::getDB()->select('user','id',[
-            'login' => $this->form->login
-        ]);
+        try{
+            $records = App::getDB()->select('user','id',[
+                'login' => $this->form->login
+            ]);
 
-        foreach($suspect as $s) {
-            if($s != $this->form->id){
-                Utils::addErrorMessage("Podany login występuje już u innego użytkownika");
-                return false;
+            foreach($records as $id) {
+                if($id != $this->form->id){
+                    Utils::addErrorMessage("Podany login występuje już u innego użytkownika");
+                }
             }
-        }
 
-        //Sprawdzenie czy email nie występuje u innego użytkownika
-        $suspect = App::getDB()->select('user','id',[
-            'email' => $this->form->email
-        ]);
+            //Sprawdzenie czy email nie występuje u innego użytkownika
+            $records = App::getDB()->select('user','id',[
+                'email' => $this->form->email
+            ]);
 
-        foreach($suspect as $s) {
-            if($s != $this->form->id){
-                Utils::addErrorMessage("Podany email występuje już u innego użytkownika");
-                return false;
+            foreach($records as $id) {
+                if($id != $this->form->id){
+                    Utils::addErrorMessage("Podany email występuje już u innego użytkownika");
+                }
             }
-        }
 
-        return true;
+        }catch(\PDOException $e){
+            Utils::addErrorMessage("Błąd połączenia z bazą danych!");
+        }
     }
+    /* ^ Czemu bez foreacha nie działa skoro select i tak może zwrócić maksymalnie jeden rekord?
+     * JAKIM CUDEM TO NIE DZIAŁA A ROZWIĄZANIE WYŻEJ JUŻ TAK?!
+     *
+     *
+    public function checkForDuplicates(){
+        try{
+            $isLoginExist = App::getDB()->has('user','id',[
+                'login' => $this->form->login,
+                'id[!]' => $this->form->id
+            ]);
+
+            if($isLoginExist) Utils::addErrorMessage("Podany login występuje już u innego użytkownika");
+
+            $isMailExist = App::getDB()->has('user','id',[
+                'email' => $this->form->email,
+                'id[!]' => $this->form->id
+            ]);
+
+            if($isMailExist) Utils::addErrorMessage("Podany login występuje już u innego użytkownika");
+        }catch(\PDOException $e){
+            Utils::addErrorMessage("Błąd połączenia z bazą danych!");
+        }
+    }
+    */
 
     public function checkIsForbidden(){
-        if(SessionUtils::loadData('role', true) == 'moderator'){
+        if(SessionUtils::load('role', true) == 'moderator'){
             if($this->user['id_role'] <= 2){
                 Utils::addErrorMessage("Moderator nie może edytować kont innych niż użytkownik i zbanowany!");
-                return false;
             }
 
             if($this->form->id_role <= 2){
                 Utils::addErrorMessage("Moderator nie może nadawać uprawnień administratora ani moderatora!");
-                return false;
             }
         }
-
-        return true;
     }
 
     /**
@@ -172,28 +195,32 @@ class UserEditControl
         if($this->form->password != $this->user['password']) $this->form->password = md5($this->form->password);
         if($this->form->security_answer != $this->user['security_answer']) $this->form->security_answer = md5($this->form->security_answer);
 
-        App::getDB()->update('user',[
-            'login' => $this->form->login,
-            'password' => $this->form->password,
-            'security_question' => $this->form->security_question,
-            'security_answer' => $this->form->security_answer,
-            'email' => $this->form->email,
-            'id_role' => $this->form->id_role,
-        ],[
-            'id' => $this->form->id
-        ]);
+        try{
+            App::getDB()->update('user',[
+                'login' => $this->form->login,
+                'password' => $this->form->password,
+                'security_question' => $this->form->security_question,
+                'security_answer' => $this->form->security_answer,
+                'email' => $this->form->email,
+                'id_role' => $this->form->id_role,
+            ],[
+                'id' => $this->form->id
+            ]);
 
-        App::getDB()->update('user_details',[
-            'reputation' => $this->form->reputation,
-            'description' => $this->form->description,
-        ],[
-            'id_details' => $this->form->id
-        ]);
+            App::getDB()->update('user_details',[
+                'reputation' => $this->form->reputation,
+                'description' => $this->form->description,
+            ],[
+                'id_details' => $this->form->id
+            ]);
 
-        Utils::addInfoMessage("Pomyślnie zmieniono dane użytkownika");
-        $login = SessionUtils::loadData('login', true);
-        $role = SessionUtils::loadData('role', true);
-        Logs::addLog("Edycja użytkownika ".$this->form->id." przez ".$role.": ".$login );
+            Utils::addInfoMessage("Pomyślnie zmieniono dane użytkownika");
+            $login = SessionUtils::load('login', true);
+            $role = SessionUtils::load('role', true);
+            Logs::addLog("Edycja użytkownika ".$this->form->id." przez ".$role.": ".$login );
+        }catch(\PDOException $e){
+            Utils::addErrorMessage("Błąd połączenia z bazą danych!");
+        }
     }
 
     /**

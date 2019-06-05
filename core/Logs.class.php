@@ -20,11 +20,16 @@ class Logs
      * @param $log
      */
     public static function addLog($log){
-        App::getDB()->insert("action_log", [
-            'datetime' => self::getCurrentDatetime(),
-            'ip' => self::getUserIp(),
-            'log' => $log
-        ]);
+        try{
+            App::getDB()->insert("action_log", [
+                'datetime' => self::getCurrentDatetime(),
+                'ip' => self::getUserIp(),
+                'log' => $log
+            ]);
+        }catch(\PDOException $e){
+            Utils::addErrorMessage("Błąd połączenia z bazą danych!");
+        }
+
     }
 
     /**

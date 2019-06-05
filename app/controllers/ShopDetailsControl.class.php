@@ -20,29 +20,32 @@ class ShopDetailsControl
     public $markerData;
 
     public function getMarkerFromDb($id){
-        $this->markerData = App::getDB()->select("markers", [
-            "[>]marker_details" => ["id" => "id_marker"],
-            "[>]user" => ["marker_details.author" => "id"],
-        ],[
-            'marker_details.description',
-            'marker_details.category',
-            'marker_details.open_hour',
-            'marker_details.close_hour',
-            'marker_details.added_time',
-            'marker_details.id_marker',
-            'user.login',
-            'user.id',
-            'marker_details.votes',
-            'markers.name',
-            'markers.address',
-            'markers.lat',
-            'markers.lng',
-            'markers.type'
-        ],[
-            'markers.id' => $id
-        ]);
-
-        return $this->markerData[0];
+        try{
+            $this->markerData = App::getDB()->get("markers", [
+                "[>]marker_details" => ["id" => "id_marker"],
+                "[>]user" => ["marker_details.author" => "id"],
+            ],[
+                'marker_details.description',
+                'marker_details.category',
+                'marker_details.open_hour',
+                'marker_details.close_hour',
+                'marker_details.added_time',
+                'marker_details.id_marker',
+                'user.login',
+                'user.id',
+                'marker_details.votes',
+                'markers.name',
+                'markers.address',
+                'markers.lat',
+                'markers.lng',
+                'markers.type'
+            ],[
+                'markers.id' => $id
+            ]);
+        }catch(\PDOException $e){
+            Utils::addErrorMessage("Błąd połączenia z bazą danych!");
+        }
+        return $this->markerData;
     }
 
     public function generateView(){
@@ -62,16 +65,24 @@ class ShopDetailsControl
             'validator_message' => 'Nieprawidłowy parametr!',
         ]);
 
-        $isExist = App::getDB()->count("markers", "id", [
-            'id' => $this->id
-        ]);
-
-        if($isExist != 1){
-            Utils::addErrorMessage("Użytkownik o podanym id nie istnieje!");
-        }
+        $this->isExist();
 
         if(App::getMessages()->isError()) return false;
         else return true;
+    }
+
+    public function isExist(){
+        try{
+            $isExist = App::getDB()->count("markers", "id", [
+                'id' => $this->id
+            ]);
+
+            if($isExist != 1){
+                Utils::addErrorMessage("Użytkownik o podanym id nie istnieje!");
+            }
+        }catch(\PDOException $e){
+            Utils::addErrorMessage("Błąd połączenia z bazą danych!");
+        }
     }
 
     public function action_shop(){

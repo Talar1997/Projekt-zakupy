@@ -20,7 +20,7 @@ class AddPlaceControl
      * @var PlaceForm
      */
     public $form;
-
+    public $newAddedId;
     /**
      * AddPlaceControl constructor.
      */
@@ -73,7 +73,7 @@ class AddPlaceControl
             'validator_message' => "Adres powinien składać się z od 4 do 80 znaków!"
         ]);
 
-        $v->validate($this->form->address,[
+        $v->validate($this->form->type,[
             'required' => true,
             'required_message' => "Typ jest wymagany!"
         ]);
@@ -121,14 +121,18 @@ class AddPlaceControl
     }
 
     public function checkForDuplicates(){
-        $record = App::getDB()->select('markers','id',[
-            'name' => $this->form->shopName,
-            'address' => $this->form->address,
-            'type' => $this->form->type
-        ]);
+        try{
+            $record = App::getDB()->has('markers','id',[
+                'name' => $this->form->shopName,
+                'address' => $this->form->address,
+                'type' => $this->form->type
+            ]);
 
-        if(isset($record[0])){
-            Utils::addErrorMessage("Podany sklep istnieje już pod tym adresem!");
+            if($record){
+                Utils::addErrorMessage("Podany sklep istnieje już pod tym adresem!");
+            }
+        }catch(\PDOException $e){
+            Utils::addErrorMessage("Błąd połączenia z bazą danych");
         }
     }
 
@@ -136,30 +140,30 @@ class AddPlaceControl
      *
      */
     public function insertToDB(){
-        App::getDB()->insert('markers',[
-            'id' => null,
-            'name' => $this->form->shopName,
-            'address' => $this->form->address,
-            'lat' => $this->form->lat,
-            'lng' => $this->form->lng,
-            'type' => $this->form->type
-        ]);
+        try{
+            App::getDB()->insert('markers',[
+                'id' => null,
+                'name' => $this->form->shopName,
+                'address' => $this->form->address,
+                'lat' => $this->form->lat,
+                'lng' => $this->form->lng,
+                'type' => $this->form->type
+            ]);
 
-        $newAddedId = App::getDB()->select('markers','id',[
-            'name' => $this->form->shopName,
-            'address' => $this->form->address,
-            'type' => $this->form->type
-        ]);
+            $this->newAddedId = App::getDB()->id();
 
-        App::getDB()->insert('marker_details',[
-            'id_details' => null,
-            'id_marker' => $newAddedId[0],
-            'description' => $this->form->description,
-            'category[JSON]' => $this->form->category,
-            'open_hour' => $this->form->time_open,
-            'close_hour' => $this->form->time_close,
-            'author' => SessionUtils::loadData('id', true)
-        ]);
+            App::getDB()->insert('marker_details',[
+                'id_details' => null,
+                'id_marker' => $this->newAddedId,
+                'description' => $this->form->description,
+                'category[JSON]' => $this->form->category,
+                'open_hour' => $this->form->time_open,
+                'close_hour' => $this->form->time_close,
+                'author' => SessionUtils::load('id', true)
+            ]);
+        }catch(\PDOException $e){
+            Utils::addErrorMessage("Błąd połączenia z bazą danych");
+        }
     }
 
     /**
@@ -169,7 +173,7 @@ class AddPlaceControl
         if($this->validatePlace()){
             $this->insertToDB();
             Utils::addInfoMessage("Pomyślnie dodano nowe miejsce!");
-            header("Location: ".App::getConf()->app_url."/panel");
+            header("Location: ".App::getConf()->app_url."/shop/".$this->newAddedId);
         }
         else{
             App::getSmarty()->assign("title", "Dodaj nowe miejsce");
