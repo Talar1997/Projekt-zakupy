@@ -61,3 +61,11 @@ Możemy również wyświetlić wszystkich użytkowników, bądź przejść do 50
 ### Dodawanie nowych miejsc
 [do uzupełnienia]
 
+### Panel główny
+[do uzupełnienia]
+
+### Profil użytkownika
+[do uzupełnienia]
+
+### Szczegóły sklepu
+[do uzupełnienia]
