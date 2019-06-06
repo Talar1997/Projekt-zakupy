@@ -43,36 +43,36 @@
                                 <div class="form-group top-margin">
                                     <label for="category">Jakie artykuły można tam nabyć?<span class="text-danger">*</span></label>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="alcohol" name="category[]">
+                                        <input class="form-check-input" type="checkbox" value="alkohol" name="category[]">
                                         <label class="form-check-label" for="defaultCheck1">
                                             Alkohol i papierosy
                                         </label>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="bread" name="category[]">
+                                            <input class="form-check-input" type="checkbox" value="pieczywo" name="category[]">
                                             <label class="form-check-label" for="defaultCheck1">
                                                 Pieczywo
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="cosmetics" name="category[]">
+                                            <input class="form-check-input" type="checkbox" value="chemia" name="category[]">
                                             <label class="form-check-label" for="defaultCheck1">
                                                 Chemia i kosmetyki
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="fruits" name="category[]">
+                                            <input class="form-check-input" type="checkbox" value="owoce" name="category[]">
                                             <label class="form-check-label" for="defaultCheck1">
                                                 Owoce i warzywa
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="meats" name="category[]">
+                                            <input class="form-check-input" type="checkbox" value="mięso" name="category[]">
                                             <label class="form-check-label" for="defaultCheck1">
                                                 Mięso i wędliny
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="press" name="category[]">
+                                            <input class="form-check-input" type="checkbox" value="prasa" name="category[]">
                                             <label class="form-check-label" for="defaultCheck1">
                                                 Prasa
                                             </label>

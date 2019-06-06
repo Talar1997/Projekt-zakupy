@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-06-05 13:10:04
+/* Smarty version 3.1.33, created on 2019-06-06 20:27:52
   from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\ShopView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cf7a30c3cbc84_92385105',
+  'unifunc' => 'content_5cf95b28963618_32151521',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c33b6e2b87590722198cd23c23d29887092e2c89' => 
     array (
       0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\ShopView.tpl',
-      1 => 1559733003,
+      1 => 1559845589,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5cf7a30c3cbc84_92385105 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cf95b28963618_32151521 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_12438430735cf7a30c3bc525_61932010', 'intro');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2616091955cf95b2894a998_04768636', 'intro');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'intro'} */
-class Block_12438430735cf7a30c3bc525_61932010 extends Smarty_Internal_Block
+class Block_2616091955cf95b2894a998_04768636 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'intro' => 
   array (
-    0 => 'Block_12438430735cf7a30c3bc525_61932010',
+    0 => 'Block_2616091955cf95b2894a998_04768636',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -65,13 +65,28 @@ main">Strona główna</a></li>
 </li>
                                         <li class="list-group-item">Adres: <?php echo $_smarty_tpl->tpl_vars['place']->value['address'];?>
 </li>
-                                        <li class="list-group-item">Typ: <?php echo $_smarty_tpl->tpl_vars['place']->value['type'];?>
-</li>
+                                        <li class="list-group-item">Typ:
+                                            <?php if ($_smarty_tpl->tpl_vars['place']->value['type'] == "shop") {?>Sklep<?php }?>
+                                            <?php if ($_smarty_tpl->tpl_vars['place']->value['type'] == "gas_station") {?>Stacja benzynowa<?php }?>
+                                            <?php if ($_smarty_tpl->tpl_vars['place']->value['type'] == "gastronomy") {?>Gastronomia<?php }?>
+                                            <?php if ($_smarty_tpl->tpl_vars['place']->value['type'] == "bar") {?>Bar<?php }?>
+                                        </li>
                                         <li class="list-group-item">Godziny otwarcia: Od <?php echo $_smarty_tpl->tpl_vars['place']->value['open_hour'];?>
  do <?php echo $_smarty_tpl->tpl_vars['place']->value['close_hour'];?>
 </li>
-                                        <li class="list-group-item">Kategorie: <?php echo $_smarty_tpl->tpl_vars['place']->value['category'];?>
-</li>
+                                        <li class="list-group-item">Kategorie:
+                                            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['place']->value['category'], 'cat');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['cat']->value) {
+?>
+                                                <?php echo $_smarty_tpl->tpl_vars['cat']->value;?>
+,
+                                            <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                                        </li>
                                         <?php if (!empty($_smarty_tpl->tpl_vars['place']->value['description'])) {?>
                                             <li class="list-group-item">Opis: <?php echo $_smarty_tpl->tpl_vars['place']->value['description'];?>
 </li>

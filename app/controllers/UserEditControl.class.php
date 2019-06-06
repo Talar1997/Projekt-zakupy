@@ -125,45 +125,14 @@ class UserEditControl
      */
     public function checkForDuplicates(){
         try{
-            $records = App::getDB()->select('user','id',[
-                'login' => $this->form->login
-            ]);
-
-            foreach($records as $id) {
-                if($id != $this->form->id){
-                    Utils::addErrorMessage("Podany login występuje już u innego użytkownika");
-                }
-            }
-
-            //Sprawdzenie czy email nie występuje u innego użytkownika
-            $records = App::getDB()->select('user','id',[
-                'email' => $this->form->email
-            ]);
-
-            foreach($records as $id) {
-                if($id != $this->form->id){
-                    Utils::addErrorMessage("Podany email występuje już u innego użytkownika");
-                }
-            }
-
-        }catch(\PDOException $e){
-            Utils::addErrorMessage("Błąd połączenia z bazą danych!");
-        }
-    }
-    /* ^ Czemu bez foreacha nie działa skoro select i tak może zwrócić maksymalnie jeden rekord?
-     * JAKIM CUDEM TO NIE DZIAŁA A ROZWIĄZANIE WYŻEJ JUŻ TAK?!
-     *
-     *
-    public function checkForDuplicates(){
-        try{
-            $isLoginExist = App::getDB()->has('user','id',[
+            $isLoginExist = App::getDB()->has('user',[
                 'login' => $this->form->login,
                 'id[!]' => $this->form->id
             ]);
 
             if($isLoginExist) Utils::addErrorMessage("Podany login występuje już u innego użytkownika");
 
-            $isMailExist = App::getDB()->has('user','id',[
+            $isMailExist = App::getDB()->has('user',[
                 'email' => $this->form->email,
                 'id[!]' => $this->form->id
             ]);
@@ -173,7 +142,6 @@ class UserEditControl
             Utils::addErrorMessage("Błąd połączenia z bazą danych!");
         }
     }
-    */
 
     public function checkIsForbidden(){
         if(SessionUtils::load('role', true) == 'moderator'){

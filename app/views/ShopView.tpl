@@ -19,9 +19,18 @@
                                     <ul class="list-group" id="height">
                                         <li class="list-group-item">Nazwa: {$place['name']}</li>
                                         <li class="list-group-item">Adres: {$place['address']}</li>
-                                        <li class="list-group-item">Typ: {$place['type']}</li>
+                                        <li class="list-group-item">Typ:
+                                            {if $place['type'] == "shop"}Sklep{/if}
+                                            {if $place['type'] == "gas_station"}Stacja benzynowa{/if}
+                                            {if $place['type'] == "gastronomy"}Gastronomia{/if}
+                                            {if $place['type'] == "bar"}Bar{/if}
+                                        </li>
                                         <li class="list-group-item">Godziny otwarcia: Od {$place['open_hour']} do {$place['close_hour']}</li>
-                                        <li class="list-group-item">Kategorie: {$place['category']}</li>
+                                        <li class="list-group-item">Kategorie:
+                                            {foreach $place['category'] as $cat}
+                                                {$cat},
+                                            {/foreach}
+                                        </li>
                                         {if !empty($place['description'])}
                                             <li class="list-group-item">Opis: {$place['description']}</li>
                                         {/if}

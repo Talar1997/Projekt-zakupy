@@ -42,6 +42,18 @@ class TestControl
 
         $data += $accountData[0];
 
+        $data["has() test of non-existing record"] = App::getDB()->has('markers',[
+            'name' => "Testowy obiekt",
+            'address' => "11-go Listopada 145/152, Sosnowiec",
+            'type' => "gas_station"
+        ]);
+
+        $data["has() test of existing record"] = App::getDB()->has('markers',[
+            'name' => "Fashion Outler",
+            'address' => "11-go Listopada 145/152, Sosnowiec",
+            'type' => "gas_station"
+        ]);
+
         App::getSmarty()->assign('data', $data);
         App::getSmarty()->assign('page_title','Debugger');
         App::getSmarty()->assign('page_description','Debugger');

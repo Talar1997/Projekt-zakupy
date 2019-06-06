@@ -122,14 +122,15 @@ class AddPlaceControl
 
     public function checkForDuplicates(){
         try{
-            $record = App::getDB()->has('markers','id',[
-                'name' => $this->form->shopName,
-                'address' => $this->form->address,
-                'type' => $this->form->type
+            $record = App::getDB()->has('markers',[
+                'AND'=>[
+                    'name' => $this->form->shopName,
+                    'address' => $this->form->address,
+                ]
             ]);
 
             if($record){
-                Utils::addErrorMessage("Podany sklep istnieje już pod tym adresem!");
+                Utils::addErrorMessage("Sklep o podanej nazwie, adresie istnieje już w bazie!");
             }
         }catch(\PDOException $e){
             Utils::addErrorMessage("Błąd połączenia z bazą danych");

@@ -26,7 +26,7 @@ class ShopDetailsControl
                 "[>]user" => ["marker_details.author" => "id"],
             ],[
                 'marker_details.description',
-                'marker_details.category',
+                'marker_details.category[JSON]',
                 'marker_details.open_hour',
                 'marker_details.close_hour',
                 'marker_details.added_time',

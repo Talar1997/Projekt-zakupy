@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-06-05 13:08:42
+/* Smarty version 3.1.33, created on 2019-06-06 20:30:38
   from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\AddPlaceView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cf7a2bac164e1_43703805',
+  'unifunc' => 'content_5cf95bce6edd30_18248705',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'dca444a7195faf7956da339586cefc644f6fe92f' => 
     array (
       0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\AddPlaceView.tpl',
-      1 => 1559649986,
+      1 => 1559845834,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5cf7a2bac164e1_43703805 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cf95bce6edd30_18248705 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_9485202475cf7a2babde3d8_89514206', 'intro');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_16191807075cf95bce6dedf3_57773451', 'intro');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'intro'} */
-class Block_9485202475cf7a2babde3d8_89514206 extends Smarty_Internal_Block
+class Block_16191807075cf95bce6dedf3_57773451 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'intro' => 
   array (
-    0 => 'Block_9485202475cf7a2babde3d8_89514206',
+    0 => 'Block_16191807075cf95bce6dedf3_57773451',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -89,36 +89,36 @@ addPlace" method="post">
                                 <div class="form-group top-margin">
                                     <label for="category">Jakie artykuły można tam nabyć?<span class="text-danger">*</span></label>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="alcohol" name="category[]">
+                                        <input class="form-check-input" type="checkbox" value="alkohol" name="category[]">
                                         <label class="form-check-label" for="defaultCheck1">
                                             Alkohol i papierosy
                                         </label>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="bread" name="category[]">
+                                            <input class="form-check-input" type="checkbox" value="pieczywo" name="category[]">
                                             <label class="form-check-label" for="defaultCheck1">
                                                 Pieczywo
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="cosmetics" name="category[]">
+                                            <input class="form-check-input" type="checkbox" value="kosmetyki" name="category[]">
                                             <label class="form-check-label" for="defaultCheck1">
                                                 Chemia i kosmetyki
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="fruits" name="category[]">
+                                            <input class="form-check-input" type="checkbox" value="owoce" name="category[]">
                                             <label class="form-check-label" for="defaultCheck1">
                                                 Owoce i warzywa
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="meats" name="category[]">
+                                            <input class="form-check-input" type="checkbox" value="mięso" name="category[]">
                                             <label class="form-check-label" for="defaultCheck1">
                                                 Mięso i wędliny
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="press" name="category[]">
+                                            <input class="form-check-input" type="checkbox" value="prasa" name="category[]">
                                             <label class="form-check-label" for="defaultCheck1">
                                                 Prasa
                                             </label>
