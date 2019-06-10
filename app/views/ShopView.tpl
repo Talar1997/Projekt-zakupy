@@ -34,13 +34,21 @@
                                         {if !empty($place['description'])}
                                             <li class="list-group-item">Opis: {$place['description']}</li>
                                         {/if}
-                                        <li class="list-group-item">Głosy: {$place['votes']}</li>
+                                        <li class="list-group-item">Głosy: <span id="votes">{$place['votes']}</span></li>
                                         <li class="list-group-item">Autor:
                                             <a href="{$conf->action_root}profile/{$place['id']}">{$place['login']}</a>
                                         </li>
                                         <li class="list-group-item">Data dodania: {$place['added_time']}</li>
                                         <li class="list-group-item">
-                                            <a href="#"><button class="btn btn-success">+</button></a>
+                                            {if !$userVote}
+                                                <button id="votebtn" class="btn btn-success"
+                                                        onclick="ajaxReloadElement('{$conf->action_root}vote/{$place['id_marker']}','votes',changeButton)">+</button>
+                                            {/if}
+                                            {if $userVote}
+                                                <button id="votebtn" class="btn btn-danger"
+                                                        onclick="ajaxReloadElement('{$conf->action_root}vote/{$place['id_marker']}','votes',changeButton)">-</button>
+                                            {/if}
+
                                         </li>
 
                                     </ul>
@@ -113,8 +121,6 @@
             });
         }
 
-
-
         function downloadUrl(url, callback) {
             var request = window.ActiveXObject ?
                 new ActiveXObject('Microsoft.XMLHTTP') :
@@ -139,5 +145,27 @@
     <script>
         var offsetHeight = document.getElementById('height').offsetHeight;
         document.getElementById("map").style.height = offsetHeight + "px";
+    </script>
+    <script>
+        function changeButton(notify=true){
+            var btn = document.querySelector("#votebtn");
+
+            if(btn.classList.contains("btn-success")){
+                btn.classList.remove("btn-success");
+                btn.classList.add("btn-danger");
+                document.getElementById("votebtn").innerText = "-";
+                if(notify) alertify.success("Oddano głos");
+                return false;
+            }
+
+            if(btn.classList.contains("btn-danger")){
+                btn.classList.remove("btn-danger");
+                btn.classList.add("btn-success");
+                document.getElementById("votebtn").innerText = "+";
+                if(notify) alertify.warning("Zabrano głos");
+                return false;
+            }
+        }
+
     </script>
 {/block}

@@ -9,25 +9,64 @@
 namespace app\controllers;
 
 
+use core\App;
+use core\SessionUtils;
+use core\Utils;
+use core\Validator;
+
 class VotesControl
 {
+    public $user;
+    public $shopId;
+
     public function getFromRequest(){
-        //Pobierz z GET bądź z clean URL
+        $v = new Validator();
+        $this->shopId = $v->validateFromCleanURL(1,[
+            'required' => true,
+            'numeric' => true,
+            'required_message' => "Błąd!",
+            'validator_message' => "Błąd!"
+        ]);
     }
 
     public function getUserData(){
-        //Pobierz usera, żeby nikt inny nie oddał głosu
-
+        $this->user['id'] = SessionUtils::load('id', true);
+        $this->user['login'] = SessionUtils::load('login', true);
+        $this->user['role'] = SessionUtils::load('role', true);
     }
 
     public function validate(){
-        //Sprawdź czy dane się zgadzają: czy sklep istnieje, czy user istnieje
-        //Zbanowani nie mogą głosować
-        //Nie można oddać głosu na swoje miejsce
+        //Czy sklep istnieje?
+        //Czy user nie jest zbanowany?
+        try{
+            $isExists = App::getDB()->has('markers',[
+                'id' => $this->shopId
+            ]);
+
+            if(!$isExists) Utils::addErrorMessage("Sklep nie istieje!");
+        }catch (\PDOException $e){
+            Utils::addErrorMessage("Błąd połączenia z bazą danych!");
+        }
+
+        if($this->user['role'] == "zbanowany") Utils::addErrorMessage("Zbanowany użytkownik nie może głosować!");
+
+        if(App::getMessages()->isError()) return false;
+        else return true;
     }
 
     public function checkVote(){
         //Sprawdź czy user oddał już głos na to miejsce
+        try{
+            $isExists = App::getDB()->has('vote',[
+                'id_marker' => $this->shopId,
+                'id_user' => $this->user['id']
+            ]);
+
+            if($isExists) return true;
+            else return false;
+        }catch (\PDOException $e){
+            Utils::addErrorMessage("Błąd połączenia z bazą danych!");
+        }
     }
 
     public function processVote(){
@@ -35,8 +74,50 @@ class VotesControl
         //Jeśli głos został już oddany, to usuń rekord z bazy i dekrementuj reputacje autora wpisu i voty we wpisie
         //Jeżeli głosu nie było to inkrementuj
         if($this->validate()){
-            $this->checkVote();
-            //... apdejt w bazie
+            if(!$this->checkVote()){
+                try{
+                    App::getDB()->insert('vote',[
+                        'id_marker' => $this->shopId,
+                        'id_user' => $this->user['id']
+                    ]);
+
+                    App::getDB()->update("marker_details",[
+                        'votes[+]' => 1
+                    ],[
+                        'id_marker' => $this->shopId
+                    ]);
+
+                    App::getDB()->update("user_details",[
+                        'reputation[+]' => 1
+                    ],[
+                        'id_details' => $this->user['id']
+                    ]);
+                }catch (\PDOException $e){
+                    Utils::addErrorMessage("Błąd połączenia z bazą danych!");
+                }
+            }
+            else{
+                try{
+                    App::getDB()->delete('vote',[
+                        'id_marker' => $this->shopId,
+                        'id_user' => $this->user['id']
+                    ]);
+
+                    App::getDB()->update("marker_details",[
+                        'votes[-]' => 1
+                    ],[
+                        'id_marker' => $this->shopId
+                    ]);
+
+                    App::getDB()->update("user_details",[
+                        'reputation[-]' => 1
+                    ],[
+                        'id_details' => $this->user['id']
+                    ]);
+                }catch (\PDOException $e){
+                    Utils::addErrorMessage("Błąd połączenia z bazą danych!");
+                }
+            }
         }
     }
 
@@ -44,5 +125,19 @@ class VotesControl
         $this->getFromRequest();
         $this->getUserData();
         $this->processVote();
+        $this->getVotes();
+    }
+
+    public function getVotes(){
+        $votes = 0;
+        try{
+            $votes = App::getDB()->count('vote',[
+                'id_marker' => $this->shopId
+            ]);
+        }catch (\PDOException $e) {
+            Utils::addErrorMessage("Błąd połączenia z bazą danych!");
+        }
+
+        echo $votes;
     }
 }

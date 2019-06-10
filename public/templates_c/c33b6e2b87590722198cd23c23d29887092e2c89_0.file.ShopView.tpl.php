@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-06-06 20:27:52
+/* Smarty version 3.1.33, created on 2019-06-11 00:56:23
   from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\ShopView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cf95b28963618_32151521',
+  'unifunc' => 'content_5cfee017313b66_38420270',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c33b6e2b87590722198cd23c23d29887092e2c89' => 
     array (
       0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\ShopView.tpl',
-      1 => 1559845589,
+      1 => 1560207380,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5cf95b28963618_32151521 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cfee017313b66_38420270 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2616091955cf95b2894a998_04768636', 'intro');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_14542426195cfee0172fa527_23526520', 'intro');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'intro'} */
-class Block_2616091955cf95b2894a998_04768636 extends Smarty_Internal_Block
+class Block_14542426195cfee0172fa527_23526520 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'intro' => 
   array (
-    0 => 'Block_2616091955cf95b2894a998_04768636',
+    0 => 'Block_14542426195cfee0172fa527_23526520',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -91,8 +91,8 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                             <li class="list-group-item">Opis: <?php echo $_smarty_tpl->tpl_vars['place']->value['description'];?>
 </li>
                                         <?php }?>
-                                        <li class="list-group-item">Głosy: <?php echo $_smarty_tpl->tpl_vars['place']->value['votes'];?>
-</li>
+                                        <li class="list-group-item">Głosy: <span id="votes"><?php echo $_smarty_tpl->tpl_vars['place']->value['votes'];?>
+</span></li>
                                         <li class="list-group-item">Autor:
                                             <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 profile/<?php echo $_smarty_tpl->tpl_vars['place']->value['id'];?>
@@ -102,7 +102,19 @@ profile/<?php echo $_smarty_tpl->tpl_vars['place']->value['id'];?>
                                         <li class="list-group-item">Data dodania: <?php echo $_smarty_tpl->tpl_vars['place']->value['added_time'];?>
 </li>
                                         <li class="list-group-item">
-                                            <a href="#"><button class="btn btn-success">+</button></a>
+                                            <?php if (!$_smarty_tpl->tpl_vars['userVote']->value) {?>
+                                                <button id="votebtn" class="btn btn-success"
+                                                        onclick="ajaxReloadElement('<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+vote/<?php echo $_smarty_tpl->tpl_vars['place']->value['id_marker'];?>
+','votes',changeButton)">+</button>
+                                            <?php }?>
+                                            <?php if ($_smarty_tpl->tpl_vars['userVote']->value) {?>
+                                                <button id="votebtn" class="btn btn-danger"
+                                                        onclick="ajaxReloadElement('<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+vote/<?php echo $_smarty_tpl->tpl_vars['place']->value['id_marker'];?>
+','votes',changeButton)">-</button>
+                                            <?php }?>
+
                                         </li>
 
                                     </ul>
@@ -179,8 +191,6 @@ generateXML', function(data) {
             });
         }
 
-
-
         function downloadUrl(url, callback) {
             var request = window.ActiveXObject ?
                 new ActiveXObject('Microsoft.XMLHTTP') :
@@ -209,6 +219,30 @@ generateXML', function(data) {
 >
         var offsetHeight = document.getElementById('height').offsetHeight;
         document.getElementById("map").style.height = offsetHeight + "px";
+    <?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+>
+        function changeButton(notify=true){
+            var btn = document.querySelector("#votebtn");
+
+            if(btn.classList.contains("btn-success")){
+                btn.classList.remove("btn-success");
+                btn.classList.add("btn-danger");
+                document.getElementById("votebtn").innerText = "-";
+                if(notify) alertify.success("Oddano głos");
+                return false;
+            }
+
+            if(btn.classList.contains("btn-danger")){
+                btn.classList.remove("btn-danger");
+                btn.classList.add("btn-success");
+                document.getElementById("votebtn").innerText = "+";
+                if(notify) alertify.warning("Zabrano głos");
+                return false;
+            }
+        }
+
     <?php echo '</script'; ?>
 >
 <?php

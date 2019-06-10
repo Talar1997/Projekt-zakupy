@@ -12,12 +12,14 @@ use core\App;
 use core\ParamUtils;
 use core\Utils;
 use core\Validator;
+use core\SessionUtils;
 
 class ShopDetailsControl
 {
 
     public $id;
     public $markerData;
+    public $userVote;
 
     public function getMarkerFromDb($id){
         try{
@@ -48,9 +50,24 @@ class ShopDetailsControl
         return $this->markerData;
     }
 
+    public function hasUserVote(){
+        $userVote = false;
+        try{
+            $userVote = App::getDB()->has("vote",[
+                'id_marker' => $this->id,
+                'id_user' => SessionUtils::load('id', true)
+            ]);
+        }catch (\PDOException $e){
+            Utils::addErrorMessage("Błąd połączenia z bazą danych!");
+        }
+        return $userVote;
+    }
+
     public function generateView(){
         $this->markerData = $this->getMarkerFromDb($this->id);
+        $this->userVote = $this->hasUserVote();
         App::getSmarty()->assign("place", $this->markerData);
+        App::getSmarty()->assign("userVote", $this->userVote);
         App::getSmarty()->assign("page_title", "Miejsce: " .$this->markerData['name']);
         App::getSmarty()->display("ShopView.tpl");
     }
@@ -73,11 +90,11 @@ class ShopDetailsControl
 
     public function isExist(){
         try{
-            $isExist = App::getDB()->count("markers", "id", [
+            $isExist = App::getDB()->has("markers", [
                 'id' => $this->id
             ]);
 
-            if($isExist != 1){
+            if(!$isExist){
                 Utils::addErrorMessage("Użytkownik o podanym id nie istnieje!");
             }
         }catch(\PDOException $e){
