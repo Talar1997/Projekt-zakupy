@@ -15,12 +15,12 @@
     Utils::addRoute('test', 'TestControl');
     Utils::addRoute('generateXML', 'GenerateXMLControl');
     Utils::addRoute('adminLogs', 'LogsControl', ['admin']);
-    Utils::addRoute('addPlace', 'AddPlaceControl', ['admin', 'moderator' , 'user']);
+    Utils::addRoute('addPlace', 'AddPlaceControl', ['admin', 'moderator' , 'user', 'zbanowany']);
     Utils::addRoute('manageUsers', 'UserManagerControl', ['admin', 'moderator']);
     Utils::addRoute('userEdit', 'UserEditControl', ['admin', 'moderator']);
-    Utils::addRoute('profile', 'ProfileControl', ['admin', 'moderator', 'user']);
-    Utils::addRoute('panel', 'PanelControl', ['admin', 'moderator', 'user']);
-    Utils::addRoute('shop', 'ShopDetailsControl', ['admin', 'moderator', 'user']);
-    Utils::addRoute('vote', 'VotesControl', ['admin', 'moderator', 'user']);
+    Utils::addRoute('profile', 'ProfileControl', ['admin', 'moderator', 'user', 'zbanowany']);
+    Utils::addRoute('panel', 'PanelControl', ['admin', 'moderator', 'user', 'zbanowany']);
+    Utils::addRoute('shop', 'ShopDetailsControl', ['admin', 'moderator', 'user', 'zbanowany']);
+    Utils::addRoute('vote', 'VotesControl', ['admin', 'moderator', 'user', 'zbanowany']);
 
     //Utils::addRoute('action_name', 'controller_class_name');

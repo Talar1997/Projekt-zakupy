@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-06-11 00:56:23
+/* Smarty version 3.1.33, created on 2019-06-11 01:03:55
   from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\ShopView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cfee017313b66_38420270',
+  'unifunc' => 'content_5cfee1dbb35124_23705023',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c33b6e2b87590722198cd23c23d29887092e2c89' => 
     array (
       0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\ShopView.tpl',
-      1 => 1560207380,
+      1 => 1560207671,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5cfee017313b66_38420270 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cfee1dbb35124_23705023 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_14542426195cfee0172fa527_23526520', 'intro');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2860126085cfee1dbb17374_24957037', 'intro');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'intro'} */
-class Block_14542426195cfee0172fa527_23526520 extends Smarty_Internal_Block
+class Block_2860126085cfee1dbb17374_24957037 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'intro' => 
   array (
-    0 => 'Block_14542426195cfee0172fa527_23526520',
+    0 => 'Block_2860126085cfee1dbb17374_24957037',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -223,14 +223,14 @@ generateXML', function(data) {
 >
     <?php echo '<script'; ?>
 >
-        function changeButton(notify=true){
+        function changeButton(){
             var btn = document.querySelector("#votebtn");
 
             if(btn.classList.contains("btn-success")){
                 btn.classList.remove("btn-success");
                 btn.classList.add("btn-danger");
                 document.getElementById("votebtn").innerText = "-";
-                if(notify) alertify.success("Oddano głos");
+                alertify.success("Oddano głos");
                 return false;
             }
 
@@ -238,7 +238,7 @@ generateXML', function(data) {
                 btn.classList.remove("btn-danger");
                 btn.classList.add("btn-success");
                 document.getElementById("votebtn").innerText = "+";
-                if(notify) alertify.warning("Zabrano głos");
+                alertify.warning("Zabrano głos");
                 return false;
             }
         }

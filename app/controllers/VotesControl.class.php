@@ -18,6 +18,7 @@ class VotesControl
 {
     public $user;
     public $shopId;
+    public $author;
 
     public function getFromRequest(){
         $v = new Validator();
@@ -33,6 +34,16 @@ class VotesControl
         $this->user['id'] = SessionUtils::load('id', true);
         $this->user['login'] = SessionUtils::load('login', true);
         $this->user['role'] = SessionUtils::load('role', true);
+    }
+
+    public function getAuthor(){
+        try{
+            $this->author = App::getDB()->get("marker_details","author",[
+                'id_marker' => $this->shopId
+            ]);
+        }catch(\PDOException $e){
+            Utils::addErrorMessage("Błąd połączenia z bazą danych!");
+        }
     }
 
     public function validate(){
@@ -74,6 +85,7 @@ class VotesControl
         //Jeśli głos został już oddany, to usuń rekord z bazy i dekrementuj reputacje autora wpisu i voty we wpisie
         //Jeżeli głosu nie było to inkrementuj
         if($this->validate()){
+            $this->getAuthor();
             if(!$this->checkVote()){
                 try{
                     App::getDB()->insert('vote',[
@@ -90,7 +102,7 @@ class VotesControl
                     App::getDB()->update("user_details",[
                         'reputation[+]' => 1
                     ],[
-                        'id_details' => $this->user['id']
+                        'id_details' => $this->author
                     ]);
                 }catch (\PDOException $e){
                     Utils::addErrorMessage("Błąd połączenia z bazą danych!");
@@ -112,7 +124,7 @@ class VotesControl
                     App::getDB()->update("user_details",[
                         'reputation[-]' => 1
                     ],[
-                        'id_details' => $this->user['id']
+                        'id_details' => $this->author
                     ]);
                 }catch (\PDOException $e){
                     Utils::addErrorMessage("Błąd połączenia z bazą danych!");

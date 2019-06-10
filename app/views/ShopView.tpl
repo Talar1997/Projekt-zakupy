@@ -147,14 +147,14 @@
         document.getElementById("map").style.height = offsetHeight + "px";
     </script>
     <script>
-        function changeButton(notify=true){
+        function changeButton(){
             var btn = document.querySelector("#votebtn");
 
             if(btn.classList.contains("btn-success")){
                 btn.classList.remove("btn-success");
                 btn.classList.add("btn-danger");
                 document.getElementById("votebtn").innerText = "-";
-                if(notify) alertify.success("Oddano głos");
+                alertify.success("Oddano głos");
                 return false;
             }
 
@@ -162,7 +162,7 @@
                 btn.classList.remove("btn-danger");
                 btn.classList.add("btn-success");
                 document.getElementById("votebtn").innerText = "+";
-                if(notify) alertify.warning("Zabrano głos");
+                alertify.warning("Zabrano głos");
                 return false;
             }
         }
