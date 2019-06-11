@@ -49,12 +49,19 @@ class VotesControl
     public function validate(){
         //Czy sklep istnieje?
         //Czy user nie jest zbanowany?
+        //Czy user nie głosuje na swój sklep?
         try{
             $isExists = App::getDB()->has('markers',[
                 'id' => $this->shopId
             ]);
 
-            if(!$isExists) Utils::addErrorMessage("Sklep nie istieje!");
+            if(!$isExists){
+                Utils::addErrorMessage("Sklep nie istieje!");
+            } else{
+                if($this->author == $this->user['id']){
+                    Utils::addErrorMessage("Nie możesz oddać głosu na samego siebie!");
+                }
+            }
         }catch (\PDOException $e){
             Utils::addErrorMessage("Błąd połączenia z bazą danych!");
         }
@@ -85,7 +92,6 @@ class VotesControl
         //Jeśli głos został już oddany, to usuń rekord z bazy i dekrementuj reputacje autora wpisu i voty we wpisie
         //Jeżeli głosu nie było to inkrementuj
         if($this->validate()){
-            $this->getAuthor();
             if(!$this->checkVote()){
                 try{
                     App::getDB()->insert('vote',[
@@ -136,6 +142,7 @@ class VotesControl
     public function action_vote(){
         $this->getFromRequest();
         $this->getUserData();
+        $this->getAuthor();
         $this->processVote();
         $this->getVotes();
     }

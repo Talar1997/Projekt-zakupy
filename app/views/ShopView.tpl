@@ -42,11 +42,15 @@
                                         <li class="list-group-item">
                                             {if !$userVote}
                                                 <button id="votebtn" class="btn btn-success"
-                                                        onclick="ajaxReloadElement('{$conf->action_root}vote/{$place['id_marker']}','votes',changeButton)">+</button>
+                                                        onclick="ajaxReloadElement('{$conf->action_root}vote/{$place['id_marker']}','votes',changeButton)"
+                                                        {if $disableVote}disabled{/if}>
+                                                    +</button>
                                             {/if}
                                             {if $userVote}
                                                 <button id="votebtn" class="btn btn-danger"
-                                                        onclick="ajaxReloadElement('{$conf->action_root}vote/{$place['id_marker']}','votes',changeButton)">-</button>
+                                                        onclick="ajaxReloadElement('{$conf->action_root}vote/{$place['id_marker']}','votes',changeButton)"
+                                                        {if $disableVote}disabled{/if}>
+                                                    -</button>
                                             {/if}
 
                                         </li>

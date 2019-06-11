@@ -20,6 +20,7 @@ class ShopDetailsControl
     public $id;
     public $markerData;
     public $userVote;
+    public $disableVote;
 
     public function getMarkerFromDb($id){
         try{
@@ -63,11 +64,29 @@ class ShopDetailsControl
         return $userVote;
     }
 
+    public function isUserAuthor(){
+        try{
+            $author = App::getDB()->has("marker_details",[
+                'id_marker' => $this->markerData['id_marker'],
+                'author' => SessionUtils::load('id', true)
+            ]);
+
+            if($author) return true;
+            else return false;
+        }catch(\PDOException $e){
+            Utils::addErrorMessage("Błąd połączenia z bazą danych!");
+        }
+
+        return true;
+    }
+
     public function generateView(){
         $this->markerData = $this->getMarkerFromDb($this->id);
         $this->userVote = $this->hasUserVote();
+        $this->disableVote = $this->isUserAuthor();
         App::getSmarty()->assign("place", $this->markerData);
         App::getSmarty()->assign("userVote", $this->userVote);
+        App::getSmarty()->assign("disableVote", $this->disableVote);
         App::getSmarty()->assign("page_title", "Miejsce: " .$this->markerData['name']);
         App::getSmarty()->display("ShopView.tpl");
     }
