@@ -119,6 +119,10 @@ class UserManagerControl
                     'id' => $id
                 ]);
 
+                App::getDB()->delete("user_details",[
+                    'id_details' => $id
+                ]);
+
                 Utils::addInfoMessage("Użytkownik (".$id.") został usunięty");
                 $admin_login = SessionUtils::load("login", true);
                 Logs::addLog("Użytkownik (".$id.") został usunięty przez ".$admin_login);

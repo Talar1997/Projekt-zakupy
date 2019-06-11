@@ -17,6 +17,7 @@
     Utils::addRoute('adminLogs', 'LogsControl', ['admin']);
     Utils::addRoute('addPlace', 'AddPlaceControl', ['admin', 'moderator' , 'user', 'zbanowany']);
     Utils::addRoute('manageUsers', 'UserManagerControl', ['admin', 'moderator']);
+    Utils::addRoute('managePlaces', 'ShopManagerControl', ['admin', 'moderator']);
     Utils::addRoute('userEdit', 'UserEditControl', ['admin', 'moderator']);
     Utils::addRoute('profile', 'ProfileControl', ['admin', 'moderator', 'user', 'zbanowany']);
     Utils::addRoute('panel', 'PanelControl', ['admin', 'moderator', 'user', 'zbanowany']);

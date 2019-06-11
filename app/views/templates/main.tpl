@@ -54,7 +54,7 @@
 									{if core\RoleUtils::inRole("admin") || core\RoleUtils::inRole("moderator")}
 										<li class="divider"></li>
 										<li><a href="{$conf->action_root}manageUsers">Moderuj użytkowników</a></li>
-										<li><a href="{$conf->action_root}yyy">xModeruj sklepy</a></li>
+										<li><a href="{$conf->action_root}managePlaces">Moderuj sklepy</a></li>
 										<li class="divider"></li>
 									{/if}
 									{if core\RoleUtils::inRole("admin")}

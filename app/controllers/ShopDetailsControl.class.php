@@ -10,6 +10,7 @@ namespace app\controllers;
 
 use core\App;
 use core\ParamUtils;
+use core\RoleUtils;
 use core\Utils;
 use core\Validator;
 use core\SessionUtils;
@@ -41,7 +42,7 @@ class ShopDetailsControl
                 'markers.address',
                 'markers.lat',
                 'markers.lng',
-                'markers.type'
+                'markers.type',
             ],[
                 'markers.id' => $id
             ]);
@@ -64,14 +65,16 @@ class ShopDetailsControl
         return $userVote;
     }
 
-    public function isUserAuthor(){
+    public function havePermissionToVote(){
         try{
             $author = App::getDB()->has("marker_details",[
                 'id_marker' => $this->markerData['id_marker'],
                 'author' => SessionUtils::load('id', true)
             ]);
 
-            if($author) return true;
+            $isBanned = RoleUtils::inRole("zbanowany");
+
+            if($author || $isBanned) return true;
             else return false;
         }catch(\PDOException $e){
             Utils::addErrorMessage("Błąd połączenia z bazą danych!");
@@ -83,7 +86,7 @@ class ShopDetailsControl
     public function generateView(){
         $this->markerData = $this->getMarkerFromDb($this->id);
         $this->userVote = $this->hasUserVote();
-        $this->disableVote = $this->isUserAuthor();
+        $this->disableVote = $this->havePermissionToVote();
         App::getSmarty()->assign("place", $this->markerData);
         App::getSmarty()->assign("userVote", $this->userVote);
         App::getSmarty()->assign("disableVote", $this->disableVote);

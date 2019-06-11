@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-06-11 18:57:23
+/* Smarty version 3.1.33, created on 2019-06-11 23:47:55
   from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\ShopView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cffdd73f2cae4_25061509',
+  'unifunc' => 'content_5d00218b18d065_84060281',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c33b6e2b87590722198cd23c23d29887092e2c89' => 
     array (
       0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\ShopView.tpl',
-      1 => 1560272240,
+      1 => 1560289673,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5cffdd73f2cae4_25061509 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d00218b18d065_84060281 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_8525662865cffdd73f138e4_19066002', 'intro');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_19568560645d00218b16a650_78172817', 'intro');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'intro'} */
-class Block_8525662865cffdd73f138e4_19066002 extends Smarty_Internal_Block
+class Block_19568560645d00218b16a650_78172817 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'intro' => 
   array (
-    0 => 'Block_8525662865cffdd73f138e4_19066002',
+    0 => 'Block_19568560645d00218b16a650_78172817',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -118,8 +118,14 @@ vote/<?php echo $_smarty_tpl->tpl_vars['place']->value['id_marker'];?>
                                                         <?php if ($_smarty_tpl->tpl_vars['disableVote']->value) {?>disabled<?php }?>>
                                                     -</button>
                                             <?php }?>
-
                                         </li>
+                                        <?php if (core\RoleUtils::inRole("admin") || core\RoleUtils::inRole("moderator")) {?>
+                                            <li class="list-group-item">
+                                                <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+managePlaces/1/edit/<?php echo $_smarty_tpl->tpl_vars['place']->value['id_marker'];?>
+"><button class="btn btn-primary">Edytuj miejsce</button></a>
+                                            </li>
+                                        <?php }?>
 
                                     </ul>
                                 </div>

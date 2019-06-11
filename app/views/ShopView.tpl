@@ -52,8 +52,12 @@
                                                         {if $disableVote}disabled{/if}>
                                                     -</button>
                                             {/if}
-
                                         </li>
+                                        {if core\RoleUtils::inRole("admin") || core\RoleUtils::inRole("moderator")}
+                                            <li class="list-group-item">
+                                                <a href="{$conf->action_root}managePlaces/1/edit/{$place['id_marker']}"><button class="btn btn-primary">Edytuj miejsce</button></a>
+                                            </li>
+                                        {/if}
 
                                     </ul>
                                 </div>
