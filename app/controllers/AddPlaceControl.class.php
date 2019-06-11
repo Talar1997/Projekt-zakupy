@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\forms\PlaceForm;
 use core\App;
 use core\ParamUtils;
+use core\RoleUtils;
 use core\SessionUtils;
 use core\Utils;
 use core\Validator;
@@ -53,6 +54,8 @@ class AddPlaceControl
      */
     public function validatePlace(){
         if(!$this->form->checkIsNull()) return false;
+
+        if(RoleUtils::inRole("zbanowany")) Utils::addErrorMessage("Zbanowani użytkownicy nie mogą dodawać nowych miejsc!");
 
         $v = new Validator();
         $v->validate($this->form->shopName,[
