@@ -54,7 +54,7 @@ class ShopManagerControl
                 'markers.lng',
                 'markers.type',
                 'marker_details.description',
-                'marker_details.category',
+                'marker_details.category[JSON]',
                 'marker_details.open_hour',
                 'marker_details.close_hour',
                 'marker_details.added_time',
@@ -65,6 +65,8 @@ class ShopManagerControl
             ],[
                 'id_marker' => $id
             ]);
+
+            //$this->place['category'] = json_decode($this->place['category']);
         }catch(\PDOException $e){
             Utils::addErrorMessage("Błąd połączenia z bazą danych!");
         }

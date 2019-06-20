@@ -208,7 +208,6 @@ class UserEditControl
         $this->getParams();
         $this->getCurrentUserData();
         $this->generateView();
-
     }
 
 }

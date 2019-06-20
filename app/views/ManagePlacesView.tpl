@@ -81,7 +81,14 @@
                     {foreach $placeDetails as $key => $val}
                         <tr>
                             <td>{$key}</td>
-                            <td>{$val}</td>
+                            {if $key == "category"}
+                                <td>
+                                    {foreach $val as $v}
+                                        {$v},
+                                    {/foreach}
+                                </td>
+                            {/if}
+                            {if $key != "category"}<td>{$val}</td>{/if}
                         </tr>
                     {/foreach}
                     </tbody>
@@ -119,36 +126,60 @@
                                 <div class="form-group top-margin">
                                     <label for="category">Jakie artykuły można tam nabyć?<span class="text-danger">*</span></label>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="alkohol" name="category[]">
+                                        <input class="form-check-input" type="checkbox" value="alkohol" name="category[]"
+                                                {if in_array("alkohol", $placeDetails['category'])}
+                                                    checked
+                                                {/if}
+                                        >
                                         <label class="form-check-label" for="defaultCheck1">
                                             Alkohol i papierosy
                                         </label>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="pieczywo" name="category[]">
+                                            <input class="form-check-input" type="checkbox" value="pieczywo" name="category[]"
+                                                    {if in_array("pieczywo", $placeDetails['category'])}
+                                                        checked
+                                                    {/if}
+                                            >
                                             <label class="form-check-label" for="defaultCheck1">
                                                 Pieczywo
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="chemia" name="category[]">
+                                            <input class="form-check-input" type="checkbox" value="chemia" name="category[]"
+                                                    {if in_array("chemia", $placeDetails['category'])}
+                                                        checked
+                                                    {/if}
+                                            >
                                             <label class="form-check-label" for="defaultCheck1">
                                                 Chemia i kosmetyki
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="owoce" name="category[]">
+                                            <input class="form-check-input" type="checkbox" value="owoce" name="category[]"
+                                                    {if in_array("owoce", $placeDetails['category'])}
+                                                        checked
+                                                    {/if}
+                                            >
                                             <label class="form-check-label" for="defaultCheck1">
                                                 Owoce i warzywa
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="mięso" name="category[]">
+                                            <input class="form-check-input" type="checkbox" value="mięso" name="category[]"
+                                                    {if in_array("mięso", $placeDetails['category'])}
+                                                        checked
+                                                    {/if}
+                                            >
                                             <label class="form-check-label" for="defaultCheck1">
                                                 Mięso i wędliny
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="prasa" name="category[]">
+                                            <input class="form-check-input" type="checkbox" value="prasa" name="category[]"
+                                                    {if in_array("prasa", $placeDetails['category'])}
+                                                        checked
+                                                    {/if}
+                                            >
                                             <label class="form-check-label" for="defaultCheck1">
                                                 Prasa
                                             </label>
@@ -160,10 +191,10 @@
                                     <label>Godziny otwarcia (Od, do)<span class="text-danger">*</span></label>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <input type="time" class="form-control" name="open_hour" value="{$placeDetails['open_hour']}">
+                                            <input type="time" class="form-control" name="time_open" value="{$placeDetails['open_hour']}">
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="time" class="form-control" name="close_hour" value="{$placeDetails['close_hour']}">
+                                            <input type="time" class="form-control" name="time_close" value="{$placeDetails['close_hour']}">
                                         </div>
                                     </div>
                                 </div>
