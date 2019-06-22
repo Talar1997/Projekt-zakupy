@@ -40,6 +40,10 @@ class SearchControl
         if(!empty($this->form->address)) $this->where['markers.address[~]'] = '%' .$this->form->address . '%';
         if(!empty($this->form->type)) $this->where['markers.type'] = $this->form->type;
         if(!is_null($this->form->category)) $this->where['marker_details.category'] = json_encode($this->form->category);
+        $this->where['LIMIT'] = 50;
+        $this->where['ORDER'] = [
+            'marker_details.votes' => "DESC"
+        ];
 
         $num_params = sizeof($this->where);
         if ($num_params > 1) {
@@ -69,7 +73,7 @@ class SearchControl
                 'marker_details.votes'
            ], $this->where);
         }catch(\PDOException $e){
-            Utils::addErrorMessage("Błąd połączenia z bazą danych".$e->getMessage());
+            Utils::addErrorMessage("Błąd połączenia z bazą danych");
         }
     }
 
