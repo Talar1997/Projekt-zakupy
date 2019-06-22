@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-06-10 23:44:12
+/* Smarty version 3.1.33, created on 2019-06-23 00:19:09
   from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\PanelView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cfecf2cce3569_06278702',
+  'unifunc' => 'content_5d0ea95ddeb0c0_21763786',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'cce98ce15f077c7fedfbdf7a54cd3a93bc43b4ef' => 
     array (
       0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\PanelView.tpl',
-      1 => 1559732898,
+      1 => 1561241909,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5cfecf2cce3569_06278702 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d0ea95ddeb0c0_21763786 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10083816705cfecf2ccd0913_34828219', 'intro');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_881162725d0ea95dd698d3_03901136', 'intro');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'intro'} */
-class Block_10083816705cfecf2ccd0913_34828219 extends Smarty_Internal_Block
+class Block_881162725d0ea95dd698d3_03901136 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'intro' => 
   array (
-    0 => 'Block_10083816705cfecf2ccd0913_34828219',
+    0 => 'Block_881162725d0ea95dd698d3_03901136',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -63,19 +63,18 @@ main">Strona główna</a></li>
                     <h4>Wyszukiwarka</h4>
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <form method="POST" action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-searchPlace">
+                            <form method="GET" action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+search">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" placeholder="Nazwa sklepu">
+                                        <input type="text" name="shopName" class="form-control" placeholder="Nazwa sklepu">
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" placeholder="Adres">
+                                        <input type="text" name="address" class="form-control" placeholder="Adres">
                                     </div>
                                     <div class="col-md-4">
                                         <select class="form-control" name="type">
-                                            <option value="default">Typ</option>
-                                            <option value="default">Wszystko</option>
+                                            <option value="">Wszystko</option>
                                             <option value="gas_station">Stacja benzynowa</option>
                                             <option value="bar">Bar</option>
                                             <option value="gastronomy">Gastronomia</option>
@@ -85,27 +84,27 @@ searchPlace">
                                 </div>
                                 <hr>
                                 <label class="checkbox-inline">
-                                    <input class="form-check-input" type="checkbox" value="alcohol" name="category[]">
+                                    <input class="form-check-input" type="checkbox" value="alkohol" name="category[]">
                                     Alkohol i papierosy
                                 </label>
                                 <label class="checkbox-inline">
-                                    <input class="form-check-input" type="checkbox" value="bread" name="category[]">
+                                    <input class="form-check-input" type="checkbox" value="pieczywo" name="category[]">
                                     Pieczywo
                                 </label>
                                 <label class="checkbox-inline">
-                                    <input class="form-check-input" type="checkbox" value="cosmetics" name="category[]">
+                                    <input class="form-check-input" type="checkbox" value="chemia" name="category[]">
                                     Chemia i kosmetyki
                                 </label>
                                 <label class="checkbox-inline">
-                                    <input class="form-check-input" type="checkbox" value="fruits" name="category[]">
+                                    <input class="form-check-input" type="checkbox" value="owoce" name="category[]">
                                     Owoce i warzywa
                                 </label>
                                 <label class="checkbox-inline">
-                                    <input class="form-check-input" type="checkbox" value="meats" name="category[]">
+                                    <input class="form-check-input" type="checkbox" value="mięso" name="category[]">
                                     Mięso i wędliny
                                 </label>
                                 <label class="checkbox-inline">
-                                    <input class="form-check-input" type="checkbox" value="press" name="category[]">
+                                    <input class="form-check-input" type="checkbox" value="prasa" name="category[]">
                                     Prasa
                                 </label>
                                 <hr>

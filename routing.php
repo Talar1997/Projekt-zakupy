@@ -24,5 +24,6 @@
     Utils::addRoute('shop', 'ShopDetailsControl', ['admin', 'moderator', 'user', 'zbanowany']);
     Utils::addRoute('vote', 'VotesControl', ['admin', 'moderator', 'user', 'zbanowany']);
     Utils::addRoute('placeEdit', 'ShopEditControl', ['admin', 'moderator']);
+    Utils::addRoute('search', 'SearchControl', ['admin', 'moderator', 'user']);
 
     //Utils::addRoute('action_name', 'controller_class_name');

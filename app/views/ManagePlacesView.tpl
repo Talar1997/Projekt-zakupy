@@ -13,18 +13,17 @@
                     <h4>Wyszukiwarka</h4>
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <form method="POST" action="{$conf->action_root}searchPlace">
+                            <form method="GET" action="{$conf->action_root}search">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" placeholder="Nazwa sklepu">
+                                        <input type="text" name="shopName" class="form-control" placeholder="Nazwa sklepu">
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" placeholder="Adres">
+                                        <input type="text" name="address" class="form-control" placeholder="Adres">
                                     </div>
                                     <div class="col-md-4">
                                         <select class="form-control" name="type">
-                                            <option value="default">Typ</option>
-                                            <option value="default">Wszystko</option>
+                                            <option value="">Wszystko</option>
                                             <option value="gas_station">Stacja benzynowa</option>
                                             <option value="bar">Bar</option>
                                             <option value="gastronomy">Gastronomia</option>
@@ -34,36 +33,30 @@
                                 </div>
                                 <hr>
                                 <label class="checkbox-inline">
-                                    <input class="form-check-input" type="checkbox" value="alcohol" name="category[]">
+                                    <input class="form-check-input" type="checkbox" value="alkohol" name="category[]">
                                     Alkohol i papierosy
                                 </label>
                                 <label class="checkbox-inline">
-                                    <input class="form-check-input" type="checkbox" value="bread" name="category[]">
+                                    <input class="form-check-input" type="checkbox" value="pieczywo" name="category[]">
                                     Pieczywo
                                 </label>
                                 <label class="checkbox-inline">
-                                    <input class="form-check-input" type="checkbox" value="cosmetics" name="category[]">
+                                    <input class="form-check-input" type="checkbox" value="chemia" name="category[]">
                                     Chemia i kosmetyki
                                 </label>
                                 <label class="checkbox-inline">
-                                    <input class="form-check-input" type="checkbox" value="fruits" name="category[]">
+                                    <input class="form-check-input" type="checkbox" value="owoce" name="category[]">
                                     Owoce i warzywa
                                 </label>
                                 <label class="checkbox-inline">
-                                    <input class="form-check-input" type="checkbox" value="meats" name="category[]">
+                                    <input class="form-check-input" type="checkbox" value="mięso" name="category[]">
                                     Mięso i wędliny
                                 </label>
                                 <label class="checkbox-inline">
-                                    <input class="form-check-input" type="checkbox" value="press" name="category[]">
+                                    <input class="form-check-input" type="checkbox" value="prasa" name="category[]">
                                     Prasa
                                 </label>
                                 <hr>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <input type="submit" class="btn btn-primary" value="Szukaj">
-                                    </div>
-                                </div>
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -215,9 +208,10 @@
                                 </div>
 
                                 <hr>
-
                                 <input type="submit" value="Edytuj" class="btn btn-primary">
                             </form>
+                            <hr>
+                            <a href="{$conf->action_root}shop/{$placeDetails['id']}"><button class="btn btn-action">Podgląd</button></a>
                         </div>
                     </div>
                 </div>

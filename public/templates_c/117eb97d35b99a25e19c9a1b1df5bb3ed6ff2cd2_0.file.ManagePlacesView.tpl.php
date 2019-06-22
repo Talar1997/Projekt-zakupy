@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-06-21 00:38:22
+/* Smarty version 3.1.33, created on 2019-06-22 17:53:08
   from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\ManagePlacesView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5d0c0adecafc92_34410737',
+  'unifunc' => 'content_5d0e4ee4edd821_13040427',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '117eb97d35b99a25e19c9a1b1df5bb3ed6ff2cd2' => 
     array (
       0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\ManagePlacesView.tpl',
-      1 => 1561070302,
+      1 => 1561218787,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5d0c0adecafc92_34410737 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d0e4ee4edd821_13040427 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_16495007305d0c0adec8a738_89267570', 'intro');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20144078415d0e4ee4e9d872_31634984', 'intro');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'intro'} */
-class Block_16495007305d0c0adec8a738_89267570 extends Smarty_Internal_Block
+class Block_20144078415d0e4ee4e9d872_31634984 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'intro' => 
   array (
-    0 => 'Block_16495007305d0c0adec8a738_89267570',
+    0 => 'Block_20144078415d0e4ee4e9d872_31634984',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -56,19 +56,18 @@ main">Strona główna</a></li>
                     <h4>Wyszukiwarka</h4>
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <form method="POST" action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-searchPlace">
+                            <form method="GET" action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+search">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" placeholder="Nazwa sklepu">
+                                        <input type="text" name="shopName" class="form-control" placeholder="Nazwa sklepu">
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" placeholder="Adres">
+                                        <input type="text" name="address" class="form-control" placeholder="Adres">
                                     </div>
                                     <div class="col-md-4">
                                         <select class="form-control" name="type">
-                                            <option value="default">Typ</option>
-                                            <option value="default">Wszystko</option>
+                                            <option value="">Wszystko</option>
                                             <option value="gas_station">Stacja benzynowa</option>
                                             <option value="bar">Bar</option>
                                             <option value="gastronomy">Gastronomia</option>
@@ -285,9 +284,12 @@ placeEdit">
                                 </div>
 
                                 <hr>
-
                                 <input type="submit" value="Edytuj" class="btn btn-primary">
                             </form>
+                            <hr>
+                            <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+shop/<?php echo $_smarty_tpl->tpl_vars['placeDetails']->value['id'];?>
+"><button class="btn btn-action">Podgląd</button></a>
                         </div>
                     </div>
                 </div>
