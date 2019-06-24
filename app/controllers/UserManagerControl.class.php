@@ -56,6 +56,18 @@ class UserManagerControl
         }
     }
 
+    public function checkIsNextPage(){
+        try{
+            $isNext = App::getDB()->has("user",[
+                'LIMIT' => [(($this->offset) * $this->records), $this->records]
+            ]);
+        }catch(\PDOException $e){
+            Utils::addErrorMessage("Błąd połączenia z bazą danych!");
+        }
+
+        return $isNext;
+    }
+
     public function getUserFromDB($id){
         try{
             $this->user = App::getDB()->get("user", [
@@ -89,6 +101,7 @@ class UserManagerControl
         App::getSmarty()->assign("roles", $this->roles);
         App::getSmarty()->assign("users", $this->users);
         App::getSmarty()->assign("offset", $this->offset);
+        App::getSmarty()->assign("isNextPage", $this->checkIsNextPage());
         App::getSmarty()->assign("next_page", $this->offset + 1);
         App::getSmarty()->assign("previous_page", $this->offset - 1);
         App::getSmarty()->assign("page_title", "Zarządzanie użytkownikami");

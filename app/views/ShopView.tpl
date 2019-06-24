@@ -94,7 +94,7 @@
             });
             var infoWindow = new google.maps.InfoWindow;
 
-            downloadUrl('{$conf->action_root}generateXML', function(data) {
+            downloadUrl('{$conf->action_root}generateXML/{$place["lat"]}/{$place["lng"]}', function(data) {
                 var xml = data.responseXML;
                 var markers = xml.documentElement.getElementsByTagName('marker');
                 Array.prototype.forEach.call(markers, function(markerElem) {

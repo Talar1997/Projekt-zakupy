@@ -41,6 +41,18 @@ class ShopManagerControl
         }
     }
 
+    public function checkIsNextPage(){
+        try{
+            $isNext = App::getDB()->has("markers",[
+                'LIMIT' => [(($this->offset) * $this->records), $this->records]
+            ]);
+        }catch(\PDOException $e){
+            Utils::addErrorMessage("Błąd połączenia z bazą danych!");
+        }
+
+        return $isNext;
+    }
+
     public function getPlaceFromDB($id){
         try{
             $this->place = App::getDB()->get("markers",[
@@ -132,6 +144,7 @@ class ShopManagerControl
         $this->getPlacesFromDB();
         App::getSmarty()->assign("places", $this->places);
         App::getSmarty()->assign("offset", $this->offset);
+        App::getSmarty()->assign("isNextPage", $this->checkIsNextPage());
         App::getSmarty()->assign("next_page", $this->offset + 1);
         App::getSmarty()->assign("previous_page", $this->offset - 1);
         App::getSmarty()->assign("page_title", "Zarządzanie miejscami");

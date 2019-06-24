@@ -59,7 +59,7 @@ class SearchControl
     }
 
     public function queryToDB(){
-        //$this->where['LIMIT'] = [(($this->offset - 1) * $this->records), $this->records];
+        $this->where['LIMIT'] = 50;
 
         try{
            $this->query = App::getDB()->select("markers",[

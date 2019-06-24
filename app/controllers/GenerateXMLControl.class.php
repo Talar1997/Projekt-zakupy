@@ -9,6 +9,7 @@
 namespace app\controllers;
 
 use core\App;
+use core\ParamUtils;
 use core\Utils;
 
 class GenerateXMLControl
@@ -25,9 +26,19 @@ class GenerateXMLControl
 
     public function action_generateXML(){
         $result = null;
+        $lat = ParamUtils::getFromCleanURL(1);
+        $lng = ParamUtils::getFromCleanURL(2);
+        $where = [];
+
+        if(isset($lat) && isset($lng)){
+            $where = [
+                "lat[<>]" => [$lat - 0.01, $lat + 0.01],
+                "lng[<>]" => [$lng - 0.01, $lng + 0.01]
+            ];
+        }
 
         try{
-            $result = App::getDB()->select("markers", "*");
+            $result = App::getDB()->select("markers", "*", $where);
         }catch(\PDOException $e){
             Utils::addErrorMessage("Błąd połączenia z bazą danych!");
         }

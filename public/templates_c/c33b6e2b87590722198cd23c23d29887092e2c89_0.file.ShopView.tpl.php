@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-06-11 23:47:55
+/* Smarty version 3.1.33, created on 2019-06-24 12:54:32
   from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\ShopView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5d00218b18d065_84060281',
+  'unifunc' => 'content_5d10abe89fd225_40661836',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c33b6e2b87590722198cd23c23d29887092e2c89' => 
     array (
       0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\ShopView.tpl',
-      1 => 1560289673,
+      1 => 1561373565,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5d00218b18d065_84060281 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d10abe89fd225_40661836 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_19568560645d00218b16a650_78172817', 'intro');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_3438341675d10abe89e13b2_44046158', 'intro');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'intro'} */
-class Block_19568560645d00218b16a650_78172817 extends Smarty_Internal_Block
+class Block_3438341675d10abe89e13b2_44046158 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'intro' => 
   array (
-    0 => 'Block_19568560645d00218b16a650_78172817',
+    0 => 'Block_3438341675d10abe89e13b2_44046158',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -166,7 +166,9 @@ managePlaces/1/edit/<?php echo $_smarty_tpl->tpl_vars['place']->value['id_marker
             var infoWindow = new google.maps.InfoWindow;
 
             downloadUrl('<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-generateXML', function(data) {
+generateXML/<?php echo $_smarty_tpl->tpl_vars['place']->value["lat"];?>
+/<?php echo $_smarty_tpl->tpl_vars['place']->value["lng"];?>
+', function(data) {
                 var xml = data.responseXML;
                 var markers = xml.documentElement.getElementsByTagName('marker');
                 Array.prototype.forEach.call(markers, function(markerElem) {

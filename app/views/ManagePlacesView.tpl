@@ -266,7 +266,9 @@
             {if $previous_page > 0}
                 <a type="button" class="btn btn-light btn-sm float-right" href="{$conf->action_root}managePlaces/{$previous_page}">Załaduj poprzednie rekordy</a>
             {/if}
-            <a type="button" class="btn btn-light btn-sm float-right" href="{$conf->action_root}managePlaces/{$next_page}">Załaduj następne rekordy</a>
+            {if $isNextPage}
+                <a type="button" class="btn btn-light btn-sm float-right" href="{$conf->action_root}managePlaces/{$next_page}">Załaduj następne rekordy</a>
+            {/if}
             <a type="button" class="btn btn-light btn-sm float-right" href="{$conf->action_root}managePlaces/0">Załaduj wszystkich użytkowników</a>
         </div>
     </div>

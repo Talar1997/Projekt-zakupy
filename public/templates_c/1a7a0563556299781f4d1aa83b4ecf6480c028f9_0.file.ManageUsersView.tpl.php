@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-06-11 00:23:32
+/* Smarty version 3.1.33, created on 2019-06-24 12:20:04
   from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\ManageUsersView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cfed864624588_36568805',
+  'unifunc' => 'content_5d10a3d4a63c48_95531325',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1a7a0563556299781f4d1aa83b4ecf6480c028f9' => 
     array (
       0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\ManageUsersView.tpl',
-      1 => 1559674619,
+      1 => 1561371595,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5cfed864624588_36568805 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d10a3d4a63c48_95531325 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_18976307815cfed8646045c5_32459416', 'intro');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_8054083025d10a3d4a48769_74505063', 'intro');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'intro'} */
-class Block_18976307815cfed8646045c5_32459416 extends Smarty_Internal_Block
+class Block_8054083025d10a3d4a48769_74505063 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'intro' => 
   array (
-    0 => 'Block_18976307815cfed8646045c5_32459416',
+    0 => 'Block_8054083025d10a3d4a48769_74505063',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -195,9 +195,11 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 manageUsers/<?php echo $_smarty_tpl->tpl_vars['previous_page']->value;?>
 ">Załaduj poprzednie rekordy</a>
             <?php }?>
-            <a type="button" class="btn btn-light btn-sm float-right" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+            <?php if ($_smarty_tpl->tpl_vars['isNextPage']->value) {?>
+                <a type="button" class="btn btn-light btn-sm float-right" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 manageUsers/<?php echo $_smarty_tpl->tpl_vars['next_page']->value;?>
 ">Załaduj następne rekordy</a>
+            <?php }?>
             <a type="button" class="btn btn-light btn-sm float-right" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 manageUsers/0">Załaduj wszystkich użytkowników</a>
         </div>
