@@ -9,6 +9,7 @@
 namespace app\controllers;
 
 use core\App;
+use core\Utils;
 
 class GenerateXMLControl
 {
@@ -23,7 +24,13 @@ class GenerateXMLControl
     }
 
     public function action_generateXML(){
-        $result = App::getDB()->select("markers", "*");
+        $result = null;
+
+        try{
+            $result = App::getDB()->select("markers", "*");
+        }catch(\PDOException $e){
+            Utils::addErrorMessage("Błąd połączenia z bazą danych!");
+        }
 
         header("Content-type: text/xml");
 

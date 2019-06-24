@@ -16,10 +16,16 @@
                             <form method="GET" action="{$conf->action_root}search">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <input type="text" name="shopName" class="form-control" placeholder="Nazwa sklepu">
+                                        <input type="text" list="nameHints" name="shopName" class="form-control" placeholder="Nazwa sklepu"
+                                               onkeyup="ajaxReloadElement('{$conf->action_root}hint?column=name&value='+this.value, 'nameHints', doNothing)">
+                                        <datalist id="nameHints">
+                                        </datalist>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="text" name="address" class="form-control" placeholder="Adres">
+                                        <input type="text" list="addressHints" name="address" class="form-control" placeholder="Adres"
+                                               onkeyup="ajaxReloadElement('{$conf->action_root}hint?column=address&value='+this.value, 'addressHints', doNothing)">
+                                        <datalist id="addressHints">
+                                        </datalist>
                                     </div>
                                     <div class="col-md-4">
                                         <select class="form-control" name="type">
@@ -109,4 +115,9 @@
                 </div>
             </div>
         </div>
+    <script>
+        function doNothing() {
+            return false;
+        }
+    </script>
 {/block}

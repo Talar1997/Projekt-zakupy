@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-06-23 00:19:09
+/* Smarty version 3.1.33, created on 2019-06-24 11:25:44
   from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\PanelView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5d0ea95ddeb0c0_21763786',
+  'unifunc' => 'content_5d109718a85bd6_16021527',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'cce98ce15f077c7fedfbdf7a54cd3a93bc43b4ef' => 
     array (
       0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\PanelView.tpl',
-      1 => 1561241909,
+      1 => 1561368341,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5d0ea95ddeb0c0_21763786 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d109718a85bd6_16021527 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_881162725d0ea95dd698d3_03901136', 'intro');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_8274217935d109718a6faa7_73517650', 'intro');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'intro'} */
-class Block_881162725d0ea95dd698d3_03901136 extends Smarty_Internal_Block
+class Block_8274217935d109718a6faa7_73517650 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'intro' => 
   array (
-    0 => 'Block_881162725d0ea95dd698d3_03901136',
+    0 => 'Block_8274217935d109718a6faa7_73517650',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -67,10 +67,18 @@ main">Strona główna</a></li>
 search">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <input type="text" name="shopName" class="form-control" placeholder="Nazwa sklepu">
+                                        <input type="text" list="nameHints" name="shopName" class="form-control" placeholder="Nazwa sklepu"
+                                               onkeyup="ajaxReloadElement('<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+hint?column=name&value='+this.value, 'nameHints', doNothing)">
+                                        <datalist id="nameHints">
+                                        </datalist>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="text" name="address" class="form-control" placeholder="Adres">
+                                        <input type="text" list="addressHints" name="address" class="form-control" placeholder="Adres"
+                                               onkeyup="ajaxReloadElement('<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+hint?column=address&value='+this.value, 'addressHints', doNothing)">
+                                        <datalist id="addressHints">
+                                        </datalist>
                                     </div>
                                     <div class="col-md-4">
                                         <select class="form-control" name="type">
@@ -366,6 +374,10 @@ generateXML', function(data) {
         var x2 = document.getElementById('h1').offsetHeight;
         var offset = x1 + x2;
         document.getElementById("map").style.height = offset + "px";
+
+        function doNothing() {
+            return false;
+        }
     <?php echo '</script'; ?>
 >
 

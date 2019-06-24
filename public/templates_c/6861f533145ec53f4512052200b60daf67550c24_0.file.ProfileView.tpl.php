@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-06-10 23:51:18
+/* Smarty version 3.1.33, created on 2019-06-24 11:45:03
   from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\ProfileView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cfed0d634c620_06956317',
+  'unifunc' => 'content_5d109b9f77c831_50055548',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6861f533145ec53f4512052200b60daf67550c24' => 
     array (
       0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\ProfileView.tpl',
-      1 => 1559682377,
+      1 => 1561369500,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5cfed0d634c620_06956317 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d109b9f77c831_50055548 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_9198318075cfed0d6335560_63652744', 'intro');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17378183585d109b9f764698_72406202', 'intro');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'intro'} */
-class Block_9198318075cfed0d6335560_63652744 extends Smarty_Internal_Block
+class Block_17378183585d109b9f764698_72406202 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'intro' => 
   array (
-    0 => 'Block_9198318075cfed0d6335560_63652744',
+    0 => 'Block_17378183585d109b9f764698_72406202',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -89,8 +89,6 @@ if ($_prefixVariable4) {?><span class="banned">Zbanowani</span><?php }?>
                                         <li class="list-group-item">Data utworzenia konta: <?php echo $_smarty_tpl->tpl_vars['profile']->value['register_date'];?>
 </li>
                                         <li class="list-group-item">Reputacja: <?php echo $_smarty_tpl->tpl_vars['profile']->value['reputation'];?>
-</li>
-                                        <li class="list-group-item">Opis: <?php echo $_smarty_tpl->tpl_vars['profile']->value['description'];?>
 </li>
                                         <?php if (core\RoleUtils::inRole("admin") || core\RoleUtils::inRole("moderator")) {?>
                                             <li class="list-group-item">Id: <?php echo $_smarty_tpl->tpl_vars['profile']->value['id'];?>

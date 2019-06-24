@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-06-22 17:53:08
+/* Smarty version 3.1.33, created on 2019-06-24 11:28:25
   from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\ManagePlacesView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5d0e4ee4edd821_13040427',
+  'unifunc' => 'content_5d1097b97d6679_38751370',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '117eb97d35b99a25e19c9a1b1df5bb3ed6ff2cd2' => 
     array (
       0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\ManagePlacesView.tpl',
-      1 => 1561218787,
+      1 => 1561368503,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5d0e4ee4edd821_13040427 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d1097b97d6679_38751370 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20144078415d0e4ee4e9d872_31634984', 'intro');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_7278233805d1097b97b0951_06552292', 'intro');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'intro'} */
-class Block_20144078415d0e4ee4e9d872_31634984 extends Smarty_Internal_Block
+class Block_7278233805d1097b97b0951_06552292 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'intro' => 
   array (
-    0 => 'Block_20144078415d0e4ee4e9d872_31634984',
+    0 => 'Block_7278233805d1097b97b0951_06552292',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -60,10 +60,18 @@ main">Strona główna</a></li>
 search">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <input type="text" name="shopName" class="form-control" placeholder="Nazwa sklepu">
+                                        <input type="text" list="nameHints" name="shopName" class="form-control" placeholder="Nazwa sklepu"
+                                               onkeyup="ajaxReloadElement('<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+hint?column=name&value='+this.value, 'nameHints', doNothing)">
+                                        <datalist id="nameHints">
+                                        </datalist>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="text" name="address" class="form-control" placeholder="Adres">
+                                        <input type="text" list="addressHints" name="address" class="form-control" placeholder="Adres"
+                                               onkeyup="ajaxReloadElement('<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+hint?column=address&value='+this.value, 'addressHints', doNothing)">
+                                        <datalist id="addressHints">
+                                        </datalist>
                                     </div>
                                     <div class="col-md-4">
                                         <select class="form-control" name="type">
@@ -77,27 +85,27 @@ search">
                                 </div>
                                 <hr>
                                 <label class="checkbox-inline">
-                                    <input class="form-check-input" type="checkbox" value="alcohol" name="category[]">
+                                    <input class="form-check-input" type="checkbox" value="alkohol" name="category[]">
                                     Alkohol i papierosy
                                 </label>
                                 <label class="checkbox-inline">
-                                    <input class="form-check-input" type="checkbox" value="bread" name="category[]">
+                                    <input class="form-check-input" type="checkbox" value="pieczywo" name="category[]">
                                     Pieczywo
                                 </label>
                                 <label class="checkbox-inline">
-                                    <input class="form-check-input" type="checkbox" value="cosmetics" name="category[]">
+                                    <input class="form-check-input" type="checkbox" value="chemia" name="category[]">
                                     Chemia i kosmetyki
                                 </label>
                                 <label class="checkbox-inline">
-                                    <input class="form-check-input" type="checkbox" value="fruits" name="category[]">
+                                    <input class="form-check-input" type="checkbox" value="owoce" name="category[]">
                                     Owoce i warzywa
                                 </label>
                                 <label class="checkbox-inline">
-                                    <input class="form-check-input" type="checkbox" value="meats" name="category[]">
+                                    <input class="form-check-input" type="checkbox" value="mięso" name="category[]">
                                     Mięso i wędliny
                                 </label>
                                 <label class="checkbox-inline">
-                                    <input class="form-check-input" type="checkbox" value="press" name="category[]">
+                                    <input class="form-check-input" type="checkbox" value="prasa" name="category[]">
                                     Prasa
                                 </label>
                                 <hr>
@@ -106,7 +114,6 @@ search">
                                         <input type="submit" class="btn btn-primary" value="Szukaj">
                                     </div>
                                 </div>
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -382,6 +389,8 @@ managePlaces/<?php echo $_smarty_tpl->tpl_vars['offset']->value;?>
 /delete/'+id;
             }
         }
+
+        function doNothing(){ return false; }
     <?php echo '</script'; ?>
 >
 <?php

@@ -29,7 +29,6 @@
                                         </li>
                                         <li class="list-group-item">Data utworzenia konta: {$profile['register_date']}</li>
                                         <li class="list-group-item">Reputacja: {$profile['reputation']}</li>
-                                        <li class="list-group-item">Opis: {$profile['description']}</li>
                                         {if core\RoleUtils::inRole("admin") || core\RoleUtils::inRole("moderator")}
                                             <li class="list-group-item">Id: {$profile['id']}</li>
                                             <li class="list-group-item">Ostatnio zalogowany: {$profile['last_login']}</li>

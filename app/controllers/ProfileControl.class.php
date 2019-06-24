@@ -32,7 +32,6 @@ class ProfileControl
                 'user.id',
                 'user.login',
                 'user.email',
-                'user_details.description',
                 'user_details.reputation',
                 'user.id_role',
                 'role.name',

@@ -37,7 +37,7 @@ class SearchHintsControl
 
     public function showHints(){
         foreach($this->hints as $h){
-            echo $h;
+            echo "<option value='".$h."'>";
         }
     }
 
