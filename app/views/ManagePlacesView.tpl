@@ -68,6 +68,7 @@
                                         <input type="submit" class="btn btn-primary" value="Szukaj">
                                     </div>
                                 </div>
+                            </form>
                         </div>
                     </div>
                 </div>

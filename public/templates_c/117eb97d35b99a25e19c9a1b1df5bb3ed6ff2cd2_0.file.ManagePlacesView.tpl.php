@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-06-24 12:22:18
+/* Smarty version 3.1.33, created on 2019-06-24 13:36:48
   from 'D:\Aplikacje\XAMPP\htdocs\Projekt\app\views\ManagePlacesView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5d10a45a7b6396_45003681',
+  'unifunc' => 'content_5d10b5d00b8150_71852802',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '117eb97d35b99a25e19c9a1b1df5bb3ed6ff2cd2' => 
     array (
       0 => 'D:\\Aplikacje\\XAMPP\\htdocs\\Projekt\\app\\views\\ManagePlacesView.tpl',
-      1 => 1561371736,
+      1 => 1561376203,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5d10a45a7b6396_45003681 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d10b5d00b8150_71852802 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20975519455d10a45a7901d4_65559486', 'intro');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17938303605d10b5d0091479_13376909', 'intro');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'intro'} */
-class Block_20975519455d10a45a7901d4_65559486 extends Smarty_Internal_Block
+class Block_17938303605d10b5d0091479_13376909 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'intro' => 
   array (
-    0 => 'Block_20975519455d10a45a7901d4_65559486',
+    0 => 'Block_17938303605d10b5d0091479_13376909',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -114,6 +114,7 @@ hint?column=address&value='+this.value, 'addressHints', doNothing)">
                                         <input type="submit" class="btn btn-primary" value="Szukaj">
                                     </div>
                                 </div>
+                            </form>
                         </div>
                     </div>
                 </div>

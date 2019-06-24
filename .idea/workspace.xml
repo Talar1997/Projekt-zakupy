@@ -56,11 +56,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/controllers/GenerateXMLControl.class.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="434">
-                  <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+                <state relative-caret-position="413">
+                  <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
                   <folding>
                     <element signature="e#119#132#0#PHP" expanded="true" />
                   </folding>
@@ -75,6 +75,18 @@
                   <caret line="61" column="35" selection-start-line="61" selection-start-column="35" selection-end-line="61" selection-end-column="35" />
                   <folding>
                     <element signature="e#119#144#0#PHP" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/controllers/ShopEditControl.class.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1092">
+                  <caret line="165" column="8" selection-start-line="165" selection-start-column="8" selection-end-line="165" selection-end-column="8" />
+                  <folding>
+                    <element signature="e#119#143#0#PHP" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -109,11 +121,11 @@
       </split-first>
       <split-second>
         <leaf>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/views/ManagePlacesView.tpl">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="336">
-                  <caret line="270" column="17" selection-start-line="270" selection-start-column="17" selection-end-line="270" selection-end-column="17" />
+                <state relative-caret-position="575">
+                  <caret line="70" column="35" selection-start-line="70" selection-start-column="35" selection-end-line="70" selection-end-column="35" />
                 </state>
               </provider>
             </entry>
@@ -139,7 +151,16 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/controllers/ShopDetailsControl.class.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="252">
+                  <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/views/ShopView.tpl">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="296">
@@ -154,8 +175,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>limit</find>
-      <find>select</find>
       <find>main</find>
       <find>gh</find>
       <find>row</find>
@@ -184,6 +203,8 @@
       <find>donot</find>
       <find>ajax</find>
       <find>generateXML</find>
+      <find>option</find>
+      <find>edytuj</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -232,7 +253,6 @@
         <option value="$PROJECT_DIR$/app/views/templates/main.tpl" />
         <option value="$PROJECT_DIR$/app/controllers/ShopDetailsControl.class.php" />
         <option value="$PROJECT_DIR$/app/controllers/UserEditControl.class.php" />
-        <option value="$PROJECT_DIR$/app/controllers/ShopEditControl.class.php" />
         <option value="$PROJECT_DIR$/app/forms/SearchForm.class.php" />
         <option value="$PROJECT_DIR$/routing.php" />
         <option value="$PROJECT_DIR$/app/controllers/SearchHintsControl.class.php" />
@@ -244,10 +264,11 @@
         <option value="$PROJECT_DIR$/app/views/ManageUsersView.tpl" />
         <option value="$PROJECT_DIR$/app/controllers/ShopManagerControl.class.php" />
         <option value="$PROJECT_DIR$/app/controllers/UserManagerControl.class.php" />
-        <option value="$PROJECT_DIR$/app/views/ManagePlacesView.tpl" />
         <option value="$PROJECT_DIR$/app/controllers/SearchControl.class.php" />
         <option value="$PROJECT_DIR$/app/views/ShopView.tpl" />
         <option value="$PROJECT_DIR$/app/controllers/GenerateXMLControl.class.php" />
+        <option value="$PROJECT_DIR$/app/controllers/ShopEditControl.class.php" />
+        <option value="$PROJECT_DIR$/app/views/ManagePlacesView.tpl" />
       </list>
     </option>
   </component>
@@ -410,12 +431,12 @@
       <workItem from="1561060665607" duration="7321000" />
       <workItem from="1561212504572" duration="10734000" />
       <workItem from="1561288598808" duration="893000" />
-      <workItem from="1561366278042" duration="6870000" />
+      <workItem from="1561366278042" duration="9095000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="246004000" />
+    <option name="totallyTimeSpent" value="248229000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -670,13 +691,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/ShopDetailsControl.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/forms/PlaceForm.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="441">
@@ -721,16 +735,6 @@
           <caret line="43" column="34" lean-forward="true" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
           <folding>
             <element signature="e#120#133#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/ShopEditControl.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" selection-start-column="5" selection-end-column="5" />
-          <folding>
-            <element signature="e#119#143#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -831,13 +835,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/ManagePlacesView.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="270" column="17" selection-start-line="270" selection-start-column="17" selection-end-line="270" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/PanelView.tpl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
@@ -862,13 +859,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/ShopDetailsControl.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/GenerateXMLControl.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+        <state relative-caret-position="413">
+          <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
           <folding>
             <element signature="e#119#132#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/ShopEditControl.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1092">
+          <caret line="165" column="8" selection-start-line="165" selection-start-column="8" selection-end-line="165" selection-end-column="8" />
+          <folding>
+            <element signature="e#119#143#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/ManagePlacesView.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="70" column="35" selection-start-line="70" selection-start-column="35" selection-end-line="70" selection-end-column="35" />
         </state>
       </provider>
     </entry>
