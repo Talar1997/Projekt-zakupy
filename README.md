@@ -59,13 +59,23 @@ Zarządzanie użytkownikami sterowane jest osobnym kontrolerem, domyślnie wyśw
 Możemy również wyświetlić wszystkich użytkowników, bądź przejść do 50 kolejnych. Ta forma zabezpieczenia ma na celu zablokowania możliwości wysypania się czegoś przy większej ilości userów.
 
 ### Dodawanie nowych miejsc
-[do uzupełnienia]
-
-### Panel główny
-[do uzupełnienia]
-
-### Profil użytkownika
-[do uzupełnienia]
+Podstrona obsługująca dodawanie miejsc przyjmuje takie wartości jak nazwa miejsca, adres w formie tekstowej, typ (4 możliwe do wybrania z listy), rodzaje artykułów, które można tam nabyć (checkbox), godziny otwarcia (od, do) oraz opis. Dodatkowo, wymogiem jest zaznaczenie na mapie danego miejsca (po kliknięciu oznacza się żółtym markerem, a po zatwierdzenia formularza, koordynaty przesyłane są do kontrolera), mapa domyślnie próbuje pobrać lokalizacje od użytka. Formularz jest walidowany, w przypadku niepowodzenia lub błędu wszystkie nasze dane dalej będą w formularzu. Po dodaniu miejsca przejdziemy do jego widoku szczegółowego.
 
 ### Szczegóły sklepu
-[do uzupełnienia]
+W tej zakładce znajdziemy wszystkie informacje na temat tego miejca, mapka po lewej stronie wycentruje się na danym sklepie, dodatkowo załadowane zostaną tylko markery miejsc z najbliższej okolicy. Użytkownicy (poza osoba, która dodała miejsce) mogą dodać ocenę (+), bądź usunąć (-) w przypadku gdy wcześniej już dali plusa. Samo nadanie głosu i odświeżenie ich ilości odbywa się AJAXowo. Administratorzy i moderatorzy zobaczą dodatkowo przycisk który przeniesie ich do podstrony zarządzania miejscem.
+
+### Zarządzanie miejscami
+Działa analogicznie do zarządzania użytkownikami, z tą różnicą, że moderatorzy mają tu takie same prawa jak administratorzy (usuwanie, edycja, podgląd, przejście do widoku szczegółów). Elementy, które mogą być modyfikowane to tylko i wyłącznie pola, które ustawia się przy dodawaniu, zatem takie rzeczy jak data dodania, autor czy ilość głosów nie mogą zostać zmienione. Usuwanie i modyfikacja dodaje wpis do logów, widocznych tylko przez administratorów.
+
+### Panel główny
+Podzielony jest na kilka sekcji:
+- Wyszukiwarke miejsc - opartą o AJAXowe podpowiedzi nazw sklepów i adresów, z możliwością wyboru typu oraz produktów, które można w danej lokacji kupić. Wyszukiwarka przenosi nas na osobną podstronę, która pobiera parametry metodą GET (co pozwala na kopiowanie linków i przekazywanie ich dalej) a następnie wyświetla w formie listy odpowiadające kryteriom miejsca.
+- Ostatnio dodane miejsca - 5 ostatnio dodanych miejsc z odnossnikiem, datą oraz godziną dodania
+- Ostatnio zarejestrowani użytkownicy - 5 ostatnio zarejestrowanych użytkowników z datą i godziną
+- Najlepsi użytkownicy - 5 użytkowników z największą reputacją i odnośnikiem do profilu oraz reputacją
+- Mapa z markerami - wycentrowana na lokalizacji użytkownika
+- Akcje - szybkie linki do najważniejszych akcji (dodawanie sklepu, wylogowanie, itp)
+- Statystyki - ilość użytkowników oraz ilość miejsc w bazie danych
+
+### Profil użytkownika
+Profil użytkownika zawiera wszystkie szczegóły na temat usera, wszyscy użytkownicy mogą przeglądać wszystkie profile, ale tylko moderatorzy i administratorzy mają wgląd we wszystkie dane (np. adres email). W zakładce użytkownika można znaleźć jego reputacje (suma wszystkich głosów, które użytkownik uzbierał pod swoimi miejscami), oraz wszystkie miejsca, które użytkownik dodał (z możliwością przejscia do szczegółów)
